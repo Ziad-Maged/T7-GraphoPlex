@@ -85,6 +85,33 @@ abstract public class Graph {
         }
     }
 
+    /**
+     * Returns the degree of a vertex if the graph is undirected*/
+    public int getDegreeOfVertex(String id){
+        if(!vertexMap.containsKey(id) || type == GraphType.DIRECTED)
+            return -1;
+        return edgeMap.get(vertexMap.get(id)).size();
+    }
+
+    public int getOutDegreeOfVertex(String id){
+        if(!vertexMap.containsKey(id) || type == GraphType.UNDIRECTED)
+            return -1;
+        return edgeMap.get(vertexMap.get(id)).size();
+    }
+
+    public int getInDegreeOfVertex(String id){
+        if(!vertexMap.containsKey(id) || type == GraphType.UNDIRECTED)
+            return -1;
+        int inDegree = 0;
+        for(List<Edge> edges : edgeMap.values()){
+            for(Edge edge : edges){
+                if(edge.getDestinationVertexId().equals(id))
+                    inDegree++;
+            }
+        }
+        return inDegree;
+    }
+
     public void setNodes(int nodes){
         this.nodes = nodes;
     }
