@@ -1,6 +1,7 @@
 package com.server.graph_db.graphs;
 
-import com.server.graph_db.core.vertex.*;
+import com.server.graph_db.core.vertex.Vertex;
+import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.graphs.utilities.Interval;
 
 public class IntervalGraph extends Graph{
