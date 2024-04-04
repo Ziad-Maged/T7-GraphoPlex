@@ -8,6 +8,7 @@ abstract public class Graph {
     private int nodes; // number of Shards or Servers
     private int vertices; // number of Vertices
     private int edges; // number of Edges
+    private GraphType type;
     private HashMap<String, Vertex> vertexMap;
     private HashMap<Vertex, List<Edge>> edgeMap;
 
@@ -15,11 +16,13 @@ abstract public class Graph {
         nodes = edges = vertices = 0;
         vertexMap = new HashMap<>();
         edgeMap = new HashMap<>();
+        type = GraphType.DIRECTED;
     }
-    public  Graph(int nodes, int vertices, int edges){
+    public  Graph(int nodes, int vertices, int edges, GraphType type){
         this.nodes = nodes;
         this.vertices = vertices;
         this.edges = edges;
+        this.type = type;
         vertexMap = new HashMap<>(vertices);
         edgeMap = new HashMap<>(edges);
     }
@@ -32,6 +35,9 @@ abstract public class Graph {
     }
     public int getEdges(){
         return edges;
+    }
+    public GraphType getType(){
+        return type;
     }
     public HashMap<String, Vertex> getVertexMap(){
         return vertexMap;
@@ -54,6 +60,31 @@ abstract public class Graph {
         edgeMap.put(vertex, edges);
     }
 
+    public void addVertex(Vertex vertex){
+        if(vertexMap.containsKey(vertex.getId()) || vertexMap.size() == vertices)
+            return;
+        vertexMap.put(vertex.getId(), vertex);
+    }
+
+    public Vertex getVertexByID(String id){
+        return vertexMap.getOrDefault(id, null);
+    }
+
+    public List<Edge> getVertexEdgesByID(String id){
+        return edgeMap.getOrDefault(vertexMap.get(id), null);
+    }
+
+    public void addEdge(String source, String destination){
+        if(!vertexMap.containsKey(source) || !vertexMap.containsKey(destination))
+            return;
+        if(type == GraphType.UNDIRECTED){
+            edgeMap.get(vertexMap.get(source)).add(new Edge(source, destination));
+            edgeMap.get(vertexMap.get(destination)).add(new Edge(destination, source));
+        }else{
+            edgeMap.get(vertexMap.get(source)).add(new Edge(source, destination));
+        }
+    }
+
     public void setNodes(int nodes){
         this.nodes = nodes;
     }
@@ -62,6 +93,9 @@ abstract public class Graph {
     }
     public void setEdges(int edges){
         this.edges = edges;
+    }
+    public void setType(GraphType type){
+        this.type = type;
     }
     public void setVertexMap(HashMap<String, Vertex> vertexMap){
         this.vertexMap = vertexMap;
