@@ -21,7 +21,7 @@ public class EulerianGraph extends Graph{
             }
         }else {
             for(String id : this.getVertexMap().keySet()){
-                if(this.getOutDegreeOfVertex(id) % 2 != 0 && this.getInDegreeOfVertex(id) % 2 != 0)
+                if(this.getOutDegreeOfVertex(id) % 2 != 0 || this.getInDegreeOfVertex(id) % 2 != 0)
                     return false;
             }
         }
