@@ -112,6 +112,12 @@ abstract public class Graph {
         return inDegree;
     }
 
+    public boolean hasEdge(String source, String destination){
+        if(!vertexMap.containsKey(source) || !vertexMap.containsKey(destination))
+            return false;
+        return edgeMap.get(vertexMap.get(source)).contains(new Edge(source, destination));
+    }
+
     public void setNodes(int nodes){
         this.nodes = nodes;
     }
