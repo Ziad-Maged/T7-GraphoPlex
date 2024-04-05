@@ -14,6 +14,7 @@ abstract public class Graph {
     private GraphType type;
     private HashMap<String, Vertex> vertexMap;
     private HashMap<Vertex, List<Edge>> edgeMap;
+    private HashMap<Vertex, Integer> colorMap;
 
     public Graph(){
         nodes = edges = vertices = 0;
@@ -47,6 +48,9 @@ abstract public class Graph {
     }
     public HashMap<Vertex, List<Edge>> getEdgeMap(){
         return edgeMap;
+    }
+    HashMap<Vertex, Integer> getColorMap(){
+        return colorMap;
     }
 
     public void addVertex(String id){
@@ -125,7 +129,7 @@ abstract public class Graph {
         if(vertexMap.size() < 2 || vertexMap.isEmpty())
         return false;
 
-        HashMap<Vertex, Integer> colorMap = new HashMap<>();
+        colorMap = new HashMap<>();
         Queue<Vertex> queue = new LinkedList<>();
 
         for(Vertex v : vertexMap.values()){
@@ -168,6 +172,9 @@ abstract public class Graph {
     }
     public void setEdgeMap(HashMap<Vertex, List<Edge>> edgeMap){
         this.edgeMap = edgeMap;
+    }
+    void setColorMap(HashMap<Vertex, Integer> colorMap){
+        this.colorMap = colorMap;
     }
 
     abstract public boolean validate();
