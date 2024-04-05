@@ -8,8 +8,13 @@ public class TournamentGraph extends Graph{
         super();
     }
 
-    public TournamentGraph(int nodes, int vertices, int edges, GraphType type){
-        super(nodes, vertices, edges, type);
+    public TournamentGraph(int nodes, int vertices, int edges){
+        super(nodes, vertices, edges, GraphType.DIRECTED);
+    }
+
+    @Override
+    public void setType(GraphType type){
+        super.setType(GraphType.DIRECTED);
     }
 
     @Override
