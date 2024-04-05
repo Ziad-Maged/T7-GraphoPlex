@@ -1,10 +1,8 @@
 package com.server.graph_db.graphs;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+
+import java.util.*;
 
 @SuppressWarnings("ALL")
 abstract public class Graph {
@@ -153,6 +151,48 @@ abstract public class Graph {
             }
         }
         return true;
+    }
+
+    public List<Edge> getBridgeEdges(){
+        List<Edge> bridges = new ArrayList<>();
+        int time = 0;
+
+        HashMap<String, Integer> discoveryTime = new HashMap<>();
+        HashMap<String, Integer> lowTime = new HashMap<>();
+
+        for(String id : vertexMap.keySet()){
+            discoveryTime.put(id, -1);
+            lowTime.put(id, -1);
+        }
+
+        for(Vertex vertex : vertexMap.values()){
+            if(discoveryTime.get(vertex.getId()) == -1){
+                dfsForBridges(vertex, null, discoveryTime, lowTime, bridges, time);
+            }
+        }
+
+        return bridges;
+    }
+
+    private void dfsForBridges(Vertex vertex, Vertex parent, HashMap<String, Integer> discoveryTime, HashMap<String, Integer> lowTime, List<Edge> bridges, int time){
+        time++;
+        discoveryTime.put(vertex.getId(), time);
+        lowTime.put(vertex.getId(), time);
+
+        for(Edge edge : edgeMap.get(vertex)){
+            Vertex neighbour = vertexMap.get(edge.getDestinationVertexId());
+            if(neighbour.equals(parent))
+                continue;
+            if(discoveryTime.get(neighbour.getId()) == -1){
+                dfsForBridges(neighbour, vertex, discoveryTime, lowTime, bridges, time);
+                lowTime.put(vertex.getId(), Math.min(lowTime.get(vertex.getId()), lowTime.get(neighbour.getId())));
+                if(lowTime.get(neighbour.getId()) > discoveryTime.get(vertex.getId())){
+                    bridges.add(edge);
+                }
+            }else{
+                lowTime.put(vertex.getId(), Math.min(lowTime.get(vertex.getId()), discoveryTime.get(neighbour.getId())));
+            }
+        }
     }
 
     public void setNodes(int nodes){
