@@ -2,7 +2,9 @@ package com.server.graph_db.graphs;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 @SuppressWarnings("ALL")
 abstract public class Graph {
@@ -117,6 +119,36 @@ abstract public class Graph {
         if(!vertexMap.containsKey(source) || !vertexMap.containsKey(destination))
             return false;
         return edgeMap.get(vertexMap.get(source)).contains(new Edge(source, destination));
+    }
+
+    public boolean isBipartite(){
+        if(vertexMap.size() < 2 || vertexMap.isEmpty())
+        return false;
+
+        HashMap<Vertex, Integer> colorMap = new HashMap<>();
+        Queue<Vertex> queue = new LinkedList<>();
+
+        for(Vertex v : vertexMap.values()){
+            colorMap.put(v, -1);
+        }
+
+        Vertex start = vertexMap.values().iterator().next();
+        colorMap.put(start, 0);
+        queue.offer(start);
+
+        while (!queue.isEmpty()){
+            Vertex current = queue.poll();
+            for(Edge edge : edgeMap.get(current)){
+                Vertex neighbour = vertexMap.get(edge.getDestinationVertexId());
+                if(colorMap.get(neighbour) == -1){
+                    colorMap.put(neighbour, 1 - colorMap.get(current));
+                    queue.offer(neighbour);
+                }else if(colorMap.get(neighbour) == colorMap.get(current)){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void setNodes(int nodes){
