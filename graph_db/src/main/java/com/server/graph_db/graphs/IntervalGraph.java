@@ -5,6 +5,15 @@ import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.graphs.utilities.Interval;
 
 public class IntervalGraph extends Graph{
+
+    public IntervalGraph(){
+        super();
+    }
+
+    public IntervalGraph(int nodes, int vertices, int edges, GraphType type){
+        super(nodes, vertices, edges, type);
+    }
+
     @Override
     public boolean validate() {
         for(Vertex v : this.getEdgeMap().keySet()){
