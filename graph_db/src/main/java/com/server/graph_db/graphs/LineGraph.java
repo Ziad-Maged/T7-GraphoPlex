@@ -6,6 +6,7 @@ import com.server.graph_db.core.vertex.Edge;
 /**
  * Each vertex has to have a sourceID, and destinationID attributes to be able to compare them together to validate the Line graph.
  * */
+@SuppressWarnings("ALL")
 public class LineGraph extends Graph{
 
     public LineGraph(){

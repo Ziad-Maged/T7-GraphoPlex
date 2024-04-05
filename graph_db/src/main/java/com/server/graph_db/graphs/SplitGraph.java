@@ -3,6 +3,7 @@ package com.server.graph_db.graphs;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public class SplitGraph extends Graph{
 
     public SplitGraph(){

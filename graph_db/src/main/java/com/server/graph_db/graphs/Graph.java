@@ -4,6 +4,7 @@ import com.server.graph_db.core.vertex.Vertex;
 import java.util.HashMap;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 abstract public class Graph {
     private int nodes; // number of Shards or Servers
     private int vertices; // number of Vertices

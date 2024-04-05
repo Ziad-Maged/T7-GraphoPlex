@@ -1,5 +1,6 @@
 package com.server.graph_db.graphs;
 
+@SuppressWarnings("ALL")
 public class RegularGraph extends Graph{
 
     public RegularGraph(){

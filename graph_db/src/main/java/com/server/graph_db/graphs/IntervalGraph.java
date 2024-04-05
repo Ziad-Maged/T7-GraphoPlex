@@ -4,6 +4,7 @@ import com.server.graph_db.core.vertex.Vertex;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.graphs.utilities.Interval;
 
+@SuppressWarnings("ALL")
 public class IntervalGraph extends Graph{
 
     public IntervalGraph(){

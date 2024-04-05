@@ -2,6 +2,7 @@ package com.server.graph_db.graphs;
 import com.server.graph_db.core.vertex.Vertex;
 import com.server.graph_db.core.vertex.Edge;
 
+@SuppressWarnings("ALL")
 public class TournamentGraph extends Graph{
 
     public TournamentGraph(){

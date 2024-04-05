@@ -1,10 +1,8 @@
 package com.server.graph_db.graphs;
 
-import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
 
-import java.util.List;
-
+@SuppressWarnings("ALL")
 public class CubicGraph extends Graph{
 
     public CubicGraph(){
