@@ -195,6 +195,89 @@ abstract public class Graph {
         }
     }
 
+    public int getEccentricity(String id){
+        if(!vertexMap.containsKey(id))
+            return -1;
+        int eccentricity = 0;
+        Queue<Vertex> queue = new LinkedList<>();
+        HashMap<Vertex, Integer> distanceMap = new HashMap<>();
+        for(Vertex vertex : vertexMap.values()){
+            distanceMap.put(vertex, Integer.MAX_VALUE);
+        }
+        distanceMap.put(vertexMap.get(id), 0);
+        queue.offer(vertexMap.get(id));
+        while (!queue.isEmpty()){
+            Vertex current = queue.poll();
+            for(Edge edge : edgeMap.getOrDefault(current, Collections.emptyList())){
+                Vertex neighbour = vertexMap.get(edge.getDestinationVertexId());
+                if(distanceMap.get(neighbour) == Integer.MAX_VALUE){
+                    distanceMap.put(neighbour, distanceMap.get(current) + 1);
+                    eccentricity = Math.max(eccentricity, distanceMap.get(neighbour));
+                    queue.offer(neighbour);
+                }
+            }
+        }
+        return eccentricity;
+    }
+
+    public int getRadius(){
+        int radius = Integer.MAX_VALUE;
+        for(Vertex vertex : vertexMap.values()){
+            radius = Math.min(radius, this.getEccentricity(vertex.getId()));
+        }
+        return radius;
+    }
+
+    public List<Vertex> getArticulationPoints(){
+        List<Vertex> articulationPoints = new ArrayList<>();
+        int time = 0;
+        HashMap<String, Integer> discoveryTime = new HashMap<>();
+        HashMap<String, Integer> lowTime = new HashMap<>();
+        HashMap<String, Vertex> parentMap = new HashMap<>();
+        HashSet<String> visited = new HashSet<>();
+
+        for(String id : vertexMap.keySet()){
+            discoveryTime.put(id, -1);
+            lowTime.put(id, -1);
+        }
+
+        for(Vertex vertex : vertexMap.values()){
+            if(!visited.contains(vertex.getId())){
+                dfsForArticulationPoints(vertex, null,time, discoveryTime, lowTime, visited, parentMap, articulationPoints);
+            }
+        }
+        return articulationPoints;
+    }
+
+    private void dfsForArticulationPoints(Vertex currentVertex, String parentVertex, int time, HashMap<String, Integer> disc, HashMap<String, Integer> low, HashSet<String> visited, HashMap<String, Vertex> parent, List<Vertex> articulationPoints){
+        int children = 0;
+        visited.add(currentVertex.getId());
+        disc.put(currentVertex.getId(), time);
+        low.put(currentVertex.getId(), time + 1); // Initialize low value
+
+        for (Edge edge : edgeMap.getOrDefault(currentVertex, Collections.emptyList())) {
+            Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
+
+            if (!visited.contains(neighbor.getId())) {
+                children++;
+                parent.put(neighbor.getId(), currentVertex);
+                dfsForArticulationPoints(neighbor, currentVertex.getId(), time + 1, disc, low, visited, parent, articulationPoints);
+
+                low.put(currentVertex.getId(), Math.min(low.get(currentVertex.getId()), low.get(neighbor.getId())));
+
+                // Check if the current vertex is an articulation point
+                if (parentVertex == null && children > 1) {
+                    articulationPoints.add(currentVertex);
+                }
+                if (parentVertex != null && low.get(neighbor.getId()) >= disc.get(currentVertex.getId())) {
+                    articulationPoints.add(currentVertex);
+                }
+            } else if (!neighbor.getId().equals(parentVertex)) {
+                low.put(currentVertex.getId(), Math.min(low.get(currentVertex.getId()), disc.get(neighbor.getId())));
+            }
+        }
+    }
+
     public void setNodes(int nodes){
         this.nodes = nodes;
     }
