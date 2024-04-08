@@ -13,6 +13,7 @@ abstract public class Graph {
     private HashMap<String, Vertex> vertexMap;
     private HashMap<Vertex, List<Edge>> edgeMap;
     private HashMap<Vertex, Integer> colorMap;
+    private HashMap<String, String> properties;
 
     public Graph(){
         nodes = edges = vertices = 0;
@@ -49,6 +50,17 @@ abstract public class Graph {
     }
     HashMap<Vertex, Integer> getColorMap(){
         return colorMap;
+    }
+    public HashMap<String, String> getProperties(){
+        return properties;
+    }
+
+    public String getProperty(String key){
+        return properties.get(key);
+    }
+
+    public void setProperty(String key, String value){
+        properties.put(key, value);
     }
 
     public void addVertex(String id){
@@ -298,6 +310,9 @@ abstract public class Graph {
     }
     void setColorMap(HashMap<Vertex, Integer> colorMap){
         this.colorMap = colorMap;
+    }
+    public void setProperties(HashMap<String, String> properties){
+        this.properties = properties;
     }
 
     abstract public boolean validate();
