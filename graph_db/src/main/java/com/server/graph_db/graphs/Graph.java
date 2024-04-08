@@ -290,6 +290,63 @@ abstract public class Graph {
         }
     }
 
+    public int getGirth() {
+        int minCycleLength = Integer.MAX_VALUE;
+        // Perform BFS from each vertex to find the shortest cycle
+        for (Vertex vertex : vertexMap.values()) {
+            int cycleLength = bfsForShortestCycle(vertex);
+            if (cycleLength > 0) {
+                minCycleLength = Math.min(minCycleLength, cycleLength);
+            }
+        }
+        // If no cycle is found, return -1 (indicating the graph is acyclic)
+        if (minCycleLength == Integer.MAX_VALUE) {
+            return -1;
+        }
+        return minCycleLength;
+    }
+
+    private int bfsForShortestCycle(Vertex startVertex) {
+        Queue<Vertex> queue = new LinkedList<>();
+        HashMap<Vertex, Integer> distanceMap = new HashMap<>();
+        HashMap<Vertex, Vertex> parentMap = new HashMap<>();
+        HashSet<Vertex> visited = new HashSet<>();
+
+        queue.offer(startVertex);
+        distanceMap.put(startVertex, 0);
+        parentMap.put(startVertex, null);
+        visited.add(startVertex);
+
+        int minCycleLength = Integer.MAX_VALUE;
+
+        while (!queue.isEmpty()) {
+            Vertex currentVertex = queue.poll();
+            int currentDistance = distanceMap.get(currentVertex);
+            // Check if there is a cycle back to the start vertex
+            for (Edge edge : edgeMap.getOrDefault(currentVertex, Collections.emptyList())) {
+                Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
+                if (neighbor.equals(startVertex)) {
+                    minCycleLength = Math.min(minCycleLength, currentDistance + 1);
+                }
+            }
+
+            for (Edge edge : edgeMap.getOrDefault(currentVertex, Collections.emptyList())) {
+                Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    distanceMap.put(neighbor, currentDistance + 1);
+                    parentMap.put(neighbor, currentVertex);
+                    queue.offer(neighbor);
+                } else if (!neighbor.equals(parentMap.get(currentVertex))) {
+                    // Check for a back edge (a shorter cycle)
+                    int backEdgeDistance = distanceMap.get(neighbor) + currentDistance + 1;
+                    minCycleLength = Math.min(minCycleLength, backEdgeDistance);
+                }
+            }
+        }
+        return minCycleLength == Integer.MAX_VALUE ? -1 : minCycleLength;
+    }
+
     public void setNodes(int nodes){
         this.nodes = nodes;
     }
