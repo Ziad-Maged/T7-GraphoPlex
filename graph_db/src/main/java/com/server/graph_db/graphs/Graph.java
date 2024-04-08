@@ -1,4 +1,5 @@
 package com.server.graph_db.graphs;
+import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
 
@@ -14,6 +15,7 @@ abstract public class Graph {
     private HashMap<Vertex, List<Edge>> edgeMap;
     private HashMap<Vertex, Integer> colorMap;
     private HashMap<String, String> properties;
+    private ShardingStrategy shardingStrategy;
 
     public Graph(){
         nodes = edges = vertices = 0;
@@ -53,6 +55,9 @@ abstract public class Graph {
     }
     public HashMap<String, String> getProperties(){
         return properties;
+    }
+    public ShardingStrategy getShardingStrategy(){
+        return shardingStrategy;
     }
 
     public String getProperty(String key){
@@ -370,6 +375,9 @@ abstract public class Graph {
     }
     public void setProperties(HashMap<String, String> properties){
         this.properties = properties;
+    }
+    public void setShardingStrategy(ShardingStrategy shardingStrategy){
+        this.shardingStrategy = shardingStrategy;
     }
 
     abstract public boolean validate();
