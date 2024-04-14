@@ -50,7 +50,7 @@ abstract public class Graph {
     public HashMap<Vertex, List<Edge>> getEdgeMap(){
         return edgeMap;
     }
-    HashMap<Vertex, Integer> getColorMap(){
+    public HashMap<Vertex, Integer> getColorMap(){
         return colorMap;
     }
     public HashMap<String, String> getProperties(){
@@ -370,7 +370,7 @@ abstract public class Graph {
     public void setEdgeMap(HashMap<Vertex, List<Edge>> edgeMap){
         this.edgeMap = edgeMap;
     }
-    void setColorMap(HashMap<Vertex, Integer> colorMap){
+    public void setColorMap(HashMap<Vertex, Integer> colorMap){
         this.colorMap = colorMap;
     }
     public void setProperties(HashMap<String, String> properties){
