@@ -1,5 +1,6 @@
 package com.server.graph_db.graphs;
 import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
+import com.server.graph_db.alghorithms.strategies.misc.Tuple;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
 
@@ -381,4 +382,7 @@ abstract public class Graph {
     }
 
     abstract public boolean validate();
+    public Tuple<HashMap<Integer, List<Vertex>>, HashMap<Integer, List<Edge>>> shard(){
+        return shardingStrategy.shard(this);
+    }
 }
