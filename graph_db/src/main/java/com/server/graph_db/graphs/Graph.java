@@ -80,6 +80,7 @@ abstract public class Graph {
         if(vertexMap.containsKey(id) || vertexMap.size() == vertices)
             return;
         vertexMap.put(id, new Vertex(id));
+        edgeMap.put(vertexMap.get(id), new ArrayList<>());
     }
 
     public void addVertex(String id, List<Edge> edges){
@@ -94,6 +95,7 @@ abstract public class Graph {
         if(vertexMap.containsKey(vertex.getId()) || vertexMap.size() == vertices)
             return;
         vertexMap.put(vertex.getId(), vertex);
+        edgeMap.put(vertex, new ArrayList<>());
     }
 
     public Vertex getVertexByID(String id){
