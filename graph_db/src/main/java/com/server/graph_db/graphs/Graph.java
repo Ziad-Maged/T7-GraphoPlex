@@ -2,6 +2,7 @@ package com.server.graph_db.graphs;
 import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.TestingStrategy;
 import com.server.graph_db.alghorithms.strategies.misc.Tuple;
+import com.server.graph_db.alghorithms.strategies.sharding.HashBasedShardingStrategy;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
 
@@ -33,6 +34,7 @@ abstract public class Graph {
         this.type = type;
         vertexMap = new HashMap<>(vertices);
         edgeMap = new HashMap<>(edges);
+        shardingStrategy = new HashBasedShardingStrategy();
     }
 
     public int getNodes(){
