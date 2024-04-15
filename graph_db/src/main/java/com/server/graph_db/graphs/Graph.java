@@ -1,5 +1,6 @@
 package com.server.graph_db.graphs;
 import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
+import com.server.graph_db.alghorithms.strategies.TestingStrategy;
 import com.server.graph_db.alghorithms.strategies.misc.Tuple;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
@@ -17,6 +18,7 @@ abstract public class Graph {
     private HashMap<Vertex, Integer> colorMap;
     private HashMap<String, String> properties;
     private ShardingStrategy shardingStrategy;
+    private TestingStrategy testingStrategy;
 
     public Graph(){
         nodes = edges = vertices = 0;
@@ -59,6 +61,9 @@ abstract public class Graph {
     }
     public ShardingStrategy getShardingStrategy(){
         return shardingStrategy;
+    }
+    public TestingStrategy getTestingStrategy(){
+        return testingStrategy;
     }
 
     public String getProperty(String key){
@@ -380,8 +385,13 @@ abstract public class Graph {
     public void setShardingStrategy(ShardingStrategy shardingStrategy){
         this.shardingStrategy = shardingStrategy;
     }
+    public void setTestingStrategy(TestingStrategy testingStrategy){
+        this.testingStrategy = testingStrategy;
+    }
 
-    abstract public boolean validate();
+    public boolean validate(){
+        return testingStrategy.validate(this);
+    }
     public Tuple<HashMap<Integer, List<Vertex>>, HashMap<Integer, List<Edge>>> shard(){
         return shardingStrategy.shard(this);
     }
