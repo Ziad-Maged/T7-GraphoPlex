@@ -17,7 +17,6 @@ public class BipartitePartitionShardingStrategy implements ShardingStrategy {
         //If the graph is Bipartite, then we partition the graph.
         int nodes = g.getNodes();
         int nodesPerSet = nodes / 2;
-        int currentNode = 0;
         HashMap<String, Vertex> vertexMap = g.getVertexMap();
         HashMap<Vertex, List<Edge>> edgeMap = g.getEdgeMap();
         HashMap<Vertex, Integer> colorMap = g.getColorMap();
@@ -31,14 +30,13 @@ public class BipartitePartitionShardingStrategy implements ShardingStrategy {
 
         for(Vertex vertex : vertexMap.values()){
             int color = colorMap.get(vertex);
-            int shard = vertex.hashCode() % nodesPerSet;
+            int shard;
+            if(color == 0)
+                shard = vertex.getId().hashCode() % nodesPerSet;
+            else
+                shard = vertex.getId().hashCode() % nodesPerSet + nodesPerSet;
             vertexShards.get(shard).add(vertex);
-            List<Edge> edges = edgeMap.get(vertex);
-            for(Edge edge : edges){
-                Vertex otherVertex = vertexMap.get(edge.getDestinationVertexId());
-                if(colorMap.get(otherVertex) == color)
-                    edgeShards.get(color).add(edge);
-            }
+            edgeShards.get(shard).addAll(edgeMap.get(vertex));
         }
 
         g.setColorMap(null);
