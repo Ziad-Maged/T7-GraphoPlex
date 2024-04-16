@@ -4,8 +4,8 @@ grammar Ql;
 
 // Define the basic elements of the language as lexer ru
 STRING: [a-zA-Z0-9_][a-zA-Z0-9_]*;
-INT: [0-9]+;
-FLOAT: [0-9]+ '.' [0-9]+;
+INT: ('+' | '-')? [0-9]+;
+FLOAT: ('+' | '-')? [0-9]+ '.' [0-9]+;
 WS: [ \t\r\n]+ -> skip;
 QOUTED_STRING: '"' ( ~'"' | '""' )* '"' ;
 
