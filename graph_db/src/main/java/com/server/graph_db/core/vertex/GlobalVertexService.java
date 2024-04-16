@@ -1,12 +1,9 @@
 package com.server.graph_db.core.vertex;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import javax.print.attribute.standard.Destination;
-
+import com.server.graph_db.alghorithms.strategies.misc.Tuple;
+import com.server.graph_db.graphs.Graph;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -230,6 +227,56 @@ public class GlobalVertexService implements VertexService {
             vertexClient.createEdge(sourceId, edge, false,
                     String.valueOf(partitionManager.getPartitionId(edge.getDestinationVertexId())));
         }
+    }
+
+    public void addGraph(Graph g) throws Exception{
+        Tuple<HashMap<Integer, List<Vertex>>, HashMap<Integer, List<Edge>>> shard = g.shard();
+        HashMap<Integer, List<Vertex>> vertices = shard.getFirst();
+        HashMap<Integer, List<Edge>> edges = shard.getSecond();
+        for(int serverId : vertices.keySet()){
+            if(serverId == Integer.parseInt(this.serverId)) {
+                for (Vertex v : vertices.get(serverId)) {
+                    vertexService.createVertex(v);
+                }
+            }else {
+                for(Vertex v : vertices.get(serverId)) {
+                    vertexClient.createVertex(v, String.valueOf(serverId));
+                }
+            }
+        }
+
+        for(int serverId : edges.keySet()){
+            if(serverId == Integer.parseInt(this.serverId)) {
+                for (Edge e : edges.get(serverId)) {
+                    vertexService.addEdge(e.getSourceVertexId(), e, true);
+                    int destinationVertexServerId = getServerIdOfVertex(g.getVertexMap().get(e.getDestinationVertexId()), vertices);
+                    if(destinationVertexServerId == Integer.parseInt(this.serverId)) {
+                        vertexService.addEdge(e.getSourceVertexId(), e, false);
+                    }else {
+                        vertexClient.createEdge(e.getSourceVertexId(), e, false, String.valueOf(destinationVertexServerId));
+                    }
+                }
+            }else {
+                for (Edge e : edges.get(serverId)) {
+                    vertexClient.createEdge(e.getSourceVertexId(), e, true, String.valueOf(serverId));
+                    int destinationVertexServerId = getServerIdOfVertex(g.getVertexMap().get(e.getDestinationVertexId()), vertices);
+                    if(destinationVertexServerId == Integer.parseInt(this.serverId)) {
+                        vertexService.addEdge(e.getSourceVertexId(), e, false);
+                    }else {
+                        vertexClient.createEdge(e.getSourceVertexId(), e, false, String.valueOf(destinationVertexServerId));
+                    }
+                }
+            }
+        }
+    }
+
+    private int getServerIdOfVertex(Vertex vertex, HashMap<Integer, List<Vertex>> shard){
+        for(int serverId : shard.keySet()){
+            if(shard.get(serverId).contains(vertex)){
+                return serverId;
+            }
+        }
+        return -1;
     }
 
     public void deleteEdge(String sourceId, String destinationVertexId, String label) throws Exception {
