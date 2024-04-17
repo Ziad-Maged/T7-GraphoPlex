@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class CompleteBipartiteTestingStrategy implements TestingStrategy {
+public class CompleteBipartiteGraphTestingStrategy implements TestingStrategy {
     @Override
     public boolean validate(Graph g) {
         if(!g.isBipartite())
