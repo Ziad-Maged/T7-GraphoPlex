@@ -21,8 +21,7 @@ public class HashBasedShardingStrategy implements ShardingStrategy {
 
         //We group the vertices in a shard that is the hashCode of the vertex id % the number of shards there are.
         for (Vertex vertex : vertexMap.values()) {
-            int partitionId = vertex.getId().hashCode() % nodes;
-            if (partitionId < 0) partitionId = -partitionId;
+            int partitionId = Math.abs(vertex.getId().hashCode() % nodes);
             if (!vertexShards.containsKey(partitionId)) {
                 vertexShards.put(partitionId, new ArrayList<>());
             }
@@ -31,8 +30,7 @@ public class HashBasedShardingStrategy implements ShardingStrategy {
 
         //We group the edges in the shard source vertex
         for (Vertex vertex : edgeMap.keySet()) {
-            int partitionId = vertex.getId().hashCode() % nodes;
-            if (partitionId < 0) partitionId = -partitionId;
+            int partitionId = Math.abs(vertex.getId().hashCode() % nodes);
             if (!edgeShards.containsKey(partitionId)) {
                 edgeShards.put(partitionId, new ArrayList<>());
             }
