@@ -7,10 +7,12 @@ public class SplitGraph extends Graph{
 
     public SplitGraph(){
         super();
+        this.setProperty("type", "SplitGraph");
     }
 
     public SplitGraph(int nodes, int vertices, int edges, GraphType type){
         super(nodes, vertices, edges, type);
         this.setTestingStrategy(new SplitGraphTestingStrategy());
+        this.setProperty("type", "SplitGraph");
     }
 }

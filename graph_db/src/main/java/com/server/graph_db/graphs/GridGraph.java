@@ -9,6 +9,7 @@ public class GridGraph extends Graph{
 
     public GridGraph(){
         super();
+        this.setProperty("type", "GridGraph");
     }
 
     public GridGraph(int nodes, int vertices, int edges, GraphType type, int rows, int columns){
@@ -16,6 +17,7 @@ public class GridGraph extends Graph{
         this.rows = rows;
         this.columns = columns;
         this.setTestingStrategy(new GridGraphTestingStrategy());
+        this.setProperty("type", "GridGraph");
     }
 
     public int getRows(){

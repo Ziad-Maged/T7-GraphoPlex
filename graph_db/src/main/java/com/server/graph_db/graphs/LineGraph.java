@@ -10,10 +10,12 @@ public class LineGraph extends Graph{
 
     public LineGraph(){
         super();
+        this.setProperty("type", "LineGraph");
     }
 
     public LineGraph(int nodes, int vertices, int edges, GraphType type){
         super(nodes, vertices, edges, type);
         this.setTestingStrategy(new LineGraphTestingStrategy());
+        this.setProperty("type", "LineGraph");
     }
 }

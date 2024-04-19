@@ -6,10 +6,12 @@ public class CubicGraph extends Graph{
 
     public CubicGraph(){
         super();
+        this.setProperty("type", "CubicGraph");
     }
 
     public CubicGraph(int nodes, int vertices, int edges, GraphType type){
         super(nodes, vertices, edges, type);
         this.setTestingStrategy(new CubicGraphTestingStrategy());
+        this.setProperty("type", "CubicGraph");
     }
 }
