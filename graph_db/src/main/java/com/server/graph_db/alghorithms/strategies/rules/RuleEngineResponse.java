@@ -4,7 +4,9 @@ public class RuleEngineResponse {
     private static Object response;
 
     public static Object getResponse() {
-        return response;
+        Object result = response;
+        response = null;
+        return result;
     }
 
     public static void setResponse(Object response) {
