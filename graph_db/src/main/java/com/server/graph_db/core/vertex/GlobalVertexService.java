@@ -2,6 +2,7 @@ package com.server.graph_db.core.vertex;
 
 import java.util.*;
 
+import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.misc.Tuple;
 import com.server.graph_db.alghorithms.strategies.sharding.HashBasedShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.testing.*;
@@ -186,6 +187,7 @@ public class GlobalVertexService implements VertexService {
         g.setVertices(vertices.size());
         g.setEdges(edges.size());
         g.setType(GraphType.valueOf(propertiesVertex.getProperty("graphType")));
+        g.setShardingStrategy(new HashBasedShardingStrategy());
 
         for(Vertex v : vertices){
             g.addVertex(v);
@@ -400,6 +402,42 @@ public class GlobalVertexService implements VertexService {
             }
         }
         return -1;
+    }
+
+    public void reshard(ShardingStrategy shardingStrategy) throws Exception {
+        Graph g = getGraph();
+        g.setShardingStrategy(shardingStrategy);
+
+        List<Vertex> vertices = new ArrayList<>();
+        List<Edge> edges = new ArrayList<>();
+        Iterable<String> verticesIDs = vertexService.getAllVerticesIds();
+        Iterable<Vertex> verticesFromMyserver = vertexService.getAllVertices();
+        Iterable<Edge> edgesFromMyServer = vertexService.getOutgoingEdges(verticesIDs);
+
+        for (Vertex vertex : verticesFromMyserver) {
+            vertexService.deleteVertex(vertex.getId());
+        }
+
+        for (Edge edge : edgesFromMyServer) {
+            vertexService.deleteEdge(edge.getSourceVertexId(), edge.getDestinationVertexId(), edge.getLabel(), true);
+        }
+
+        // loop on all servers and get vertices from them
+        for (int i = 0; i < numOfServers; i++) {
+            if (i != Integer.parseInt(serverId)) {
+                Iterable<String> verticesIdsFromOtherServer = vertexClient.getAllVerticesIds(String.valueOf(i));
+                Iterable<Edge> edgesFromOtherServer = vertexClient.getOutgoingEdges(verticesIdsFromOtherServer, String.valueOf(i));
+                for (String vertex : verticesIdsFromOtherServer) {
+                    vertexClient.deleteVertex(vertex, String.valueOf(i));
+                }
+                for (Edge edge : edgesFromOtherServer) {
+                    vertexClient.deleteEdge(edge.getSourceVertexId(), edge.getDestinationVertexId(), edge.getLabel(), true,
+                            String.valueOf(i));
+                }
+            }
+        }
+
+        addGraph(g);
     }
 
     public void deleteEdge(String sourceId, String destinationVertexId, String label) throws Exception {
