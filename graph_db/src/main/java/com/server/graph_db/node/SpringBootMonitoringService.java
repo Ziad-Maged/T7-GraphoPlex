@@ -5,7 +5,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MonitoringService {
+public class SpringBootMonitoringService {
 
     @Autowired
     private MetricsEndpoint metricsEndpoint;
