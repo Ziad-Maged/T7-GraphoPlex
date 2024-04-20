@@ -78,6 +78,33 @@ public class GlobalVertexService implements VertexService {
         return verticesIds;
     }
 
+    public Iterable<Vertex> getAllVertices() {
+        // get vertices from my server and other servers and append them
+        List<Vertex> vertices = new ArrayList<>();
+        Iterable<Vertex> verticesFromMyserver = vertexService.getAllVertices();
+
+        for (Vertex vertex : verticesFromMyserver) {
+            vertices.add(vertex);
+        }
+
+        // loop on all servers and get vertices from them
+        for (int i = 0; i < numOfServers; i++) {
+            if (i != Integer.parseInt(serverId)) {
+                // send to the right partition
+                Iterable<String> verticesIdsFromOtherServer = vertexClient.getAllVerticesIds(String.valueOf(i));
+                Iterable<Vertex> verticesFromOtherServer = vertexClient.getVertices(verticesIdsFromOtherServer, String.valueOf(i));
+
+                // append to vertices
+                for (Vertex vertex : verticesFromOtherServer) {
+                    vertices.add(vertex);
+                }
+            }
+
+        }
+
+        return vertices;
+    }
+
     public Iterable<Vertex> getVerticesByIds(Iterable<String> verticesIds) {
         List<Vertex> vertices = new ArrayList<Vertex>();
         List<List<Vertex>> verticesByPartitionId = new ArrayList<List<Vertex>>();
