@@ -117,6 +117,36 @@ abstract public class Graph {
         }
     }
 
+    public void addEdge(String source, String destination, String label){
+        if(!vertexMap.containsKey(source) || !vertexMap.containsKey(destination))
+            return;
+        if(type == GraphType.UNDIRECTED){
+            Edge outgoing = new Edge(source, destination);
+            outgoing.setLabel(label);
+            Edge incoming = new Edge(destination, source);
+            incoming.setLabel(label);
+            edgeMap.get(vertexMap.get(source)).add(outgoing);
+            edgeMap.get(vertexMap.get(destination)).add(incoming);
+        }else{
+            Edge outgoing = new Edge(source, destination);
+            outgoing.setLabel(label);
+            edgeMap.get(vertexMap.get(source)).add(outgoing);
+        }
+    }
+
+    public void addEdge(Edge edge){
+        if(!vertexMap.containsKey(edge.getSourceVertexId()) || !vertexMap.containsKey(edge.getDestinationVertexId()))
+            return;
+        if(type == GraphType.UNDIRECTED){
+            edgeMap.get(vertexMap.get(edge.getSourceVertexId())).add(edge);
+            Edge incoming = new Edge(edge.getDestinationVertexId(), edge.getSourceVertexId());
+            incoming.setLabel(edge.getLabel());
+            edgeMap.get(vertexMap.get(edge.getDestinationVertexId())).add(incoming);
+        }else{
+            edgeMap.get(vertexMap.get(edge.getSourceVertexId())).add(edge);
+        }
+    }
+
     /**
      * Returns the degree of a vertex if the graph is undirected*/
     public int getDegreeOfVertex(String id){
