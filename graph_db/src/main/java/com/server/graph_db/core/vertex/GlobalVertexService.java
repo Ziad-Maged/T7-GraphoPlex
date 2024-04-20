@@ -3,6 +3,9 @@ package com.server.graph_db.core.vertex;
 import java.util.*;
 
 import com.server.graph_db.alghorithms.strategies.misc.Tuple;
+import com.server.graph_db.alghorithms.strategies.sharding.HashBasedShardingStrategy;
+import com.server.graph_db.alghorithms.strategies.testing.*;
+import com.server.graph_db.graphs.*;
 import com.server.graph_db.graphs.Graph;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -78,13 +81,22 @@ public class GlobalVertexService implements VertexService {
         return verticesIds;
     }
 
-    public Iterable<Vertex> getAllVertices() {
+    public Graph getGraph() throws Exception {
         // get vertices from my server and other servers and append them
         List<Vertex> vertices = new ArrayList<>();
+        List<Edge> edges = new ArrayList<>();
+        Iterable<String> verticesIDs = vertexService.getAllVerticesIds();
         Iterable<Vertex> verticesFromMyserver = vertexService.getAllVertices();
+        Iterable<Edge> edgesFromMyServer = vertexService.getOutgoingEdges(verticesIDs);
+        Graph g;
+        Vertex propertiesVertex = null;
 
         for (Vertex vertex : verticesFromMyserver) {
             vertices.add(vertex);
+        }
+
+        for (Edge edge : edgesFromMyServer) {
+            edges.add(edge);
         }
 
         // loop on all servers and get vertices from them
@@ -93,16 +105,97 @@ public class GlobalVertexService implements VertexService {
                 // send to the right partition
                 Iterable<String> verticesIdsFromOtherServer = vertexClient.getAllVerticesIds(String.valueOf(i));
                 Iterable<Vertex> verticesFromOtherServer = vertexClient.getVertices(verticesIdsFromOtherServer, String.valueOf(i));
+                Iterable<Edge> edgesFromOtherServer = vertexClient.getOutgoingEdges(verticesIdsFromOtherServer, String.valueOf(i));
 
                 // append to vertices
                 for (Vertex vertex : verticesFromOtherServer) {
                     vertices.add(vertex);
                 }
+
+                for (Edge edge : edgesFromOtherServer) {
+                    edges.add(edge);
+                }
             }
 
         }
 
-        return vertices;
+        for(Vertex v : vertices){
+            if(v.getId().equals("Properties")){
+                propertiesVertex = v;
+                vertices.remove(v);
+                break;
+            }
+        }
+
+        switch(Objects.requireNonNull(propertiesVertex).getProperty("type")){
+            case "CompleteBipartiteGraph":
+                g = new CompleteBipartiteGraph();
+                g.setTestingStrategy(new CompleteBipartiteGraphTestingStrategy());
+                break;
+            case "CubicGraph":
+                g = new CubicGraph();
+                g.setTestingStrategy(new CubicGraphTestingStrategy());
+                break;
+            case "EulerianGraph":
+                g = new EulerianGraph();
+                g.setTestingStrategy(new EulerianGraphTestingStrategy());
+                break;
+            case "GridGraph":
+                g = new GridGraph();
+                g.setTestingStrategy(new GridGraphTestingStrategy());
+                break;
+            case "HamiltonianGraph":
+                g = new HamiltonianGraph();
+                g.setTestingStrategy(new HamiltonianGraphTestingStrategy());
+                break;
+            case "IntervalGraph":
+                g = new IntervalGraph();
+                g.setTestingStrategy(new IntervalGraphTestingStrategy());
+                break;
+            case "LineGraph":
+                g = new LineGraph();
+                g.setTestingStrategy(new LineGraphTestingStrategy());
+                break;
+            case "RegularBipartiteGraph":
+                g = new RegularBipartiteGraph();
+                g.setTestingStrategy(new RegularBipartiteGraphTestingStrategy());
+                break;
+            case "RegularGraph":
+                g = new RegularGraph();
+                g.setTestingStrategy(new RegularGraphTestingStrategy());
+                break;
+            case "SplitGraph":
+                g = new SplitGraph();
+                g.setTestingStrategy(new SplitGraphTestingStrategy());
+                break;
+            case "StarGraph":
+                g = new StarGraph();
+                g.setTestingStrategy(new StarGraphTestingStrategy());
+                break;
+            case "TournamentGraph":
+                g = new TournamentGraph();
+                g.setTestingStrategy(new TournamentGraphTestingStrategy());
+                break;
+            default:
+                g = new WheelGraph();
+                g.setTestingStrategy(new WheelGraphTestingStrategy());
+        }
+
+        g.setProperties((HashMap<String, String>) propertiesVertex.getProperties());
+        g.setNodes(numOfServers);
+        g.setVertices(vertices.size());
+        g.setEdges(edges.size());
+        g.setType(GraphType.valueOf(propertiesVertex.getProperty("graphType")));
+
+        for(Vertex v : vertices){
+            g.addVertex(v);
+        }
+
+        for(Edge e : edges){
+            g.addEdge(e);
+        }
+
+        return g;
     }
 
     public Iterable<Vertex> getVerticesByIds(Iterable<String> verticesIds) {

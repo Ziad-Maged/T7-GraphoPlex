@@ -25,7 +25,9 @@ abstract public class Graph {
         nodes = edges = vertices = 0;
         vertexMap = new HashMap<>();
         edgeMap = new HashMap<>();
+        properties = new HashMap<>();
         type = GraphType.DIRECTED;
+        properties.put("graphType", type.toString());
     }
     public  Graph(int nodes, int vertices, int edges, GraphType type){
         this.nodes = nodes;
@@ -34,7 +36,9 @@ abstract public class Graph {
         this.type = type;
         vertexMap = new HashMap<>(vertices);
         edgeMap = new HashMap<>(edges);
+        properties = new HashMap<>();
         shardingStrategy = new HashBasedShardingStrategy();
+        properties.put("graphType", type.toString());
     }
 
     public int getNodes(){
