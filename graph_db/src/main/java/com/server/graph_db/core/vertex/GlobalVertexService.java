@@ -235,9 +235,7 @@ public class GlobalVertexService implements VertexService {
         Tuple<HashMap<Integer, List<Vertex>>, HashMap<Integer, List<Edge>>> shard = g.shard();
         HashMap<Integer, List<Vertex>> vertices = shard.getFirst();
         HashMap<Integer, List<Edge>> edges = shard.getSecond();
-        for(List<Vertex> e : vertices.values()){
-            e.add(propertiesVertex);
-        }
+        vertices.get(0).add(propertiesVertex);
         for(int serverId : vertices.keySet()){
             if(serverId == Integer.parseInt(this.serverId)) {
                 for (Vertex v : vertices.get(serverId)) {
