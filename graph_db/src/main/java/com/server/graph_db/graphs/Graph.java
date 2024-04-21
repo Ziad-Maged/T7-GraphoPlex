@@ -615,6 +615,48 @@ abstract public class Graph {
         return minimumSpanningTree;
     }
 
+    public List<List<Vertex>> tarjanStronglyConnectedComponents() {
+        List<List<Vertex>> stronglyConnectedComponents = new ArrayList<>();
+        // Create maps to store the index and low-link values of each vertex
+        Map<Vertex, Integer> indexMap = new HashMap<>();
+        Map<Vertex, Integer> lowLinkMap = new HashMap<>();
+        // Perform Tarjan's algorithm for each vertex
+        for (Vertex vertex : vertexMap.values()) {
+            if (!indexMap.containsKey(vertex)) {
+                tarjanDFS(vertex, indexMap, lowLinkMap, new Stack<>(), new HashSet<>(), stronglyConnectedComponents);
+            }
+        }
+        return stronglyConnectedComponents;
+    }
+
+    private void tarjanDFS(Vertex vertex, Map<Vertex, Integer> indexMap, Map<Vertex, Integer> lowLinkMap, Stack<Vertex> stack, Set<Vertex> onStack, List<List<Vertex>> stronglyConnectedComponents) {
+        indexMap.put(vertex, indexMap.size());
+        lowLinkMap.put(vertex, indexMap.get(vertex));
+        stack.push(vertex);
+        onStack.add(vertex);
+        // Explore neighbors of the current vertex
+        for (Edge edge : edgeMap.getOrDefault(vertex, Collections.emptyList())) {
+            Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
+            if (!indexMap.containsKey(neighbor)) {
+                tarjanDFS(neighbor, indexMap, lowLinkMap, stack, onStack, stronglyConnectedComponents);
+                lowLinkMap.put(vertex, Math.min(lowLinkMap.get(vertex), lowLinkMap.get(neighbor)));
+            } else if (onStack.contains(neighbor)) {
+                lowLinkMap.put(vertex, Math.min(lowLinkMap.get(vertex), indexMap.get(neighbor)));
+            }
+        }
+        // Check if the current vertex is the root of a strongly connected component
+        if (lowLinkMap.get(vertex).equals(indexMap.get(vertex))) {
+            List<Vertex> component = new ArrayList<>();
+            Vertex v;
+            do {
+                v = stack.pop();
+                onStack.remove(v);
+                component.add(v);
+            } while (!v.equals(vertex));
+            stronglyConnectedComponents.add(component);
+        }
+    }
+
     public void setNodes(int nodes){
         this.nodes = nodes;
     }
