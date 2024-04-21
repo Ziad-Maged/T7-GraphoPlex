@@ -657,6 +657,36 @@ abstract public class Graph {
         }
     }
 
+    public Map<Vertex, Map<Vertex, Integer>> floydWarshall() {
+        return floydWarshall("cost");
+    }
+
+    public Map<Vertex, Map<Vertex, Integer>> floydWarshall(String costProperty) {
+        final int INF = Integer.MAX_VALUE / 2;
+        Map<Vertex, Map<Vertex, Integer>> distanceMap = new HashMap<>();
+        // Initialize distance map with direct edge weights
+        for (Vertex vertex : vertexMap.values()) {
+            Map<Vertex, Integer> vertexDistance = new HashMap<>();
+            for (Edge edge : edgeMap.getOrDefault(vertex, Collections.emptyList())) {
+                vertexDistance.put(vertexMap.get(edge.getDestinationVertexId()), Integer.parseInt(edge.getProperty(costProperty)));
+            }
+            distanceMap.put(vertex, vertexDistance);
+        }
+        // Update distance map using Floyd-Warshall algorithm
+        for (Vertex k : vertexMap.values()) {
+            for (Vertex i : vertexMap.values()) {
+                for (Vertex j : vertexMap.values()) {
+                    if (distanceMap.get(i).containsKey(k) && distanceMap.get(k).containsKey(j)) {
+                        int throughK = distanceMap.get(i).get(k) + distanceMap.get(k).get(j);
+                        int direct = distanceMap.get(i).getOrDefault(j, INF);
+                        distanceMap.get(i).put(j, Math.min(direct, throughK));
+                    }
+                }
+            }
+        }
+        return distanceMap;
+    }
+
     public void setNodes(int nodes){
         this.nodes = nodes;
     }
