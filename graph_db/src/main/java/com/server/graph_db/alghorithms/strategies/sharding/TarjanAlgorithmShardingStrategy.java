@@ -30,10 +30,7 @@ public class TarjanAlgorithmShardingStrategy implements ShardingStrategy {
             for(Vertex v : vertices) {
                 edgeShards.get(currentNode).addAll(g.getEdgeMap().get(v));
             }
-            currentNode++;
-            if(currentNode == nodes) {
-                currentNode = 0;
-            }
+            currentNode = (currentNode + 1) % nodes;
         }
 
         return new Tuple<>(vertexShards, edgeShards);
