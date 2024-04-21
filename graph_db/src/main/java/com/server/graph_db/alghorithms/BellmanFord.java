@@ -15,9 +15,7 @@ public class BellmanFord implements ShortestPathAlghorithm{
 
     @Override
     public void compute(String sourceVertexId, String destinationVertexId, String costField) throws Exception {
-        Graph graph = vertexService.getGraph();
-        shortestPathEdges = graph.shortestPath(sourceVertexId, destinationVertexId, costField);
-
+        shortestPathEdges = vertexService.getGraph().shortestPath(sourceVertexId, destinationVertexId, costField);
         for(Edge edge : shortestPathEdges){
             shortestPath += Long.parseLong(edge.getProperty(costField));
         }
