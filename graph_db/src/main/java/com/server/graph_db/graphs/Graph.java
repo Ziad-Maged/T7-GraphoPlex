@@ -5,6 +5,7 @@ import com.server.graph_db.alghorithms.strategies.misc.Tuple;
 import com.server.graph_db.alghorithms.strategies.sharding.HashBasedShardingStrategy;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
+import com.server.graph_db.graphs.utilities.DisjointSet;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -575,6 +576,43 @@ abstract public class Graph {
             }
         }
         return Collections.emptyList(); // No augmenting path found
+    }
+
+    public List<Edge> kruskalMinimumSpanningTree() {
+        return kruskalMinimumSpanningTree("cost");
+    }
+
+    public List<Edge> kruskalMinimumSpanningTree(String costProperty) {
+        // Sort all edges in non-decreasing order of their weights
+        List<Edge> sortedEdges = new ArrayList<>();
+        for (List<Edge> edges : edgeMap.values()) {
+            sortedEdges.addAll(edges);
+        }
+        Collections.sort(sortedEdges, Comparator.comparingInt(edge -> Integer.parseInt(edge.getProperty(costProperty))));
+        // Create a new disjoint set to track the connected components
+        DisjointSet disjointSet = new DisjointSet();
+        for (String vertexId : vertexMap.keySet()) {
+            disjointSet.makeSet(vertexId);
+        }
+        List<Edge> minimumSpanningTree = new ArrayList<>();
+        int edgeCount = 0;
+        // Iterate through sorted edges
+        for (Edge edge : sortedEdges) {
+            String sourceId = edge.getSourceVertexId();
+            String destinationId = edge.getDestinationVertexId();
+            // Check if the edge forms a cycle
+            if (!disjointSet.find(sourceId).equals(disjointSet.find(destinationId))) {
+                // If not, include the edge in the minimum spanning tree
+                minimumSpanningTree.add(edge);
+                disjointSet.union(sourceId, destinationId);
+                edgeCount++;
+                // If we have included enough edges to form a spanning tree, break the loop
+                if (edgeCount == vertices - 1) {
+                    break;
+                }
+            }
+        }
+        return minimumSpanningTree;
     }
 
     public void setNodes(int nodes){
