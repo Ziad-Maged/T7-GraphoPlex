@@ -1,28 +1,12 @@
 package com.server.graph_db.alghorithms;
-
-import com.server.graph_db.alghorithms.traversables.BellmanFordTraversable;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.GlobalVertexService;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
+import com.server.graph_db.graphs.Graph;
+import java.util.List;
 
 public class BellmanFord implements ShortestPathAlghorithm{
     GlobalVertexService vertexService;
-
-
-
-    String sourceVertexId;
-    String destinationVertexId;
-
-
-
-    LinkedList<Edge> pathReturned;
-    HashMap<String, BellmanFordTraversable> visited;
-
-
-    PriorityQueue<BellmanFordTraversable> queue;
+    List<Edge> shortestPathEdges;
     long shortestPath = 0;
 
     public BellmanFord(GlobalVertexService vertexService) {
@@ -31,7 +15,12 @@ public class BellmanFord implements ShortestPathAlghorithm{
 
     @Override
     public void compute(String sourceVertexId, String destinationVertexId, String costField) throws Exception {
-        //TODO
+        Graph graph = vertexService.getGraph();
+        shortestPathEdges = graph.shortestPath(sourceVertexId, destinationVertexId, costField);
+
+        for(Edge edge : shortestPathEdges){
+            shortestPath += Long.parseLong(edge.getProperty(costField));
+        }
     }
 
     @Override
@@ -41,6 +30,6 @@ public class BellmanFord implements ShortestPathAlghorithm{
 
     @Override
     public Iterable<Edge> getPath() throws Exception {
-        return null;
+        return shortestPathEdges;
     }
 }
