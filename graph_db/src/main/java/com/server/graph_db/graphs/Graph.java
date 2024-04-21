@@ -476,6 +476,107 @@ abstract public class Graph {
         stack.push(vertex);
     }
 
+    public int fordFulkersonMaxFlow(String sourceId, String sinkId) {
+        return fordFulkersonMaxFlow(vertexMap.get(sourceId), vertexMap.get(sinkId), "capacity");
+    }
+
+    public int fordFulkersonMaxFlow(String sourceId, String sinkId, String capacityProperty) {
+        return fordFulkersonMaxFlow(vertexMap.get(sourceId), vertexMap.get(sinkId), capacityProperty);
+    }
+
+    public int getEdgeConnectivity() {
+        return getEdgeConnectivity("capacity");
+    }
+
+    public int getEdgeConnectivity(String CapacityProperty) {
+        int edgeConnectivity = Integer.MAX_VALUE;
+        // Iterate through all pairs of vertices
+        for (Vertex sourceVertex : vertexMap.values()) {
+            for (Edge edge : edgeMap.getOrDefault(sourceVertex, Collections.emptyList())) {
+                Vertex destinationVertex = vertexMap.get(edge.getDestinationVertexId());
+                // Calculate maximum flow using Ford-Fulkerson algorithm
+                int maxFlow = fordFulkersonMaxFlow(sourceVertex, destinationVertex, CapacityProperty);
+                // Update edge connectivity as the minimum of all maximum flows
+                edgeConnectivity = Math.min(edgeConnectivity, maxFlow);
+            }
+        }
+        return edgeConnectivity;
+    }
+
+    private int fordFulkersonMaxFlow(Vertex source, Vertex sink, String capacityProperty) {
+        int maxFlow = 0;
+        // Initialize residual graph with original capacities
+        HashMap<Vertex, List<Edge>> residualGraph = new HashMap<>(edgeMap);
+        while (true) {
+            // Find augmenting path using Breadth-First Search
+            List<Vertex> path = bfsForAugmentingPath(source, sink, residualGraph, capacityProperty);
+            if (path.isEmpty()) {
+                break; // No augmenting path found, stop the loop
+            }
+            // Find minimum capacity along the augmenting path
+            int minCapacity = Integer.MAX_VALUE;
+            for (int i = 0; i < path.size() - 1; i++) {
+                Vertex u = path.get(i);
+                Vertex v = path.get(i + 1);
+                for (Edge edge : residualGraph.getOrDefault(u, Collections.emptyList())) {
+                    if (edge.getDestinationVertexId().equals(v.getId())) {
+                        minCapacity = Math.min(minCapacity, Integer.parseInt(edge.getProperty(capacityProperty))); // Assume capacity is stored in the Edge class
+                        break;
+                    }
+                }
+            }
+            // Update residual capacities and reverse edges
+            for (int i = 0; i < path.size() - 1; i++) {
+                Vertex u = path.get(i);
+                Vertex v = path.get(i + 1);
+                for (Edge edge : residualGraph.getOrDefault(u, Collections.emptyList())) {
+                    if (edge.getDestinationVertexId().equals(v.getId())) {
+                        edge.addProperty(capacityProperty, String.valueOf(Integer.parseInt(edge.getProperty(capacityProperty)) - minCapacity));
+                        for (Edge reverseEdge : residualGraph.getOrDefault(v, Collections.emptyList())) {
+                            if (reverseEdge.getDestinationVertexId().equals(u.getId())) {
+                                reverseEdge.addProperty(capacityProperty, String.valueOf(Integer.parseInt(reverseEdge.getProperty(capacityProperty)) + minCapacity));
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            // Increment maximum flow by the minimum capacity of the augmenting path
+            maxFlow += minCapacity;
+        }
+        return maxFlow;
+    }
+
+    private List<Vertex> bfsForAugmentingPath(Vertex source, Vertex sink, HashMap<Vertex, List<Edge>> residualGraph, String capacityProperty) {
+        Queue<Vertex> queue = new LinkedList<>();
+        queue.offer(source);
+        HashMap<Vertex, Vertex> parentMap = new HashMap<>();
+        parentMap.put(source, null);
+        while (!queue.isEmpty()) {
+            Vertex currentVertex = queue.poll();
+            if (currentVertex.equals(sink)) {
+                // Reconstruct augmenting path from sink to source
+                List<Vertex> path = new ArrayList<>();
+                Vertex vertex = sink;
+                while (vertex != null) {
+                    path.add(vertex);
+                    vertex = parentMap.get(vertex);
+                }
+                Collections.reverse(path);
+                return path;
+            }
+            for (Edge edge : residualGraph.getOrDefault(currentVertex, Collections.emptyList())) {
+                Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
+                if (!parentMap.containsKey(neighbor) && Integer.parseInt(edge.getProperty(capacityProperty)) > 0) {
+                    queue.offer(neighbor);
+                    parentMap.put(neighbor, currentVertex);
+                }
+            }
+        }
+        return Collections.emptyList(); // No augmenting path found
+    }
+
     public void setNodes(int nodes){
         this.nodes = nodes;
     }
