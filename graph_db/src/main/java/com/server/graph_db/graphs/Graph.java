@@ -446,6 +446,36 @@ abstract public class Graph {
         return shortestPath;
     }
 
+    public List<Vertex> topologicalSort() {
+        List<Vertex> sortedVertices = new ArrayList<>();
+        Stack<Vertex> stack = new Stack<>();
+        HashSet<Vertex> visited = new HashSet<>();
+        // Perform DFS on each vertex
+        for (Vertex vertex : vertexMap.values()) {
+            if (!visited.contains(vertex)) {
+                dfsForTopologicalSort(vertex, visited, stack);
+            }
+        }
+        // Pop vertices from stack to get topological ordering
+        while (!stack.isEmpty()) {
+            sortedVertices.add(stack.pop());
+        }
+        return sortedVertices;
+    }
+
+    private void dfsForTopologicalSort(Vertex vertex, HashSet<Vertex> visited, Stack<Vertex> stack) {
+        visited.add(vertex);
+        // Explore all neighbors
+        for (Edge edge : edgeMap.getOrDefault(vertex, Collections.emptyList())) {
+            Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
+            if (!visited.contains(neighbor)) {
+                dfsForTopologicalSort(neighbor, visited, stack);
+            }
+        }
+        // Push vertex to stack after exploring all neighbors
+        stack.push(vertex);
+    }
+
     public void setNodes(int nodes){
         this.nodes = nodes;
     }
