@@ -7,6 +7,7 @@ import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("ALL")
 abstract public class Graph {
@@ -394,6 +395,55 @@ abstract public class Graph {
             }
         }
         return minCycleLength == Integer.MAX_VALUE ? -1 : minCycleLength;
+    }
+
+    /**
+     * This method gets the shortest path between two vertices in a graph with non-negative or negative edge weights using the Bellman-Ford algorithm.
+     * */
+    public List<Edge> shortestPath(String sourceId, String destinationId, String weightProperty) {
+        // Initialize distances from source vertex to all other vertices
+        HashMap<Vertex, Integer> distances = new HashMap<>();
+        HashMap<Vertex, Vertex> parents = new HashMap<>();
+        for (Vertex vertex : vertexMap.values()) {
+            distances.put(vertex, Integer.MAX_VALUE);
+            parents.put(vertex, null);
+        }
+        distances.put(vertexMap.get(sourceId), 0);
+
+        // Relax edges repeatedly to find shortest paths
+        for (int i = 0; i < vertices - 1; i++) {
+            for (Edge edge : edgeMap.values().stream().flatMap(List::stream).collect(Collectors.toList())) {
+                Vertex sourceVertex = vertexMap.get(edge.getSourceVertexId());
+                Vertex destinationVertex = vertexMap.get(edge.getDestinationVertexId());
+                int weight = Integer.parseInt(edge.getProperty(weightProperty)); // Assume weight is stored in the Edge class
+                if (distances.get(sourceVertex) != Integer.MAX_VALUE && distances.get(sourceVertex) + weight < distances.get(destinationVertex)) {
+                    distances.put(destinationVertex, distances.get(sourceVertex) + weight);
+                    parents.put(destinationVertex, sourceVertex);
+                }
+            }
+        }
+
+        // Check for negative weight cycles
+        for (Edge edge : edgeMap.values().stream().flatMap(List::stream).collect(Collectors.toList())) {
+            Vertex sourceVertex = vertexMap.get(edge.getSourceVertexId());
+            Vertex destinationVertex = vertexMap.get(edge.getDestinationVertexId());
+            int weight = Integer.parseInt(edge.getProperty(weightProperty)); // Assume weight is stored in the Edge class
+            if (distances.get(sourceVertex) != Integer.MAX_VALUE && distances.get(sourceVertex) + weight < distances.get(destinationVertex)) {
+                // Negative weight cycle detected
+                throw new RuntimeException("Graph contains a negative weight cycle");
+            }
+        }
+
+        // Reconstruct the shortest path from source to destination
+        List<Edge> shortestPath = new ArrayList<>();
+        Vertex currentVertex = vertexMap.get(destinationId);
+        while (parents.get(currentVertex) != null) {
+            Vertex parent = parents.get(currentVertex);
+            shortestPath.add(new Edge(parent.getId(), currentVertex.getId())); // Create an edge from parent to current vertex
+            currentVertex = parent;
+        }
+        Collections.reverse(shortestPath); // Reverse the path to get it from source to destination
+        return shortestPath;
     }
 
     public void setNodes(int nodes){
