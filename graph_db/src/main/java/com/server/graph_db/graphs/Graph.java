@@ -15,6 +15,7 @@ abstract public class Graph {
     private int nodes; // number of Shards or Servers
     private int vertices; // number of Vertices
     private int edges; // number of Edges
+    private int currentNumberOfEdges;
     private GraphType type;
     private HashMap<String, Vertex> vertexMap;
     private HashMap<Vertex, List<Edge>> edgeMap;
@@ -24,7 +25,7 @@ abstract public class Graph {
     private TestingStrategy testingStrategy;
 
     public Graph(){
-        nodes = edges = vertices = 0;
+        nodes = edges = vertices = currentNumberOfEdges = 0;
         vertexMap = new HashMap<>();
         edgeMap = new HashMap<>();
         properties = new HashMap<>();
@@ -36,6 +37,7 @@ abstract public class Graph {
         this.vertices = vertices;
         this.edges = edges;
         this.type = type;
+        this.currentNumberOfEdges = 0;
         vertexMap = new HashMap<>(vertices);
         edgeMap = new HashMap<>(edges);
         properties = new HashMap<>();
@@ -51,6 +53,9 @@ abstract public class Graph {
     }
     public int getEdges(){
         return edges;
+    }
+    public int getCurrentNumberOfEdges(){
+        return currentNumberOfEdges;
     }
     public GraphType getType(){
         return type;
@@ -90,11 +95,12 @@ abstract public class Graph {
     }
 
     public void addVertex(String id, List<Edge> edges){
-        if(vertexMap.containsKey(id) || vertexMap.size() == vertices)
+        if(vertexMap.containsKey(id) || vertexMap.size() == vertices || currentNumberOfEdges + edges.size() > this.edges)
             return;
         Vertex vertex = new Vertex(id);
         vertexMap.put(id, vertex);
         edgeMap.put(vertex, edges);
+        currentNumberOfEdges += edges.size();
     }
 
     public void addVertex(Vertex vertex){
@@ -113,7 +119,7 @@ abstract public class Graph {
     }
 
     public void addEdge(String source, String destination){
-        if(!vertexMap.containsKey(source) || !vertexMap.containsKey(destination))
+        if(!vertexMap.containsKey(source) || !vertexMap.containsKey(destination) || currentNumberOfEdges == edges)
             return;
         if(type == GraphType.UNDIRECTED){
             edgeMap.get(vertexMap.get(source)).add(new Edge(source, destination));
@@ -121,10 +127,11 @@ abstract public class Graph {
         }else{
             edgeMap.get(vertexMap.get(source)).add(new Edge(source, destination));
         }
+        currentNumberOfEdges++;
     }
 
     public void addEdge(String source, String destination, String label){
-        if(!vertexMap.containsKey(source) || !vertexMap.containsKey(destination))
+        if(!vertexMap.containsKey(source) || !vertexMap.containsKey(destination) || currentNumberOfEdges == edges)
             return;
         if(type == GraphType.UNDIRECTED){
             Edge outgoing = new Edge(source, destination);
@@ -138,10 +145,11 @@ abstract public class Graph {
             outgoing.setLabel(label);
             edgeMap.get(vertexMap.get(source)).add(outgoing);
         }
+        currentNumberOfEdges++;
     }
 
     public void addEdge(Edge edge){
-        if(!vertexMap.containsKey(edge.getSourceVertexId()) || !vertexMap.containsKey(edge.getDestinationVertexId()))
+        if(!vertexMap.containsKey(edge.getSourceVertexId()) || !vertexMap.containsKey(edge.getDestinationVertexId()) || currentNumberOfEdges == edges)
             return;
         if(type == GraphType.UNDIRECTED){
             edgeMap.get(vertexMap.get(edge.getSourceVertexId())).add(edge);
@@ -151,6 +159,7 @@ abstract public class Graph {
         }else{
             edgeMap.get(vertexMap.get(edge.getSourceVertexId())).add(edge);
         }
+        currentNumberOfEdges++;
     }
 
     /**
@@ -695,6 +704,9 @@ abstract public class Graph {
     }
     public void setEdges(int edges){
         this.edges = edges;
+    }
+    public void setCurrentNumberOfEdges(int currentNumberOfEdges){
+        this.currentNumberOfEdges = currentNumberOfEdges;
     }
     public void setType(GraphType type){
         this.type = type;
