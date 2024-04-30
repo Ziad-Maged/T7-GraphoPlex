@@ -128,65 +128,71 @@ public class GlobalVertexService implements VertexService {
             }
         }
 
-        switch(Objects.requireNonNull(propertiesVertex).getProperty("type")){
-            case "CompleteBipartiteGraph":
-                g = new CompleteBipartiteGraph();
-                g.setTestingStrategy(new CompleteBipartiteGraphTestingStrategy());
-                break;
-            case "CubicGraph":
-                g = new CubicGraph();
-                g.setTestingStrategy(new CubicGraphTestingStrategy());
-                break;
-            case "EulerianGraph":
-                g = new EulerianGraph();
-                g.setTestingStrategy(new EulerianGraphTestingStrategy());
-                break;
-            case "GridGraph":
-                g = new GridGraph();
-                g.setTestingStrategy(new GridGraphTestingStrategy());
-                break;
-            case "HamiltonianGraph":
-                g = new HamiltonianGraph();
-                g.setTestingStrategy(new HamiltonianGraphTestingStrategy());
-                break;
-            case "IntervalGraph":
-                g = new IntervalGraph();
-                g.setTestingStrategy(new IntervalGraphTestingStrategy());
-                break;
-            case "LineGraph":
-                g = new LineGraph();
-                g.setTestingStrategy(new LineGraphTestingStrategy());
-                break;
-            case "RegularBipartiteGraph":
-                g = new RegularBipartiteGraph();
-                g.setTestingStrategy(new RegularBipartiteGraphTestingStrategy());
-                break;
-            case "RegularGraph":
-                g = new RegularGraph();
-                g.setTestingStrategy(new RegularGraphTestingStrategy());
-                break;
-            case "SplitGraph":
-                g = new SplitGraph();
-                g.setTestingStrategy(new SplitGraphTestingStrategy());
-                break;
-            case "StarGraph":
-                g = new StarGraph();
-                g.setTestingStrategy(new StarGraphTestingStrategy());
-                break;
-            case "TournamentGraph":
-                g = new TournamentGraph();
-                g.setTestingStrategy(new TournamentGraphTestingStrategy());
-                break;
-            default:
-                g = new WheelGraph();
-                g.setTestingStrategy(new WheelGraphTestingStrategy());
-        }
+        if(propertiesVertex == null){
+            g = new WheelGraph();
+            g.setTestingStrategy(new WheelGraphTestingStrategy());
+        }else
+            switch(Objects.requireNonNull(propertiesVertex).getProperty("type")){
+                case "CompleteBipartiteGraph":
+                    g = new CompleteBipartiteGraph();
+                    g.setTestingStrategy(new CompleteBipartiteGraphTestingStrategy());
+                    break;
+                case "CubicGraph":
+                    g = new CubicGraph();
+                    g.setTestingStrategy(new CubicGraphTestingStrategy());
+                    break;
+                case "EulerianGraph":
+                    g = new EulerianGraph();
+                    g.setTestingStrategy(new EulerianGraphTestingStrategy());
+                    break;
+                case "GridGraph":
+                    g = new GridGraph();
+                    g.setTestingStrategy(new GridGraphTestingStrategy());
+                    break;
+                case "HamiltonianGraph":
+                    g = new HamiltonianGraph();
+                    g.setTestingStrategy(new HamiltonianGraphTestingStrategy());
+                    break;
+                case "IntervalGraph":
+                    g = new IntervalGraph();
+                    g.setTestingStrategy(new IntervalGraphTestingStrategy());
+                    break;
+                case "LineGraph":
+                    g = new LineGraph();
+                    g.setTestingStrategy(new LineGraphTestingStrategy());
+                    break;
+                case "RegularBipartiteGraph":
+                    g = new RegularBipartiteGraph();
+                    g.setTestingStrategy(new RegularBipartiteGraphTestingStrategy());
+                    break;
+                case "RegularGraph":
+                    g = new RegularGraph();
+                    g.setTestingStrategy(new RegularGraphTestingStrategy());
+                    break;
+                case "SplitGraph":
+                    g = new SplitGraph();
+                    g.setTestingStrategy(new SplitGraphTestingStrategy());
+                    break;
+                case "StarGraph":
+                    g = new StarGraph();
+                    g.setTestingStrategy(new StarGraphTestingStrategy());
+                    break;
+                case "TournamentGraph":
+                    g = new TournamentGraph();
+                    g.setTestingStrategy(new TournamentGraphTestingStrategy());
+                    break;
+                default:
+                    g = new WheelGraph();
+                    g.setTestingStrategy(new WheelGraphTestingStrategy());
+            }
 
-        g.setProperties((HashMap<String, String>) propertiesVertex.getProperties());
+        if(propertiesVertex != null){
+            g.setProperties((HashMap<String, String>) propertiesVertex.getProperties());
+            g.setType(GraphType.valueOf(propertiesVertex.getProperty("graphType")));
+        }
         g.setNodes(numOfServers);
         g.setVertices(vertices.size());
         g.setEdges(edges.size());
-        g.setType(GraphType.valueOf(propertiesVertex.getProperty("graphType")));
         g.setShardingStrategy(new HashBasedShardingStrategy());
 
         for(Vertex v : vertices){

@@ -449,11 +449,21 @@ abstract public class Graph {
         Vertex currentVertex = vertexMap.get(destinationId);
         while (parents.get(currentVertex) != null) {
             Vertex parent = parents.get(currentVertex);
-            shortestPath.add(new Edge(parent.getId(), currentVertex.getId())); // Create an edge from parent to current vertex
+            Edge edge = findEdge(parent, currentVertex);
+            shortestPath.add(edge); // Add the edge to the shortest path
             currentVertex = parent;
         }
         Collections.reverse(shortestPath); // Reverse the path to get it from source to destination
         return shortestPath;
+    }
+
+    private Edge findEdge(Vertex source, Vertex destination) {
+        for (Edge edge : edgeMap.get(source)) {
+            if (edge.getDestinationVertexId().equals(destination.getId())) {
+                return edge;
+            }
+        }
+        return null; // Edge not found
     }
 
     public List<Vertex> topologicalSort() {

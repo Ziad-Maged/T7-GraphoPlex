@@ -7,6 +7,7 @@ import java.util.Map;
 
 
 import com.server.graph_db.alghorithms.AStar;
+import com.server.graph_db.alghorithms.BellmanFord;
 import com.server.graph_db.alghorithms.Dijkstra;
 import com.server.graph_db.alghorithms.ShortestPathAlghorithm;
 import com.server.graph_db.alghorithms.heuristics.Euclidean;
@@ -315,7 +316,7 @@ public class QueryWalker extends QlBaseListener {
         String costField = ctx.cost().getText();
         ShortestPathAlghorithm shortestPathAlghorithm;
         if (ctx.heuristic() == null) {
-            shortestPathAlghorithm = new Dijkstra(globalVertexService);
+            shortestPathAlghorithm = new BellmanFord(globalVertexService);
         } else {
             Hueristic hueristic = null;
             // getting the huerstic function child of hueristic ctx 
