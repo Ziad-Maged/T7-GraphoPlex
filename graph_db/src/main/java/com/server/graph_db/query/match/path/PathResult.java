@@ -1,9 +1,9 @@
 package com.server.graph_db.query.match.path;
 
+import com.server.graph_db.query.Result;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.server.graph_db.query.Result;
 
 public class PathResult extends Result{
     List<String> columnNames;

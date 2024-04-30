@@ -1,11 +1,5 @@
 package com.server.graph_db.query.match.path;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import com.server.graph_db.alghorithms.traversables.BreadthFirstSearchTraversable;
 import com.server.graph_db.alghorithms.traversables.BreadthFirstSearchTraversable.AliasedEdge;
 import com.server.graph_db.alghorithms.traversables.BreadthFirstSearchTraversable.AliasedVertex;
@@ -13,6 +7,8 @@ import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.EdgeId;
 import com.server.graph_db.core.vertex.GlobalVertexService;
 import com.server.graph_db.core.vertex.Vertex;
+
+import java.util.*;
 
 public class ReturnClause {
 

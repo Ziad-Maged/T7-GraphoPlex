@@ -1,8 +1,8 @@
 package com.server.graph_db.query.crud.crudcommands.vertexcommands;
 
-import java.util.Map;
-
 import com.server.graph_db.query.crud.CrudResult;
+
+import java.util.Map;
 
 public class UpdateVertexCommand extends CrudVertexCommand {
     String label = null;

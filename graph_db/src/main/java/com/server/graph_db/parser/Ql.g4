@@ -57,7 +57,9 @@ switch_database_to_default: 'SWITCH' 'DATABASE' 'TO' 'DEFAULT';
 drop_default_database: 'DROP' 'DEFAULT' 'DATABASE';
 
 database_name: STRING;
-match_query: 'MATCH' (path_query|shortest_path_query);
+match_query: 'MATCH' (path_query | shortest_path_query | topological_sort_query | maximum_flow_query);
+maximum_flow_query: 'MAXIMUM' 'FLOW' 'FROM' sourceId 'TO' destinationId 'WITH CAPACITY =' cost;
+topological_sort_query: 'TOPOLOGICAL' 'SORT';
 shortest_path_query: 'SHORTEST' 'PATH' 'FROM' sourceId 'TO' destinationId 'WITH COST =' cost (heuristic)?;
 heuristic: 'USING HUERISTIC' heuristic_function;
 heuristic_function: manhattan | euclidean;

@@ -277,6 +277,20 @@ public class QlBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements QlV
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitMaximum_flow_query(QlParser.Maximum_flow_queryContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitTopological_sort_query(QlParser.Topological_sort_queryContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitShortest_path_query(QlParser.Shortest_path_queryContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

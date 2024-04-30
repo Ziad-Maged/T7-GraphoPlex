@@ -1,14 +1,14 @@
 package com.server.graph_db.query.match.path;
 
-import java.util.List;
-import java.util.Set;
-
 import com.server.graph_db.alghorithms.BreadtFirstSearchGrouped;
 import com.server.graph_db.alghorithms.traversables.BreadthFirstSearchTraversable;
 import com.server.graph_db.core.traversers.GlobalTraverserManager;
 import com.server.graph_db.core.traversers.bindings.Path;
 import com.server.graph_db.core.vertex.GlobalVertexService;
 import com.server.graph_db.query.match.MatchCommand;
+
+import java.util.List;
+import java.util.Set;
 
 public class PathCommand extends MatchCommand{
 

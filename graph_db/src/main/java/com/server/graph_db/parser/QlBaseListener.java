@@ -461,6 +461,30 @@ public class QlBaseListener implements QlListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMaximum_flow_query(QlParser.Maximum_flow_queryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMaximum_flow_query(QlParser.Maximum_flow_queryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTopological_sort_query(QlParser.Topological_sort_queryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTopological_sort_query(QlParser.Topological_sort_queryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterShortest_path_query(QlParser.Shortest_path_queryContext ctx) { }
 	/**
 	 * {@inheritDoc}

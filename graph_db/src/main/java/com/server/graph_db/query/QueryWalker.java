@@ -1,14 +1,7 @@
 package com.server.graph_db.query;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-
 import com.server.graph_db.alghorithms.AStar;
 import com.server.graph_db.alghorithms.BellmanFord;
-import com.server.graph_db.alghorithms.Dijkstra;
 import com.server.graph_db.alghorithms.ShortestPathAlghorithm;
 import com.server.graph_db.alghorithms.heuristics.Euclidean;
 import com.server.graph_db.alghorithms.heuristics.Hueristic;
@@ -23,42 +16,7 @@ import com.server.graph_db.core.traversers.bindings.Path;
 import com.server.graph_db.core.traversers.bindings.VertexBinding;
 import com.server.graph_db.core.vertex.GlobalVertexService;
 import com.server.graph_db.parser.QlBaseListener;
-import com.server.graph_db.parser.QlParser.Create_databaseContext;
-import com.server.graph_db.parser.QlParser.Create_edgeContext;
-import com.server.graph_db.parser.QlParser.Create_indexContext;
-import com.server.graph_db.parser.QlParser.Create_vertexContext;
-import com.server.graph_db.parser.QlParser.Crud_commandContext;
-import com.server.graph_db.parser.QlParser.Database_commandContext;
-import com.server.graph_db.parser.QlParser.Delete_databaseContext;
-import com.server.graph_db.parser.QlParser.Delete_edgeContext;
-import com.server.graph_db.parser.QlParser.Delete_indexContext;
-import com.server.graph_db.parser.QlParser.Delete_vertexContext;
-import com.server.graph_db.parser.QlParser.DestinationIdContext;
-import com.server.graph_db.parser.QlParser.Drop_databaseContext;
-import com.server.graph_db.parser.QlParser.Drop_default_databaseContext;
-import com.server.graph_db.parser.QlParser.Edge_bindingContext;
-import com.server.graph_db.parser.QlParser.Get_curr_databaseContext;
-import com.server.graph_db.parser.QlParser.IdContext;
-import com.server.graph_db.parser.QlParser.LabelContext;
-import com.server.graph_db.parser.QlParser.Match_queryContext;
-import com.server.graph_db.parser.QlParser.PathContext;
-import com.server.graph_db.parser.QlParser.Path_levelContext;
-import com.server.graph_db.parser.QlParser.Path_queryContext;
-import com.server.graph_db.parser.QlParser.PropertiesContext;
-import com.server.graph_db.parser.QlParser.PropertyContext;
-import com.server.graph_db.parser.QlParser.Return_clauseContext;
-import com.server.graph_db.parser.QlParser.Return_itemContext;
-import com.server.graph_db.parser.QlParser.SelectOperatorContext;
-import com.server.graph_db.parser.QlParser.Set_clauseContext;
-import com.server.graph_db.parser.QlParser.Set_itemContext;
-import com.server.graph_db.parser.QlParser.Shortest_path_queryContext;
-import com.server.graph_db.parser.QlParser.SourceIdContext;
-import com.server.graph_db.parser.QlParser.Starting_vertexContext;
-import com.server.graph_db.parser.QlParser.Switch_databaseContext;
-import com.server.graph_db.parser.QlParser.Switch_database_to_defaultContext;
-import com.server.graph_db.parser.QlParser.Update_edgeContext;
-import com.server.graph_db.parser.QlParser.Update_vertexContext;
-import com.server.graph_db.parser.QlParser.Vertex_bindingContext;
+import com.server.graph_db.parser.QlParser.*;
 import com.server.graph_db.query.crud.CrudQuery;
 import com.server.graph_db.query.crud.crudcommands.edgecommands.CreateEdgeCommand;
 import com.server.graph_db.query.crud.crudcommands.edgecommands.DeleteEdgeCommand;
@@ -69,18 +27,19 @@ import com.server.graph_db.query.crud.crudcommands.vertexcommands.CreateVertexCo
 import com.server.graph_db.query.crud.crudcommands.vertexcommands.DeleteVertexCommand;
 import com.server.graph_db.query.crud.crudcommands.vertexcommands.UpdateVertexCommand;
 import com.server.graph_db.query.databaseconfig.DatabaseConfigQuery;
-import com.server.graph_db.query.databaseconfig.databaseconfigcommands.CreateDatabaseCommand;
-import com.server.graph_db.query.databaseconfig.databaseconfigcommands.DeleteDatabaseCommand;
-import com.server.graph_db.query.databaseconfig.databaseconfigcommands.DropDatabaseCommand;
-import com.server.graph_db.query.databaseconfig.databaseconfigcommands.DropDefaultCommand;
-import com.server.graph_db.query.databaseconfig.databaseconfigcommands.GetCurrentDatabaseCommand;
-import com.server.graph_db.query.databaseconfig.databaseconfigcommands.SwitchDatabaseCommand;
-import com.server.graph_db.query.databaseconfig.databaseconfigcommands.SwitchToDefaultCommand;
+import com.server.graph_db.query.databaseconfig.databaseconfigcommands.*;
 import com.server.graph_db.query.match.MatchQuery;
+import com.server.graph_db.query.match.maximumFlow.MaximumFlowCommand;
 import com.server.graph_db.query.match.path.PathCommand;
 import com.server.graph_db.query.match.path.ReturnClause;
 import com.server.graph_db.query.match.path.ReturnClause.ReturnedValue;
 import com.server.graph_db.query.match.shortestPath.ShortestPathCommand;
+import com.server.graph_db.query.match.topologicalSort.TopologicalSortCommand;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class QueryWalker extends QlBaseListener {
 
@@ -337,6 +296,21 @@ public class QueryWalker extends QlBaseListener {
 
         ShortestPathCommand shortestPathCommand = new ShortestPathCommand(shortestPathAlghorithm,sourceId, destinationId, costField); 
         query.setCommand(shortestPathCommand);
+    }
+
+    @Override
+    public void exitTopological_sort_query(Topological_sort_queryContext ctx) {
+        TopologicalSortCommand topologicalSortCommand = new TopologicalSortCommand();
+        query.setCommand(topologicalSortCommand);
+    }
+
+    @Override
+    public void exitMaximum_flow_query(Maximum_flow_queryContext ctx) {
+        String source = ctx.sourceId().getText();
+        String sink = ctx.destinationId().getText();
+        String costField = ctx.cost().getText();
+        MaximumFlowCommand maximumFlowCommand = new MaximumFlowCommand(source, sink, costField);
+        query.setCommand(maximumFlowCommand);
     }
 
     

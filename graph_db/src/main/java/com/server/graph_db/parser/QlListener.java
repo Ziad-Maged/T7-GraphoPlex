@@ -378,6 +378,26 @@ public interface QlListener extends ParseTreeListener {
 	 */
 	void exitMatch_query(QlParser.Match_queryContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link QlParser#maximum_flow_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterMaximum_flow_query(QlParser.Maximum_flow_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#maximum_flow_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitMaximum_flow_query(QlParser.Maximum_flow_queryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#topological_sort_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterTopological_sort_query(QlParser.Topological_sort_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#topological_sort_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitTopological_sort_query(QlParser.Topological_sort_queryContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link QlParser#shortest_path_query}.
 	 * @param ctx the parse tree
 	 */

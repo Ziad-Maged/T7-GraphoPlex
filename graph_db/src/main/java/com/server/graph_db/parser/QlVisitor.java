@@ -233,6 +233,18 @@ public interface QlVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMatch_query(QlParser.Match_queryContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link QlParser#maximum_flow_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMaximum_flow_query(QlParser.Maximum_flow_queryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#topological_sort_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTopological_sort_query(QlParser.Topological_sort_queryContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QlParser#shortest_path_query}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
