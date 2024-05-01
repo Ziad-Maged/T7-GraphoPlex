@@ -1,14 +1,5 @@
 package com.server.graph_db.grpc.clients;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.antlr.v4.parse.ANTLRParser.exceptionGroup_return;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
-
 import com.server.graph_db.core.exceptions.vertex.VertexAlreadyExistsException;
 import com.server.graph_db.core.exceptions.vertex.VertexNotFoundException;
 import com.server.graph_db.core.vertex.Edge;
@@ -16,31 +7,15 @@ import com.server.graph_db.core.vertex.EdgeId;
 import com.server.graph_db.core.vertex.Vertex;
 import com.server.graph_db.grpc.adapter.Adapter;
 import com.server.graph_db.grpc.traverser.edgeId;
-import com.server.graph_db.grpc.vertex.VertexServiceGrpc;
-import com.server.graph_db.grpc.vertex.createEdgeRequest;
-import com.server.graph_db.grpc.vertex.createVertexRequest;
-import com.server.graph_db.grpc.vertex.deleteEdgeRequest;
-import com.server.graph_db.grpc.vertex.deleteVertexRequest;
-import com.server.graph_db.grpc.vertex.deleteVertexResponse;
-import com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest;
-import com.server.graph_db.grpc.vertex.getAllVerticesIdsResponse;
-import com.server.graph_db.grpc.vertex.getEdgesRequest;
-import com.server.graph_db.grpc.vertex.getEdgesResponse;
-import com.server.graph_db.grpc.vertex.getIncomingEdgesForVerticesRequest;
-import com.server.graph_db.grpc.vertex.getIncomingEdgesRequest;
-import com.server.graph_db.grpc.vertex.getIncomingEdgesResponse;
-import com.server.graph_db.grpc.vertex.getOutGoingEdgesForVerticesRequest;
-import com.server.graph_db.grpc.vertex.getOutgoingEdgesRequest;
-import com.server.graph_db.grpc.vertex.getOutgoingEdgesResponse;
-import com.server.graph_db.grpc.vertex.getVertexRequest;
-import com.server.graph_db.grpc.vertex.getVertexResponse;
-import com.server.graph_db.grpc.vertex.getVerticesRequest;
-import com.server.graph_db.grpc.vertex.getVerticesResponse;
-import com.server.graph_db.grpc.vertex.updateEdgeRequest;
-import com.server.graph_db.grpc.vertex.updateVertexRequest;
-import com.server.graph_db.grpc.vertex.updateVertexResponse;
-
+import com.server.graph_db.grpc.vertex.*;
 import io.grpc.ManagedChannel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class VertexClient {
@@ -54,6 +29,19 @@ public class VertexClient {
 
     @Autowired
     Adapter adapter;
+
+    public boolean isVertexExists(String vertexId, String serverId) {
+        VertexServiceGrpc.VertexServiceBlockingStub blockingStub = VertexServiceGrpc
+                .newBlockingStub(grpcChannels.get(serverId));
+        getVertexRequest request = getVertexRequest.newBuilder().setVertexId(vertexId).build();
+        getVertexResponse response;
+        try {
+            response = blockingStub.getVertex(request);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
 
     public Vertex getVertex(String vertexId, String serverId) throws VertexNotFoundException {
         VertexServiceGrpc.VertexServiceBlockingStub blockingStub = VertexServiceGrpc

@@ -1,16 +1,14 @@
 package com.server.graph_db.core.vertex;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.server.graph_db.core.exceptions.vertex.VertexAlreadyExistsException;
 import com.server.graph_db.core.exceptions.vertex.VertexNotFoundException;
 import com.server.graph_db.core.index.LocalSecondaryIndexManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Component
 public class LocalVertexService implements VertexService {
@@ -25,6 +23,10 @@ public class LocalVertexService implements VertexService {
             LocalSecondaryIndexManager localSecondaryIndexManager) {
         this.vertexRepository = vertexRepository;
         this.localSecondaryIndexManager = localSecondaryIndexManager;
+    }
+
+    public boolean isVertexExists(String id) {
+        return vertexRepository.existsById(id);
     }
 
     public Vertex getVertex(String id) throws VertexNotFoundException {
