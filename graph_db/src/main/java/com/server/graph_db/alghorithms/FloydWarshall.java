@@ -13,8 +13,8 @@ public class FloydWarshall {
         this.vertexService = vertexService;
     }
 
-    public void compute() throws Exception {
-        shortestPaths = vertexService.getGraph().floydWarshall();
+    public void compute(String costProperty) throws Exception {
+        shortestPaths = vertexService.getGraph().floydWarshall(costProperty);
     }
 
     public Map<Vertex, Map<Vertex, Integer>> getShortestPaths() {

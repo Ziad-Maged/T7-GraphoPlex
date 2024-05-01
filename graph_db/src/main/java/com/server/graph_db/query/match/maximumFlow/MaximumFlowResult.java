@@ -11,6 +11,6 @@ public class MaximumFlowResult extends Result {
 
     @Override
     public String toString() {
-        return "Maximum flow: " + maxFlow;
+        return "Maximum flow: " + maxFlow+"\n\n" +super.toString();
     }
 }

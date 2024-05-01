@@ -29,7 +29,10 @@ import com.server.graph_db.query.crud.crudcommands.vertexcommands.UpdateVertexCo
 import com.server.graph_db.query.databaseconfig.DatabaseConfigQuery;
 import com.server.graph_db.query.databaseconfig.databaseconfigcommands.*;
 import com.server.graph_db.query.match.MatchQuery;
+import com.server.graph_db.query.match.allShortestPaths.AllShortestPathsCommand;
+import com.server.graph_db.query.match.bridgeEdges.BridgeEdgesCommand;
 import com.server.graph_db.query.match.maximumFlow.MaximumFlowCommand;
+import com.server.graph_db.query.match.minimumPanningTree.MinimumSpanningTreeCommand;
 import com.server.graph_db.query.match.path.PathCommand;
 import com.server.graph_db.query.match.path.ReturnClause;
 import com.server.graph_db.query.match.path.ReturnClause.ReturnedValue;
@@ -311,6 +314,26 @@ public class QueryWalker extends QlBaseListener {
         String costField = ctx.cost().getText();
         MaximumFlowCommand maximumFlowCommand = new MaximumFlowCommand(source, sink, costField);
         query.setCommand(maximumFlowCommand);
+    }
+
+    @Override
+    public void exitMinimum_spanning_tree_query(Minimum_spanning_tree_queryContext ctx) {
+        String costField = ctx.cost().getText();
+        MinimumSpanningTreeCommand minimumSpanningTreeCommand = new MinimumSpanningTreeCommand(costField);
+        query.setCommand(minimumSpanningTreeCommand);
+    }
+
+    @Override
+    public void exitAll_shortest_paths_query(All_shortest_paths_queryContext ctx) {
+        String cost = ctx.cost().getText();
+        AllShortestPathsCommand allShortestPathsCommand = new AllShortestPathsCommand(cost);
+        query.setCommand(allShortestPathsCommand);
+    }
+
+    @Override
+    public void exitBridge_edges_query(Bridge_edges_queryContext ctx) {
+        BridgeEdgesCommand bridgeEdgesCommand = new BridgeEdgesCommand();
+        query.setCommand(bridgeEdgesCommand);
     }
 
     

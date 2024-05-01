@@ -233,6 +233,24 @@ public interface QlVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMatch_query(QlParser.Match_queryContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link QlParser#all_shortest_paths_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAll_shortest_paths_query(QlParser.All_shortest_paths_queryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#bridge_edges_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBridge_edges_query(QlParser.Bridge_edges_queryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#minimum_spanning_tree_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMinimum_spanning_tree_query(QlParser.Minimum_spanning_tree_queryContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QlParser#maximum_flow_query}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

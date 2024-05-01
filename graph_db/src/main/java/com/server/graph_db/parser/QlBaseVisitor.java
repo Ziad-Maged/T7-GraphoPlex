@@ -277,6 +277,27 @@ public class QlBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements QlV
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitAll_shortest_paths_query(QlParser.All_shortest_paths_queryContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitBridge_edges_query(QlParser.Bridge_edges_queryContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitMinimum_spanning_tree_query(QlParser.Minimum_spanning_tree_queryContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitMaximum_flow_query(QlParser.Maximum_flow_queryContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

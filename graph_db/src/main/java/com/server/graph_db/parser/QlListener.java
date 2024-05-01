@@ -378,6 +378,36 @@ public interface QlListener extends ParseTreeListener {
 	 */
 	void exitMatch_query(QlParser.Match_queryContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link QlParser#all_shortest_paths_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterAll_shortest_paths_query(QlParser.All_shortest_paths_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#all_shortest_paths_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitAll_shortest_paths_query(QlParser.All_shortest_paths_queryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#bridge_edges_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterBridge_edges_query(QlParser.Bridge_edges_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#bridge_edges_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitBridge_edges_query(QlParser.Bridge_edges_queryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#minimum_spanning_tree_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterMinimum_spanning_tree_query(QlParser.Minimum_spanning_tree_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#minimum_spanning_tree_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitMinimum_spanning_tree_query(QlParser.Minimum_spanning_tree_queryContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link QlParser#maximum_flow_query}.
 	 * @param ctx the parse tree
 	 */
