@@ -6,6 +6,8 @@ import com.server.graph_db.alghorithms.ShortestPathAlghorithm;
 import com.server.graph_db.alghorithms.heuristics.Euclidean;
 import com.server.graph_db.alghorithms.heuristics.Hueristic;
 import com.server.graph_db.alghorithms.heuristics.Manhattan;
+import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
+import com.server.graph_db.alghorithms.strategies.sharding.*;
 import com.server.graph_db.core.database.GlobalDatabaseService;
 import com.server.graph_db.core.index.GlobalSecondaryIndexManager;
 import com.server.graph_db.core.operators.select.SelectOperator;
@@ -197,6 +199,33 @@ public class QueryWalker extends QlBaseListener {
         String databaseName = ctx.database_name().getText();
         CreateDatabaseCommand createDatabaseCommand = new CreateDatabaseCommand(databaseName);
         query.setCommand(createDatabaseCommand);
+    }
+
+    @Override
+    public void exitReshard_curr_database(Reshard_curr_databaseContext ctx) {
+        String shardingStrategy = ctx.sharding_strategy().getText();
+        ShardingStrategy strategy = null;
+        switch (shardingStrategy){
+            case "RANDOM" -> {
+                strategy = new RandomPartitionShardingStrategy();
+            }
+            case "EQUAL" -> {
+                strategy = new EqualPartitionShardingStrategy();
+            }
+            case "ROUND_ROBIN" -> {
+                strategy = new RoundRobinShardingStrategy();
+            }
+            case "TARJAN" -> {
+                strategy = new TarjanAlgorithmShardingStrategy();
+            }
+            default -> {
+                strategy = new HashBasedShardingStrategy();
+            }
+        }
+        ReshardDatabaseCommand reshardDatabaseCommand = new ReshardDatabaseCommand(strategy);
+        reshardDatabaseCommand.setGlobalDatabaseService(globalDatabaseService);
+        reshardDatabaseCommand.setVertexService(globalVertexService);
+        query.setCommand(reshardDatabaseCommand);
     }
 
     @Override

@@ -288,6 +288,26 @@ public interface QlListener extends ParseTreeListener {
 	 */
 	void exitDatabase_command(QlParser.Database_commandContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link QlParser#reshard_curr_database}.
+	 * @param ctx the parse tree
+	 */
+	void enterReshard_curr_database(QlParser.Reshard_curr_databaseContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#reshard_curr_database}.
+	 * @param ctx the parse tree
+	 */
+	void exitReshard_curr_database(QlParser.Reshard_curr_databaseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#sharding_strategy}.
+	 * @param ctx the parse tree
+	 */
+	void enterSharding_strategy(QlParser.Sharding_strategyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#sharding_strategy}.
+	 * @param ctx the parse tree
+	 */
+	void exitSharding_strategy(QlParser.Sharding_strategyContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link QlParser#create_database}.
 	 * @param ctx the parse tree
 	 */

@@ -46,7 +46,9 @@ value:  INT | FLOAT | QOUTED_STRING |STRING;
 id : STRING;
 
 
-database_command: create_database | delete_database| drop_database | switch_database |get_curr_database | switch_database_to_default | drop_default_database | get_curr_database;
+database_command: create_database | delete_database| drop_database | switch_database |get_curr_database | switch_database_to_default | drop_default_database | get_curr_database | reshard_curr_database;
+reshard_curr_database: 'RESHARD' 'DATABASE' 'USING' sharding_strategy;
+sharding_strategy: ('HASH' | 'RANDOM' | 'EQUAL' | 'ROUND_ROBIN' | 'TARJAN');
 create_database: 'CREATE' 'DATABASE' database_name;
 delete_database: 'DELETE' 'DATABASE' database_name;
 drop_database: 'DROP' 'DATABASE' database_name;

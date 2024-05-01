@@ -179,6 +179,18 @@ public interface QlVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDatabase_command(QlParser.Database_commandContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link QlParser#reshard_curr_database}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReshard_curr_database(QlParser.Reshard_curr_databaseContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#sharding_strategy}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSharding_strategy(QlParser.Sharding_strategyContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QlParser#create_database}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
