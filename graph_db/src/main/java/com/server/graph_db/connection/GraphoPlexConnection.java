@@ -42,6 +42,9 @@ public class GraphoPlexConnection {
     public GraphoPlexConnection connect() throws IOException {
         url = new URL("http://" + host + ":" + port + "/query");
         conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("POST");
+        conn.setRequestProperty("Content-Type", "application/json");
+        conn.setDoOutput(true);
         return this;
     }
 
@@ -51,9 +54,9 @@ public class GraphoPlexConnection {
     }
 
     public GraphoPlexConnection createDatabase(String databaseName) throws IOException {
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setDoOutput(true);
+//        conn.setRequestMethod("POST");
+//        conn.setRequestProperty("Content-Type", "application/json");
+//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"CREATE DATABASE " + databaseName + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -68,13 +71,15 @@ public class GraphoPlexConnection {
             }
             System.out.println(response.toString());
         }
+        conn.disconnect();
+        connect();
         return this;
     }
 
     public GraphoPlexConnection switchDatabase(String databaseName) throws IOException {
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setDoOutput(true);
+//        conn.setRequestMethod("POST");
+//        conn.setRequestProperty("Content-Type", "application/json");
+//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"SWITCH DATABASE " + databaseName + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -89,13 +94,15 @@ public class GraphoPlexConnection {
             }
             System.out.println(response.toString());
         }
+        conn.disconnect();
+        connect();
         return this;
     }
 
     public GraphoPlexConnection dropDatabase(String databaseName) throws IOException {
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setDoOutput(true);
+//        conn.setRequestMethod("POST");
+//        conn.setRequestProperty("Content-Type", "application/json");
+//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"DROP DATABASE " + databaseName + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -110,13 +117,15 @@ public class GraphoPlexConnection {
             }
             System.out.println(response.toString());
         }
+        conn.disconnect();
+        connect();
         return this;
     }
 
     public GraphoPlexConnection deleteDatabase(String databaseName) throws IOException {
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setDoOutput(true);
+//        conn.setRequestMethod("POST");
+//        conn.setRequestProperty("Content-Type", "application/json");
+//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"DELETE DATABASE " + databaseName + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -131,13 +140,15 @@ public class GraphoPlexConnection {
             }
             System.out.println(response.toString());
         }
+        conn.disconnect();
+        connect();
         return this;
     }
 
     public GraphoPlexConnection createVertex(Vertex vertex) throws IOException {
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setDoOutput(true);
+//        conn.setRequestMethod("POST");
+//        conn.setRequestProperty("Content-Type", "application/json");
+//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"CREATE VERTEX (" + vertex.getId() + ":" + vertex.getLabel() + " " + flattenProperties(vertex.getProperties()) + ")" + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -154,13 +165,15 @@ public class GraphoPlexConnection {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        conn.disconnect();
+        connect();
         return this;
     }
 
     public GraphoPlexConnection createEdge(Edge edge) throws IOException {
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setDoOutput(true);
+//        conn.setRequestMethod("POST");
+//        conn.setRequestProperty("Content-Type", "application/json");
+//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"CREATE EDGE " + edge.getLabel() + " FROM " + edge.getSourceVertexId() + " TO " + edge.getDestinationVertexId() + " WITH " + flattenProperties(edge.getProperties()) + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -177,6 +190,8 @@ public class GraphoPlexConnection {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        conn.disconnect();
+        connect();
         return this;
     }
 
@@ -187,6 +202,8 @@ public class GraphoPlexConnection {
         for(Edge edge : g.getEdgeMap().values().stream().flatMap(List::stream).collect(Collectors.toList())){
             createEdge(edge);
         }
+        conn.disconnect();
+        connect();
         return this;
     }
 
@@ -198,6 +215,8 @@ public class GraphoPlexConnection {
         for(String key : properties.keySet()){
             sb.append(key + ": " + properties.get(key) + ", ");
         }
+        if(sb.length() == 1)
+            return "";
         sb.delete(sb.length() - 2, sb.length());
         sb.append("}");
         return sb.toString();
