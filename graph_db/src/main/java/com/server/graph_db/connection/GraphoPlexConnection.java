@@ -1,5 +1,9 @@
 package com.server.graph_db.connection;
 
+import com.server.graph_db.alghorithms.strategies.sharding.EqualPartitionShardingStrategy;
+import com.server.graph_db.alghorithms.strategies.sharding.RandomPartitionShardingStrategy;
+import com.server.graph_db.alghorithms.strategies.sharding.RoundRobinShardingStrategy;
+import com.server.graph_db.alghorithms.strategies.sharding.TarjanAlgorithmShardingStrategy;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
 import com.server.graph_db.graphs.Graph;
@@ -201,6 +205,40 @@ public class GraphoPlexConnection {
         }
         for(Edge edge : g.getEdgeMap().values().stream().flatMap(List::stream).collect(Collectors.toList())){
             createEdge(edge);
+        }
+        conn.disconnect();
+        connect();
+        if(g.getShardingStrategy() instanceof TarjanAlgorithmShardingStrategy)
+            reshardDatabase("TARJAN");
+        else if (g.getShardingStrategy() instanceof RandomPartitionShardingStrategy)
+            reshardDatabase("RANDOM");
+        else if (g.getShardingStrategy() instanceof RoundRobinShardingStrategy)
+            reshardDatabase("ROUND_ROBIN");
+        else if (g.getShardingStrategy() instanceof EqualPartitionShardingStrategy)
+            reshardDatabase("EQUAL");
+        else
+            reshardDatabase("HASH");
+        return this;
+    }
+
+    public GraphoPlexConnection reshardDatabase(String shardingStrategy) throws IOException {
+        if(!shardingStrategy.equalsIgnoreCase("HASH") && !shardingStrategy.equalsIgnoreCase("EQUAL") && !shardingStrategy.equalsIgnoreCase("RANDOM") && !shardingStrategy.equalsIgnoreCase("ROUND_ROBIN") && !shardingStrategy.equalsIgnoreCase("TARJAN"))
+            throw new IllegalArgumentException("Sharding strategy must be either HASH, EQUAL, RANDOM, ROUND_ROBIN or TARJAN");
+        String jsonInputString = "{\"query\": \"RESHARD DATABASE USING " + shardingStrategy.toUpperCase() + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         conn.disconnect();
         connect();
