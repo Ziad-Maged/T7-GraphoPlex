@@ -2,6 +2,7 @@ package com.server.graph_db.query;
 
 import com.server.graph_db.alghorithms.AStar;
 import com.server.graph_db.alghorithms.BellmanFord;
+import com.server.graph_db.alghorithms.Dijkstra;
 import com.server.graph_db.alghorithms.ShortestPathAlghorithm;
 import com.server.graph_db.alghorithms.heuristics.Euclidean;
 import com.server.graph_db.alghorithms.heuristics.Hueristic;
@@ -306,7 +307,9 @@ public class QueryWalker extends QlBaseListener {
         String destinationId = ctx.destinationId().getText();
         String costField = ctx.cost().getText();
         ShortestPathAlghorithm shortestPathAlghorithm;
-        if (ctx.heuristic() == null) {
+        if(ctx.heuristic() == null && ctx.has_negative() == null){
+            shortestPathAlghorithm = new Dijkstra(globalVertexService);
+        } else if (ctx.heuristic() == null && ctx.has_negative() != null) {
             shortestPathAlghorithm = new BellmanFord(globalVertexService);
         } else {
             Hueristic hueristic = null;

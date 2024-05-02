@@ -333,6 +333,13 @@ public class QlBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements QlV
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitHas_negative(QlParser.Has_negativeContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitHeuristic(QlParser.HeuristicContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

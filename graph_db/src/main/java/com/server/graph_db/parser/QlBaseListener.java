@@ -557,6 +557,18 @@ public class QlBaseListener implements QlListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterHas_negative(QlParser.Has_negativeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitHas_negative(QlParser.Has_negativeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterHeuristic(QlParser.HeuristicContext ctx) { }
 	/**
 	 * {@inheritDoc}

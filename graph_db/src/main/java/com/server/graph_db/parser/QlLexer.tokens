@@ -64,11 +64,13 @@ T__62=63
 T__63=64
 T__64=65
 T__65=66
-STRING=67
-INT=68
-FLOAT=69
-WS=70
-QOUTED_STRING=71
+T__66=67
+T__67=68
+STRING=69
+INT=70
+FLOAT=71
+WS=72
+QOUTED_STRING=73
 'CREATE'=1
 'DELETE'=2
 'UPDATE'=3
@@ -116,22 +118,24 @@ QOUTED_STRING=71
 'TOPOLOGICAL'=45
 'SORT'=46
 'PATH'=47
-'USING HUERISTIC'=48
-'MANHATTAN'=49
-'x ='=50
-'y ='=51
-'EUCLIDEAN'=52
-'[('=53
-']'=54
-'AS'=55
-'-'=56
-'->'=57
-'<-'=58
-'<>'=59
-'<'=60
-'>'=61
-'<='=62
-'>='=63
-'WHERE'=64
-'RETURN'=65
-'.'=66
+'HAS'=48
+'NEGATIVE'=49
+'USING HUERISTIC'=50
+'MANHATTAN'=51
+'x ='=52
+'y ='=53
+'EUCLIDEAN'=54
+'[('=55
+']'=56
+'AS'=57
+'-'=58
+'->'=59
+'<-'=60
+'<>'=61
+'<'=62
+'>'=63
+'<='=64
+'>='=65
+'WHERE'=66
+'RETURN'=67
+'.'=68

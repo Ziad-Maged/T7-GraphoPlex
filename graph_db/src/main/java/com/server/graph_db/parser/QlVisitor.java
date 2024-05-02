@@ -281,6 +281,12 @@ public interface QlVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitShortest_path_query(QlParser.Shortest_path_queryContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link QlParser#has_negative}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHas_negative(QlParser.Has_negativeContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QlParser#heuristic}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

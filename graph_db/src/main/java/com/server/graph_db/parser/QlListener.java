@@ -458,6 +458,16 @@ public interface QlListener extends ParseTreeListener {
 	 */
 	void exitShortest_path_query(QlParser.Shortest_path_queryContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link QlParser#has_negative}.
+	 * @param ctx the parse tree
+	 */
+	void enterHas_negative(QlParser.Has_negativeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#has_negative}.
+	 * @param ctx the parse tree
+	 */
+	void exitHas_negative(QlParser.Has_negativeContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link QlParser#heuristic}.
 	 * @param ctx the parse tree
 	 */
