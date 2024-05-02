@@ -58,9 +58,6 @@ public class GraphoPlexConnection {
     }
 
     public GraphoPlexConnection createDatabase(String databaseName) throws IOException {
-//        conn.setRequestMethod("POST");
-//        conn.setRequestProperty("Content-Type", "application/json");
-//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"CREATE DATABASE " + databaseName + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -71,7 +68,7 @@ public class GraphoPlexConnection {
             StringBuilder response = new StringBuilder();
             String responseLine = null;
             while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
+                response.append(responseLine.trim() + "\n");
             }
             System.out.println(response.toString());
         }
@@ -81,9 +78,6 @@ public class GraphoPlexConnection {
     }
 
     public GraphoPlexConnection switchDatabase(String databaseName) throws IOException {
-//        conn.setRequestMethod("POST");
-//        conn.setRequestProperty("Content-Type", "application/json");
-//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"SWITCH DATABASE " + databaseName + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -94,7 +88,7 @@ public class GraphoPlexConnection {
             StringBuilder response = new StringBuilder();
             String responseLine = null;
             while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
+                response.append(responseLine.trim() + "\n");
             }
             System.out.println(response.toString());
         }
@@ -104,9 +98,6 @@ public class GraphoPlexConnection {
     }
 
     public GraphoPlexConnection dropDatabase(String databaseName) throws IOException {
-//        conn.setRequestMethod("POST");
-//        conn.setRequestProperty("Content-Type", "application/json");
-//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"DROP DATABASE " + databaseName + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -117,7 +108,7 @@ public class GraphoPlexConnection {
             StringBuilder response = new StringBuilder();
             String responseLine = null;
             while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
+                response.append(responseLine.trim() + "\n");
             }
             System.out.println(response.toString());
         }
@@ -127,9 +118,6 @@ public class GraphoPlexConnection {
     }
 
     public GraphoPlexConnection deleteDatabase(String databaseName) throws IOException {
-//        conn.setRequestMethod("POST");
-//        conn.setRequestProperty("Content-Type", "application/json");
-//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"DELETE DATABASE " + databaseName + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -140,7 +128,7 @@ public class GraphoPlexConnection {
             StringBuilder response = new StringBuilder();
             String responseLine = null;
             while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
+                response.append(responseLine.trim() + "\n");
             }
             System.out.println(response.toString());
         }
@@ -150,9 +138,6 @@ public class GraphoPlexConnection {
     }
 
     public GraphoPlexConnection createVertex(Vertex vertex) throws IOException {
-//        conn.setRequestMethod("POST");
-//        conn.setRequestProperty("Content-Type", "application/json");
-//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"CREATE VERTEX (" + vertex.getId() + ":" + vertex.getLabel() + " " + flattenProperties(vertex.getProperties()) + ")" + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -163,7 +148,7 @@ public class GraphoPlexConnection {
             StringBuilder response = new StringBuilder();
             String responseLine = null;
             while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
+                response.append(responseLine.trim() + "\n");
             }
             System.out.println(response.toString());
         } catch (IOException e) {
@@ -175,9 +160,6 @@ public class GraphoPlexConnection {
     }
 
     public GraphoPlexConnection createEdge(Edge edge) throws IOException {
-//        conn.setRequestMethod("POST");
-//        conn.setRequestProperty("Content-Type", "application/json");
-//        conn.setDoOutput(true);
         String jsonInputString = "{\"query\": \"CREATE EDGE " + edge.getLabel() + " FROM " + edge.getSourceVertexId() + " TO " + edge.getDestinationVertexId() + " WITH " + flattenProperties(edge.getProperties()) + "\"}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -188,7 +170,144 @@ public class GraphoPlexConnection {
             StringBuilder response = new StringBuilder();
             String responseLine = null;
             while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection topologicalSort() throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH TOPOLOGICAL SORT" + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection bridgeEdges() throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH BRIDGE EDGES" + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection allShortestPaths(String cost) throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH ALL SHORTEST PATHS WITH COST = " + cost + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection minimumSpanningTree(String cost) throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH MINIMUM SPANNING TREE WITH COST = " + cost + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection maximumFlow(String source, String sink, String capacity) throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH MAXIMUM FLOW FROM " + source + " TO " + sink + " WITH CAPACITY = " + capacity + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection shortestPath(String source, String destination, String cost) throws IOException{
+        return shortestPath(source, destination, cost, false);
+    }
+
+    public GraphoPlexConnection shortestPath(String source, String destination, String cost, boolean hasNegative) throws IOException {
+        String negative = (hasNegative) ? " HAS NEGATIVE" : "";
+        String jsonInputString = "{\"query\": \"MATCH SHORTEST PATH FROM " + source + " TO " + destination + " WITH COST = " + cost + negative + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
             }
             System.out.println(response.toString());
         } catch (IOException e) {
@@ -234,7 +353,7 @@ public class GraphoPlexConnection {
             StringBuilder response = new StringBuilder();
             String responseLine = null;
             while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
+                response.append(responseLine.trim() + "\n");
             }
             System.out.println(response.toString());
         } catch (IOException e) {
