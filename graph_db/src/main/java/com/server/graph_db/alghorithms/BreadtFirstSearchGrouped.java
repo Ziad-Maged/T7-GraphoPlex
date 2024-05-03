@@ -47,6 +47,8 @@ public class BreadtFirstSearchGrouped {
         }
 
         for(String vertexId : verticesIds){
+            if (vertexId.equals("Properties"))
+                continue;
             BreadthFirstSearchTraversable bfsTraversable = new BreadthFirstSearchTraversable(vertexId);
             if(path.getStartVertexBinding().hasAlias()){
                 bfsTraversable.addAliasedVertex(vertexId, path.getStartVertexBinding().getAlias());
