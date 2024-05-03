@@ -179,6 +179,30 @@ public interface QlVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDatabase_command(QlParser.Database_commandContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link QlParser#assert_graph_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssert_graph_type(QlParser.Assert_graph_typeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#graph_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGraph_type(QlParser.Graph_typeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#rows}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRows(QlParser.RowsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#columns}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColumns(QlParser.ColumnsContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QlParser#reshard_curr_database}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

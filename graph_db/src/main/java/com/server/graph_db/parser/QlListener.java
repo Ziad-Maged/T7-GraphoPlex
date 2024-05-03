@@ -288,6 +288,46 @@ public interface QlListener extends ParseTreeListener {
 	 */
 	void exitDatabase_command(QlParser.Database_commandContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link QlParser#assert_graph_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssert_graph_type(QlParser.Assert_graph_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#assert_graph_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssert_graph_type(QlParser.Assert_graph_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#graph_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterGraph_type(QlParser.Graph_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#graph_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitGraph_type(QlParser.Graph_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#rows}.
+	 * @param ctx the parse tree
+	 */
+	void enterRows(QlParser.RowsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#rows}.
+	 * @param ctx the parse tree
+	 */
+	void exitRows(QlParser.RowsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#columns}.
+	 * @param ctx the parse tree
+	 */
+	void enterColumns(QlParser.ColumnsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#columns}.
+	 * @param ctx the parse tree
+	 */
+	void exitColumns(QlParser.ColumnsContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link QlParser#reshard_curr_database}.
 	 * @param ctx the parse tree
 	 */

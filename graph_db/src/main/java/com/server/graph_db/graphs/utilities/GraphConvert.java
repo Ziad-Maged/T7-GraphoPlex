@@ -1,5 +1,4 @@
 package com.server.graph_db.graphs.utilities;
-import com.server.graph_db.alghorithms.strategies.TestingStrategy;
 import com.server.graph_db.alghorithms.strategies.sharding.HashBasedShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.testing.*;
 import com.server.graph_db.graphs.*;
@@ -8,12 +7,6 @@ import com.server.graph_db.graphs.*;
 public class GraphConvert {
 
     public static HamiltonianGraph toHamiltonianGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new HamiltonianGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         HamiltonianGraph hamiltonianGraph = new HamiltonianGraph();
         hamiltonianGraph.setShardingStrategy(new HashBasedShardingStrategy());
         hamiltonianGraph.setNodes(graph.getNodes());
@@ -27,12 +20,6 @@ public class GraphConvert {
     }
 
     public static EulerianGraph toEulerianGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new EulerianGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         EulerianGraph eulerianGraph = new EulerianGraph();
         eulerianGraph.setShardingStrategy(new HashBasedShardingStrategy());
         eulerianGraph.setNodes(graph.getNodes());
@@ -46,12 +33,6 @@ public class GraphConvert {
     }
 
     public static CubicGraph toCubicGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new CubicGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         CubicGraph cubicGraph = new CubicGraph();
         cubicGraph.setShardingStrategy(new HashBasedShardingStrategy());
         cubicGraph.setNodes(graph.getNodes());
@@ -65,12 +46,6 @@ public class GraphConvert {
     }
 
     public static StarGraph toStarGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new StarGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         StarGraph starGraph = new StarGraph();
         starGraph.setShardingStrategy(new HashBasedShardingStrategy());
         starGraph.setNodes(graph.getNodes());
@@ -84,12 +59,6 @@ public class GraphConvert {
     }
 
     public static SplitGraph toSplitGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new SplitGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         SplitGraph splitGraph = new SplitGraph();
         splitGraph.setShardingStrategy(new HashBasedShardingStrategy());
         splitGraph.setNodes(graph.getNodes());
@@ -103,12 +72,6 @@ public class GraphConvert {
     }
 
     public static TournamentGraph toTournamentGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new TournamentGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         TournamentGraph tournamentGraph = new TournamentGraph();
         tournamentGraph.setShardingStrategy(new HashBasedShardingStrategy());
         tournamentGraph.setNodes(graph.getNodes());
@@ -122,12 +85,6 @@ public class GraphConvert {
     }
 
     public static WheelGraph toWheelGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new WheelGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         WheelGraph wheelGraph = new WheelGraph();
         wheelGraph.setShardingStrategy(new HashBasedShardingStrategy());
         wheelGraph.setNodes(graph.getNodes());
@@ -141,12 +98,6 @@ public class GraphConvert {
     }
 
     public static RegularBipartiteGraph toRegularBipartiteGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new RegularBipartiteGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         RegularBipartiteGraph regularBipartiteGraph = new RegularBipartiteGraph();
         regularBipartiteGraph.setShardingStrategy(new HashBasedShardingStrategy());
         regularBipartiteGraph.setNodes(graph.getNodes());
@@ -160,12 +111,6 @@ public class GraphConvert {
     }
 
     public static CompleteBipartiteGraph toCompleteBipartiteGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new CompleteBipartiteGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         CompleteBipartiteGraph completeBipartiteGraph = new CompleteBipartiteGraph();
         completeBipartiteGraph.setShardingStrategy(new HashBasedShardingStrategy());
         completeBipartiteGraph.setNodes(graph.getNodes());
@@ -179,12 +124,6 @@ public class GraphConvert {
     }
 
     public static RegularGraph toRegularGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new RegularGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         RegularGraph regularGraph = new RegularGraph();
         regularGraph.setShardingStrategy(new HashBasedShardingStrategy());
         regularGraph.setNodes(graph.getNodes());
@@ -198,12 +137,6 @@ public class GraphConvert {
     }
 
     public static LineGraph toLineGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new LineGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         LineGraph lineGraph = new LineGraph();
         lineGraph.setShardingStrategy(new HashBasedShardingStrategy());
         lineGraph.setNodes(graph.getNodes());
@@ -217,12 +150,6 @@ public class GraphConvert {
     }
 
     public static IntervalGraph toIntervalGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new IntervalGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
         IntervalGraph intervalGraph = new IntervalGraph();
         intervalGraph.setShardingStrategy(new HashBasedShardingStrategy());
         intervalGraph.setNodes(graph.getNodes());
@@ -235,18 +162,14 @@ public class GraphConvert {
         return intervalGraph;
     }
 
-    public static GridGraph toGridGraph(Graph graph) {
-        TestingStrategy strategy = graph.getTestingStrategy();
-        graph.setTestingStrategy(new GridGraphTestingStrategy());
-        if(!graph.validate()){
-            graph.setTestingStrategy(strategy);
-            return null;
-        }
+    public static GridGraph toGridGraph(Graph graph, int rows, int columns) {
         GridGraph gridGraph = new GridGraph();
         gridGraph.setShardingStrategy(new HashBasedShardingStrategy());
         gridGraph.setNodes(graph.getNodes());
         gridGraph.setVertices(graph.getVertices());
         gridGraph.setEdges(graph.getEdges());
+        gridGraph.setRows(rows);
+        gridGraph.setColumns(columns);
         gridGraph.setVertexMap(graph.getVertexMap());
         gridGraph.setEdgeMap(graph.getEdgeMap());
         gridGraph.setProperties(graph.getProperties());

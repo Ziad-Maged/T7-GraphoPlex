@@ -19,6 +19,7 @@ import com.server.graph_db.core.traversers.bindings.Path;
 import com.server.graph_db.core.traversers.bindings.VertexBinding;
 import com.server.graph_db.core.vertex.GlobalVertexService;
 import com.server.graph_db.parser.QlBaseListener;
+import com.server.graph_db.parser.QlParser;
 import com.server.graph_db.parser.QlParser.*;
 import com.server.graph_db.query.crud.CrudQuery;
 import com.server.graph_db.query.crud.crudcommands.edgecommands.CreateEdgeCommand;
@@ -227,6 +228,19 @@ public class QueryWalker extends QlBaseListener {
         reshardDatabaseCommand.setGlobalDatabaseService(globalDatabaseService);
         reshardDatabaseCommand.setVertexService(globalVertexService);
         query.setCommand(reshardDatabaseCommand);
+    }
+
+    @Override
+    public void exitAssert_graph_type(QlParser.Assert_graph_typeContext ctx) {
+        String graphType = ctx.graph_type().getText();
+        AssertGraphTypeCommand assertGraphTypeCommand;
+        if(graphType.contains("GRID")){
+            int rows = Integer.parseInt(ctx.graph_type().rows().getText());
+            int columns = Integer.parseInt(ctx.graph_type().columns().getText());
+            assertGraphTypeCommand = new AssertGraphTypeCommand(globalVertexService, rows, columns);
+        }else
+            assertGraphTypeCommand = new AssertGraphTypeCommand(globalVertexService, graphType);
+        query.setCommand(assertGraphTypeCommand);
     }
 
     @Override

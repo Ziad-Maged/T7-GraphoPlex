@@ -389,6 +389,28 @@ public class GraphoPlexConnection {
         return this;
     }
 
+    public GraphoPlexConnection assertGraphType(String type) throws IOException{
+        String jsonInputString = "{\"query\": \"ASSERT GRAPH_TYPE IS " + type + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
     private String flattenProperties(Map<String, String> properties){
         if(properties == null)
             return "{}";
