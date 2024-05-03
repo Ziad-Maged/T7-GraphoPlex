@@ -341,6 +341,9 @@ public class GraphoPlexConnection {
     }
 
     public GraphoPlexConnection createGraph(Graph g) throws IOException {
+        Vertex properties = new Vertex("Properties");
+        properties.setProperties(g.getProperties());
+        createVertex(properties);
         for(Vertex vertex : g.getVertexMap().values()){
             createVertex(vertex);
         }

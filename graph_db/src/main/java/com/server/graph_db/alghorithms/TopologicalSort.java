@@ -20,6 +20,8 @@ public class TopologicalSort {
         Deque<String> stack = new ArrayDeque<>();
 
         for (String vertexId : vertexService.getAllVerticesIds()) {
+            if (vertexId.equals("Properties"))
+                continue;
             if (!visited.contains(vertexId)) {
                 topologicalSortUtil(vertexId, visited, stack);
             }
@@ -28,7 +30,6 @@ public class TopologicalSort {
         while (!stack.isEmpty()) {
             sortedVertices.add(vertexService.getVertex(stack.pop()));
         }
-//        sortedVertices = vertexService.getGraph().topologicalSort();
     }
 
     private void topologicalSortUtil(String vertexId, Set<String> visited, Deque<String> stack) throws Exception {
