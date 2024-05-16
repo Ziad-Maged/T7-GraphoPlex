@@ -19,7 +19,7 @@ public class SecondaryIndexServiceImpl extends indexServiceGrpc.indexServiceImpl
     LocalSecondaryIndexManager localSecondaryIndexManager;
 
     @Override
-    public void createIndex (createIndexRequest request, io.grpc.stub.StreamObserver<com.server.graph_db.grpc.index.createIndexResponse> responseObserver) {
+    public void createIndex (createIndexRequest request, io.grpc.stub.StreamObserver<createIndexResponse> responseObserver) {
 
         localSecondaryIndexManager.createIndex(request.getIndexName());
 

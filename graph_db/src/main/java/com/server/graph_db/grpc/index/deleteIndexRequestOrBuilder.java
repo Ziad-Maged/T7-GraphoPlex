@@ -11,7 +11,7 @@ public interface deleteIndexRequestOrBuilder extends
    * <code>string indexName = 1;</code>
    * @return The indexName.
    */
-  java.lang.String getIndexName();
+  String getIndexName();
   /**
    * <code>string indexName = 1;</code>
    * @return The bytes for indexName.

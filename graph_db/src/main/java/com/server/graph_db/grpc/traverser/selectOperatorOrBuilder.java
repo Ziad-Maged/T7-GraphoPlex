@@ -11,7 +11,7 @@ public interface selectOperatorOrBuilder extends
    * <code>string fieldName = 1;</code>
    * @return The fieldName.
    */
-  java.lang.String getFieldName();
+  String getFieldName();
   /**
    * <code>string fieldName = 1;</code>
    * @return The bytes for fieldName.
@@ -23,7 +23,7 @@ public interface selectOperatorOrBuilder extends
    * <code>string operator = 2;</code>
    * @return The operator.
    */
-  java.lang.String getOperator();
+  String getOperator();
   /**
    * <code>string operator = 2;</code>
    * @return The bytes for operator.
@@ -35,7 +35,7 @@ public interface selectOperatorOrBuilder extends
    * <code>string fieldValue = 3;</code>
    * @return The fieldValue.
    */
-  java.lang.String getFieldValue();
+  String getFieldValue();
   /**
    * <code>string fieldValue = 3;</code>
    * @return The bytes for fieldValue.

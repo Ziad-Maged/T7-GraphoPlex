@@ -23,4 +23,12 @@ public class ShortestPathResult extends Result {
 
         return sb.toString()+"\n\n" +super.toString();
     }
+
+    public Iterable<Edge> getPath() {
+        return path;
+    }
+
+    public void setPath(Iterable<Edge> path) {
+        this.path = path;
+    }
 }

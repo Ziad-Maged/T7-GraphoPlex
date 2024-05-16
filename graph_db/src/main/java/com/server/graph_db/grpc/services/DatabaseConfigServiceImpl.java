@@ -21,7 +21,7 @@ public class DatabaseConfigServiceImpl extends databaseConfigServiceGrpc.databas
 
     @Override
     public void createDatabase(DatabaseName request,
-            io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+            io.grpc.stub.StreamObserver<reply> responseObserver) {
         try {
             databaseService.createDatabase(request.getName());
             //build ok status
@@ -44,7 +44,7 @@ public class DatabaseConfigServiceImpl extends databaseConfigServiceGrpc.databas
 
     @Override
     public void deleteDatabase(DatabaseName request,
-            io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+            io.grpc.stub.StreamObserver<reply> responseObserver) {
         try {
             databaseService.deleteDatabase(request.getName());
             //build ok status
@@ -66,7 +66,7 @@ public class DatabaseConfigServiceImpl extends databaseConfigServiceGrpc.databas
 
     @Override
     public void dropDatabase(DatabaseName request,
-            io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+            io.grpc.stub.StreamObserver<reply> responseObserver) {
         try {
             databaseService.dropDatabase(request.getName());
             //build ok status
@@ -88,7 +88,7 @@ public class DatabaseConfigServiceImpl extends databaseConfigServiceGrpc.databas
 
     @Override
     public void switchDatabase (DatabaseName request,
-            io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+            io.grpc.stub.StreamObserver<reply> responseObserver) {
         try {
             databaseService.switchDatabase(request.getName());
             //build ok status
@@ -110,7 +110,7 @@ public class DatabaseConfigServiceImpl extends databaseConfigServiceGrpc.databas
 
     @Override
     public void switchToDefaultDatabase(emptyResponse request,
-            io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+            io.grpc.stub.StreamObserver<reply> responseObserver) {
         try {
             databaseService.switchToDefaultDatabase();
             //build ok status
@@ -126,7 +126,7 @@ public class DatabaseConfigServiceImpl extends databaseConfigServiceGrpc.databas
 
     @Override
     public void dropDefaultDatabase (emptyResponse request,
-            io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+            io.grpc.stub.StreamObserver<reply> responseObserver) {
         try {
             databaseService.dropDefaultDatabase();
             //build ok status
@@ -142,7 +142,7 @@ public class DatabaseConfigServiceImpl extends databaseConfigServiceGrpc.databas
 
     @Override
     public void getCurrentDatabase(emptyResponse request,
-            io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.DatabaseName> responseObserver) {
+            io.grpc.stub.StreamObserver<DatabaseName> responseObserver) {
         try {
             String currentDatabase = databaseService.getCurrentDatabase();
             //build ok status

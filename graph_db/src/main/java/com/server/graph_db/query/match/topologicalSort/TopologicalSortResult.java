@@ -23,4 +23,12 @@ public class TopologicalSortResult extends Result {
 
         return sb.toString()+"\n\n" +super.toString();
     }
+
+    public Iterable<Vertex> getVertices() {
+        return vertices;
+    }
+
+    public void setVertices(Iterable<Vertex> vertices) {
+        this.vertices = vertices;
+    }
 }

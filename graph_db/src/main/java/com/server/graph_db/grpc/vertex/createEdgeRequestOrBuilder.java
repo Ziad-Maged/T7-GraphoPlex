@@ -11,7 +11,7 @@ public interface createEdgeRequestOrBuilder extends
    * <code>string sourceVertexId = 1;</code>
    * @return The sourceVertexId.
    */
-  java.lang.String getSourceVertexId();
+  String getSourceVertexId();
   /**
    * <code>string sourceVertexId = 1;</code>
    * @return The bytes for sourceVertexId.
@@ -23,7 +23,7 @@ public interface createEdgeRequestOrBuilder extends
    * <code>string destinationVertexId = 2;</code>
    * @return The destinationVertexId.
    */
-  java.lang.String getDestinationVertexId();
+  String getDestinationVertexId();
   /**
    * <code>string destinationVertexId = 2;</code>
    * @return The bytes for destinationVertexId.
@@ -35,7 +35,7 @@ public interface createEdgeRequestOrBuilder extends
    * <code>string label = 3;</code>
    * @return The label.
    */
-  java.lang.String getLabel();
+  String getLabel();
   /**
    * <code>string label = 3;</code>
    * @return The bytes for label.
@@ -51,31 +51,31 @@ public interface createEdgeRequestOrBuilder extends
    * <code>map&lt;string, string&gt; properties = 4;</code>
    */
   boolean containsProperties(
-      java.lang.String key);
+      String key);
   /**
    * Use {@link #getPropertiesMap()} instead.
    */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, java.lang.String>
+  @Deprecated
+  java.util.Map<String, String>
   getProperties();
   /**
    * <code>map&lt;string, string&gt; properties = 4;</code>
    */
-  java.util.Map<java.lang.String, java.lang.String>
+  java.util.Map<String, String>
   getPropertiesMap();
   /**
    * <code>map&lt;string, string&gt; properties = 4;</code>
    */
 
-  java.lang.String getPropertiesOrDefault(
-      java.lang.String key,
-      java.lang.String defaultValue);
+  String getPropertiesOrDefault(
+      String key,
+      String defaultValue);
   /**
    * <code>map&lt;string, string&gt; properties = 4;</code>
    */
 
-  java.lang.String getPropertiesOrThrow(
-      java.lang.String key);
+  String getPropertiesOrThrow(
+      String key);
 
   /**
    * <pre>

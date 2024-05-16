@@ -10,12 +10,12 @@ public interface edgeIdsOrBuilder extends
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
-  java.util.List<com.server.graph_db.grpc.traverser.edgeId> 
+  java.util.List<edgeId>
       getEdgeIdsList();
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
-  com.server.graph_db.grpc.traverser.edgeId getEdgeIds(int index);
+  edgeId getEdgeIds(int index);
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
@@ -23,11 +23,11 @@ public interface edgeIdsOrBuilder extends
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
-  java.util.List<? extends com.server.graph_db.grpc.traverser.edgeIdOrBuilder> 
+  java.util.List<? extends edgeIdOrBuilder>
       getEdgeIdsOrBuilderList();
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
-  com.server.graph_db.grpc.traverser.edgeIdOrBuilder getEdgeIdsOrBuilder(
+  edgeIdOrBuilder getEdgeIdsOrBuilder(
       int index);
 }

@@ -4,9 +4,7 @@ import com.server.graph_db.alghorithms.AStar;
 import com.server.graph_db.alghorithms.BellmanFord;
 import com.server.graph_db.alghorithms.Dijkstra;
 import com.server.graph_db.alghorithms.ShortestPathAlghorithm;
-import com.server.graph_db.alghorithms.heuristics.Euclidean;
-import com.server.graph_db.alghorithms.heuristics.Hueristic;
-import com.server.graph_db.alghorithms.heuristics.Manhattan;
+import com.server.graph_db.alghorithms.heuristics.*;
 import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.sharding.*;
 import com.server.graph_db.core.database.GlobalDatabaseService;
@@ -19,7 +17,6 @@ import com.server.graph_db.core.traversers.bindings.Path;
 import com.server.graph_db.core.traversers.bindings.VertexBinding;
 import com.server.graph_db.core.vertex.GlobalVertexService;
 import com.server.graph_db.parser.QlBaseListener;
-import com.server.graph_db.parser.QlParser;
 import com.server.graph_db.parser.QlParser.*;
 import com.server.graph_db.query.crud.CrudQuery;
 import com.server.graph_db.query.crud.crudcommands.edgecommands.CreateEdgeCommand;
@@ -34,14 +31,20 @@ import com.server.graph_db.query.databaseconfig.DatabaseConfigQuery;
 import com.server.graph_db.query.databaseconfig.databaseconfigcommands.*;
 import com.server.graph_db.query.match.MatchQuery;
 import com.server.graph_db.query.match.allShortestPaths.AllShortestPathsCommand;
+import com.server.graph_db.query.match.articulationPoints.ArticulationPointsCommand;
 import com.server.graph_db.query.match.bridgeEdges.BridgeEdgesCommand;
+import com.server.graph_db.query.match.eccentricity.EccentricityCommand;
+import com.server.graph_db.query.match.edgeConnectivity.EdgeConnectivityCommand;
+import com.server.graph_db.query.match.girth.GirthCommand;
 import com.server.graph_db.query.match.maximumFlow.MaximumFlowCommand;
 import com.server.graph_db.query.match.minimumPanningTree.MinimumSpanningTreeCommand;
 import com.server.graph_db.query.match.path.PathCommand;
 import com.server.graph_db.query.match.path.ReturnClause;
 import com.server.graph_db.query.match.path.ReturnClause.ReturnedValue;
+import com.server.graph_db.query.match.radius.RadiusCommand;
 import com.server.graph_db.query.match.shortestPath.ShortestPathCommand;
 import com.server.graph_db.query.match.topologicalSort.TopologicalSortCommand;
+import com.server.graph_db.query.match.vertexConnectivity.VertexConnectivityCommand;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -231,7 +234,7 @@ public class QueryWalker extends QlBaseListener {
     }
 
     @Override
-    public void exitAssert_graph_type(QlParser.Assert_graph_typeContext ctx) {
+    public void exitAssert_graph_type(Assert_graph_typeContext ctx) {
         String graphType = ctx.graph_type().getText();
         AssertGraphTypeCommand assertGraphTypeCommand;
         if(graphType.contains("GRID")){
@@ -338,6 +341,16 @@ public class QueryWalker extends QlBaseListener {
                 String y = ctx.heuristic().heuristic_function().euclidean().second_variable().getText();
                 hueristic = new Euclidean(x,y);
 
+            }else if (ctx.heuristic().heuristic_function().octile()!=null){
+                String x = ctx.heuristic().heuristic_function().euclidean().first_variable().getText();
+                String y = ctx.heuristic().heuristic_function().euclidean().second_variable().getText();
+                hueristic = new Octile(x,y);
+
+            }else if (ctx.heuristic().heuristic_function().chebyshev()!=null){
+                String x = ctx.heuristic().heuristic_function().euclidean().first_variable().getText();
+                String y = ctx.heuristic().heuristic_function().euclidean().second_variable().getText();
+                hueristic = new Chebyshev(x,y);
+
             }
             shortestPathAlghorithm = new AStar(globalVertexService, hueristic);
         }
@@ -380,6 +393,45 @@ public class QueryWalker extends QlBaseListener {
     public void exitBridge_edges_query(Bridge_edges_queryContext ctx) {
         BridgeEdgesCommand bridgeEdgesCommand = new BridgeEdgesCommand();
         query.setCommand(bridgeEdgesCommand);
+    }
+
+    @Override
+    public void exitEccentricity_query(Eccentricity_queryContext ctx) {
+        String vertexId = ctx.id().getText();
+        EccentricityCommand eccentricityCommand = new EccentricityCommand(vertexId);
+        query.setCommand(eccentricityCommand);
+    }
+
+    @Override
+    public void exitRadius_query(Radius_queryContext ctx) {
+        RadiusCommand radiusCommand = new RadiusCommand();
+        query.setCommand(radiusCommand);
+    }
+
+    @Override
+    public void exitArticulation_points_query(Articulation_points_queryContext ctx) {
+        ArticulationPointsCommand articulationPointsCommand = new ArticulationPointsCommand();
+        query.setCommand(articulationPointsCommand);
+    }
+
+    @Override
+    public void exitGirth_query(Girth_queryContext ctx) {
+        GirthCommand girthCommand = new GirthCommand();
+        query.setCommand(girthCommand);
+    }
+
+    @Override
+    public void exitEdge_connectivity_query(Edge_connectivity_queryContext ctx) {
+        String cost = ctx.cost().getText();
+        EdgeConnectivityCommand edgeConnectivityCommand = new EdgeConnectivityCommand(cost);
+        query.setCommand(edgeConnectivityCommand);
+    }
+
+    @Override
+    public void exitVertex_connectivity_query(Vertex_connectivity_queryContext ctx) {
+        String cost = ctx.cost().getText();
+        VertexConnectivityCommand edgeConnectivityCommand = new VertexConnectivityCommand(cost);
+        query.setCommand(edgeConnectivityCommand);
     }
 
     

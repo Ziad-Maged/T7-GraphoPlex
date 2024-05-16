@@ -269,6 +269,42 @@ public interface QlVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMatch_query(QlParser.Match_queryContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link QlParser#vertex_connectivity_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVertex_connectivity_query(QlParser.Vertex_connectivity_queryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#edge_connectivity_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEdge_connectivity_query(QlParser.Edge_connectivity_queryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#girth_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGirth_query(QlParser.Girth_queryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#articulation_points_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArticulation_points_query(QlParser.Articulation_points_queryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#radius_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRadius_query(QlParser.Radius_queryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#eccentricity_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEccentricity_query(QlParser.Eccentricity_queryContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QlParser#all_shortest_paths_query}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -322,6 +358,18 @@ public interface QlVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitHeuristic_function(QlParser.Heuristic_functionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#chebyshev}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitChebyshev(QlParser.ChebyshevContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#octile}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOctile(QlParser.OctileContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link QlParser#manhattan}.
 	 * @param ctx the parse tree

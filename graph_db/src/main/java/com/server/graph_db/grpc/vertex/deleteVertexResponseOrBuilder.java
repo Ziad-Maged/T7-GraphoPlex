@@ -17,7 +17,7 @@ public interface deleteVertexResponseOrBuilder extends
    * <code>string message = 2;</code>
    * @return The message.
    */
-  java.lang.String getMessage();
+  String getMessage();
   /**
    * <code>string message = 2;</code>
    * @return The bytes for message.

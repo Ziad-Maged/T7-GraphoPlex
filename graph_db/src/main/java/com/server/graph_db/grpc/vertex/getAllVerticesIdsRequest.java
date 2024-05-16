@@ -18,14 +18,14 @@ private static final long serialVersionUID = 0L;
   private getAllVerticesIdsRequest() {
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new getAllVerticesIdsRequest();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -36,7 +36,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -69,19 +69,19 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.server.graph_db.grpc.vertex.Vertex.internal_static_getAllVerticesIdsRequest_descriptor;
+    return Vertex.internal_static_getAllVerticesIdsRequest_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.server.graph_db.grpc.vertex.Vertex.internal_static_getAllVerticesIdsRequest_fieldAccessorTable
+    return Vertex.internal_static_getAllVerticesIdsRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest.class, com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest.Builder.class);
+            getAllVerticesIdsRequest.class, Builder.class);
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -91,13 +91,13 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -108,21 +108,21 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest)) {
+    if (!(obj instanceof getAllVerticesIdsRequest)) {
       return super.equals(obj);
     }
-    com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest other = (com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest) obj;
+    getAllVerticesIdsRequest other = (getAllVerticesIdsRequest) obj;
 
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -134,69 +134,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(
+  public static getAllVerticesIdsRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(
+  public static getAllVerticesIdsRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(
+  public static getAllVerticesIdsRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(
+  public static getAllVerticesIdsRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(byte[] data)
+  public static getAllVerticesIdsRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(
+  public static getAllVerticesIdsRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(java.io.InputStream input)
+  public static getAllVerticesIdsRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(
+  public static getAllVerticesIdsRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseDelimitedFrom(java.io.InputStream input)
+  public static getAllVerticesIdsRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseDelimitedFrom(
+  public static getAllVerticesIdsRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(
+  public static getAllVerticesIdsRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parseFrom(
+  public static getAllVerticesIdsRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -204,23 +204,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest prototype) {
+  public static Builder newBuilder(getAllVerticesIdsRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -230,18 +230,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:getAllVerticesIdsRequest)
-      com.server.graph_db.grpc.vertex.getAllVerticesIdsRequestOrBuilder {
+      getAllVerticesIdsRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.server.graph_db.grpc.vertex.Vertex.internal_static_getAllVerticesIdsRequest_descriptor;
+      return Vertex.internal_static_getAllVerticesIdsRequest_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.server.graph_db.grpc.vertex.Vertex.internal_static_getAllVerticesIdsRequest_fieldAccessorTable
+      return Vertex.internal_static_getAllVerticesIdsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest.class, com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest.Builder.class);
+              getAllVerticesIdsRequest.class, Builder.class);
     }
 
     // Construct using com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest.newBuilder()
@@ -250,7 +250,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -259,103 +259,103 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.server.graph_db.grpc.vertex.Vertex.internal_static_getAllVerticesIdsRequest_descriptor;
+      return Vertex.internal_static_getAllVerticesIdsRequest_descriptor;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest getDefaultInstanceForType() {
-      return com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest.getDefaultInstance();
+    @Override
+    public getAllVerticesIdsRequest getDefaultInstanceForType() {
+      return getAllVerticesIdsRequest.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest build() {
-      com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest result = buildPartial();
+    @Override
+    public getAllVerticesIdsRequest build() {
+      getAllVerticesIdsRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest buildPartial() {
-      com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest result = new com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest(this);
+    @Override
+    public getAllVerticesIdsRequest buildPartial() {
+      getAllVerticesIdsRequest result = new getAllVerticesIdsRequest(this);
       onBuilt();
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest) {
-        return mergeFrom((com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest)other);
+      if (other instanceof getAllVerticesIdsRequest) {
+        return mergeFrom((getAllVerticesIdsRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest other) {
-      if (other == com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(getAllVerticesIdsRequest other) {
+      if (other == getAllVerticesIdsRequest.getDefaultInstance()) return this;
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest parsedMessage = null;
+      getAllVerticesIdsRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest) e.getUnfinishedMessage();
+        parsedMessage = (getAllVerticesIdsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -364,13 +364,13 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -381,18 +381,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:getAllVerticesIdsRequest)
-  private static final com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest DEFAULT_INSTANCE;
+  private static final getAllVerticesIdsRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest();
+    DEFAULT_INSTANCE = new getAllVerticesIdsRequest();
   }
 
-  public static com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest getDefaultInstance() {
+  public static getAllVerticesIdsRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<getAllVerticesIdsRequest>
       PARSER = new com.google.protobuf.AbstractParser<getAllVerticesIdsRequest>() {
-    @java.lang.Override
+    @Override
     public getAllVerticesIdsRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -405,13 +405,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<getAllVerticesIdsRequest> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.server.graph_db.grpc.vertex.getAllVerticesIdsRequest getDefaultInstanceForType() {
+  @Override
+  public getAllVerticesIdsRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

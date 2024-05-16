@@ -25,6 +25,18 @@ public class QueryManagerController {
         }
     }
 
+    @PostMapping("/queryAPI")
+    // function to execute query and return bad request if query is not valid or have errors
+    public Result executeQueryAPI(@RequestBody QueryRequest query) {
+        try {
+            Query queryObj = queryManager.Parse(query.query);
+            return queryObj.getResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     static class QueryRequest {
         public String query;
     }

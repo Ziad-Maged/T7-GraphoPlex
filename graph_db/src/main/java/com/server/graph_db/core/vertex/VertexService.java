@@ -1,9 +1,10 @@
 package com.server.graph_db.core.vertex;
 
+import java.util.LinkedList;
+import java.util.Map;
+
 import com.server.graph_db.core.exceptions.vertex.VertexAlreadyExistsException;
 import com.server.graph_db.core.exceptions.vertex.VertexNotFoundException;
-
-import java.util.Map;
 
 public interface VertexService {
 

@@ -1,10 +1,19 @@
 package com.server.graph_db.alghorithms;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.GlobalVertexService;
 import com.server.graph_db.core.vertex.Vertex;
 
-import java.util.*;
+import java.util.List;
 
 public class TopologicalSort {
     GlobalVertexService vertexService;
@@ -20,7 +29,7 @@ public class TopologicalSort {
         Deque<String> stack = new ArrayDeque<>();
 
         for (String vertexId : vertexService.getAllVerticesIds()) {
-            if (vertexId.equals("Properties"))
+            if(vertexId.equals("Properties"))
                 continue;
             if (!visited.contains(vertexId)) {
                 topologicalSortUtil(vertexId, visited, stack);
@@ -30,6 +39,7 @@ public class TopologicalSort {
         while (!stack.isEmpty()) {
             sortedVertices.add(vertexService.getVertex(stack.pop()));
         }
+//        sortedVertices = vertexService.getGraph().topologicalSort();
     }
 
     private void topologicalSortUtil(String vertexId, Set<String> visited, Deque<String> stack) throws Exception {

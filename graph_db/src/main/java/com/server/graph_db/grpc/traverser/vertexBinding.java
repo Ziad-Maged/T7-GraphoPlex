@@ -21,14 +21,14 @@ private static final long serialVersionUID = 0L;
     selectOperators_ = java.util.Collections.emptyList();
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new vertexBinding();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -39,7 +39,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -53,24 +53,24 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             id_ = s;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             label_ = s;
             break;
           }
           case 26: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              selectOperators_ = new java.util.ArrayList<com.server.graph_db.grpc.traverser.selectOperator>();
+              selectOperators_ = new java.util.ArrayList<selectOperator>();
               mutable_bitField0_ |= 0x00000001;
             }
             selectOperators_.add(
-                input.readMessage(com.server.graph_db.grpc.traverser.selectOperator.parser(), extensionRegistry));
+                input.readMessage(selectOperator.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -97,32 +97,32 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.server.graph_db.grpc.traverser.Traverser.internal_static_vertexBinding_descriptor;
+    return Traverser.internal_static_vertexBinding_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.server.graph_db.grpc.traverser.Traverser.internal_static_vertexBinding_fieldAccessorTable
+    return Traverser.internal_static_vertexBinding_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.server.graph_db.grpc.traverser.vertexBinding.class, com.server.graph_db.grpc.traverser.vertexBinding.Builder.class);
+            vertexBinding.class, Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  private volatile Object id_;
   /**
    * <code>string id = 1;</code>
    * @return The id.
    */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       id_ = s;
       return s;
     }
@@ -131,14 +131,14 @@ private static final long serialVersionUID = 0L;
    * <code>string id = 1;</code>
    * @return The bytes for id.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
+    Object ref = id_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       id_ = b;
       return b;
     } else {
@@ -147,20 +147,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LABEL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object label_;
+  private volatile Object label_;
   /**
    * <code>string label = 2;</code>
    * @return The label.
    */
-  @java.lang.Override
-  public java.lang.String getLabel() {
-    java.lang.Object ref = label_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getLabel() {
+    Object ref = label_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       label_ = s;
       return s;
     }
@@ -169,14 +169,14 @@ private static final long serialVersionUID = 0L;
    * <code>string label = 2;</code>
    * @return The bytes for label.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getLabelBytes() {
-    java.lang.Object ref = label_;
-    if (ref instanceof java.lang.String) {
+    Object ref = label_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       label_ = b;
       return b;
     } else {
@@ -185,47 +185,47 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELECTOPERATORS_FIELD_NUMBER = 3;
-  private java.util.List<com.server.graph_db.grpc.traverser.selectOperator> selectOperators_;
+  private java.util.List<selectOperator> selectOperators_;
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  @java.lang.Override
-  public java.util.List<com.server.graph_db.grpc.traverser.selectOperator> getSelectOperatorsList() {
+  @Override
+  public java.util.List<selectOperator> getSelectOperatorsList() {
     return selectOperators_;
   }
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  @java.lang.Override
-  public java.util.List<? extends com.server.graph_db.grpc.traverser.selectOperatorOrBuilder> 
+  @Override
+  public java.util.List<? extends selectOperatorOrBuilder>
       getSelectOperatorsOrBuilderList() {
     return selectOperators_;
   }
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  @java.lang.Override
+  @Override
   public int getSelectOperatorsCount() {
     return selectOperators_.size();
   }
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  @java.lang.Override
-  public com.server.graph_db.grpc.traverser.selectOperator getSelectOperators(int index) {
+  @Override
+  public selectOperator getSelectOperators(int index) {
     return selectOperators_.get(index);
   }
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  @java.lang.Override
-  public com.server.graph_db.grpc.traverser.selectOperatorOrBuilder getSelectOperatorsOrBuilder(
+  @Override
+  public selectOperatorOrBuilder getSelectOperatorsOrBuilder(
       int index) {
     return selectOperators_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -235,7 +235,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getIdBytes().isEmpty()) {
@@ -250,7 +250,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -271,15 +271,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.server.graph_db.grpc.traverser.vertexBinding)) {
+    if (!(obj instanceof vertexBinding)) {
       return super.equals(obj);
     }
-    com.server.graph_db.grpc.traverser.vertexBinding other = (com.server.graph_db.grpc.traverser.vertexBinding) obj;
+    vertexBinding other = (vertexBinding) obj;
 
     if (!getId()
         .equals(other.getId())) return false;
@@ -291,7 +291,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -311,69 +311,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(
+  public static vertexBinding parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(
+  public static vertexBinding parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(
+  public static vertexBinding parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(
+  public static vertexBinding parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(byte[] data)
+  public static vertexBinding parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(
+  public static vertexBinding parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(java.io.InputStream input)
+  public static vertexBinding parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(
+  public static vertexBinding parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseDelimitedFrom(java.io.InputStream input)
+  public static vertexBinding parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseDelimitedFrom(
+  public static vertexBinding parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(
+  public static vertexBinding parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.traverser.vertexBinding parseFrom(
+  public static vertexBinding parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -381,23 +381,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.server.graph_db.grpc.traverser.vertexBinding prototype) {
+  public static Builder newBuilder(vertexBinding prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -407,18 +407,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:vertexBinding)
-      com.server.graph_db.grpc.traverser.vertexBindingOrBuilder {
+      vertexBindingOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.server.graph_db.grpc.traverser.Traverser.internal_static_vertexBinding_descriptor;
+      return Traverser.internal_static_vertexBinding_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.server.graph_db.grpc.traverser.Traverser.internal_static_vertexBinding_fieldAccessorTable
+      return Traverser.internal_static_vertexBinding_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.server.graph_db.grpc.traverser.vertexBinding.class, com.server.graph_db.grpc.traverser.vertexBinding.Builder.class);
+              vertexBinding.class, Builder.class);
     }
 
     // Construct using com.server.graph_db.grpc.traverser.vertexBinding.newBuilder()
@@ -427,7 +427,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -437,7 +437,7 @@ private static final long serialVersionUID = 0L;
         getSelectOperatorsFieldBuilder();
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       id_ = "";
@@ -453,29 +453,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.server.graph_db.grpc.traverser.Traverser.internal_static_vertexBinding_descriptor;
+      return Traverser.internal_static_vertexBinding_descriptor;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.traverser.vertexBinding getDefaultInstanceForType() {
-      return com.server.graph_db.grpc.traverser.vertexBinding.getDefaultInstance();
+    @Override
+    public vertexBinding getDefaultInstanceForType() {
+      return vertexBinding.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.traverser.vertexBinding build() {
-      com.server.graph_db.grpc.traverser.vertexBinding result = buildPartial();
+    @Override
+    public vertexBinding build() {
+      vertexBinding result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.traverser.vertexBinding buildPartial() {
-      com.server.graph_db.grpc.traverser.vertexBinding result = new com.server.graph_db.grpc.traverser.vertexBinding(this);
+    @Override
+    public vertexBinding buildPartial() {
+      vertexBinding result = new vertexBinding(this);
       int from_bitField0_ = bitField0_;
       result.id_ = id_;
       result.label_ = label_;
@@ -492,50 +492,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.server.graph_db.grpc.traverser.vertexBinding) {
-        return mergeFrom((com.server.graph_db.grpc.traverser.vertexBinding)other);
+      if (other instanceof vertexBinding) {
+        return mergeFrom((vertexBinding)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.server.graph_db.grpc.traverser.vertexBinding other) {
-      if (other == com.server.graph_db.grpc.traverser.vertexBinding.getDefaultInstance()) return this;
+    public Builder mergeFrom(vertexBinding other) {
+      if (other == vertexBinding.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
         onChanged();
@@ -575,21 +575,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.server.graph_db.grpc.traverser.vertexBinding parsedMessage = null;
+      vertexBinding parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.server.graph_db.grpc.traverser.vertexBinding) e.getUnfinishedMessage();
+        parsedMessage = (vertexBinding) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -600,21 +600,21 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object id_ = "";
+    private Object id_ = "";
     /**
      * <code>string id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         id_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -623,11 +623,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
+      Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -640,7 +640,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -676,21 +676,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object label_ = "";
+    private Object label_ = "";
     /**
      * <code>string label = 2;</code>
      * @return The label.
      */
-    public java.lang.String getLabel() {
-      java.lang.Object ref = label_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getLabel() {
+      Object ref = label_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         label_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -699,11 +699,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getLabelBytes() {
-      java.lang.Object ref = label_;
+      Object ref = label_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         label_ = b;
         return b;
       } else {
@@ -716,7 +716,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLabel(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -752,22 +752,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<com.server.graph_db.grpc.traverser.selectOperator> selectOperators_ =
+    private java.util.List<selectOperator> selectOperators_ =
       java.util.Collections.emptyList();
     private void ensureSelectOperatorsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        selectOperators_ = new java.util.ArrayList<com.server.graph_db.grpc.traverser.selectOperator>(selectOperators_);
+        selectOperators_ = new java.util.ArrayList<selectOperator>(selectOperators_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.server.graph_db.grpc.traverser.selectOperator, com.server.graph_db.grpc.traverser.selectOperator.Builder, com.server.graph_db.grpc.traverser.selectOperatorOrBuilder> selectOperatorsBuilder_;
+        selectOperator, selectOperator.Builder, selectOperatorOrBuilder> selectOperatorsBuilder_;
 
     /**
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
-    public java.util.List<com.server.graph_db.grpc.traverser.selectOperator> getSelectOperatorsList() {
+    public java.util.List<selectOperator> getSelectOperatorsList() {
       if (selectOperatorsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(selectOperators_);
       } else {
@@ -787,7 +787,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
-    public com.server.graph_db.grpc.traverser.selectOperator getSelectOperators(int index) {
+    public selectOperator getSelectOperators(int index) {
       if (selectOperatorsBuilder_ == null) {
         return selectOperators_.get(index);
       } else {
@@ -798,7 +798,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
     public Builder setSelectOperators(
-        int index, com.server.graph_db.grpc.traverser.selectOperator value) {
+        int index, selectOperator value) {
       if (selectOperatorsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -815,7 +815,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
     public Builder setSelectOperators(
-        int index, com.server.graph_db.grpc.traverser.selectOperator.Builder builderForValue) {
+        int index, selectOperator.Builder builderForValue) {
       if (selectOperatorsBuilder_ == null) {
         ensureSelectOperatorsIsMutable();
         selectOperators_.set(index, builderForValue.build());
@@ -828,7 +828,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
-    public Builder addSelectOperators(com.server.graph_db.grpc.traverser.selectOperator value) {
+    public Builder addSelectOperators(selectOperator value) {
       if (selectOperatorsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -845,7 +845,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
     public Builder addSelectOperators(
-        int index, com.server.graph_db.grpc.traverser.selectOperator value) {
+        int index, selectOperator value) {
       if (selectOperatorsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -862,7 +862,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
     public Builder addSelectOperators(
-        com.server.graph_db.grpc.traverser.selectOperator.Builder builderForValue) {
+        selectOperator.Builder builderForValue) {
       if (selectOperatorsBuilder_ == null) {
         ensureSelectOperatorsIsMutable();
         selectOperators_.add(builderForValue.build());
@@ -876,7 +876,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
     public Builder addSelectOperators(
-        int index, com.server.graph_db.grpc.traverser.selectOperator.Builder builderForValue) {
+        int index, selectOperator.Builder builderForValue) {
       if (selectOperatorsBuilder_ == null) {
         ensureSelectOperatorsIsMutable();
         selectOperators_.add(index, builderForValue.build());
@@ -890,7 +890,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
     public Builder addAllSelectOperators(
-        java.lang.Iterable<? extends com.server.graph_db.grpc.traverser.selectOperator> values) {
+        Iterable<? extends selectOperator> values) {
       if (selectOperatorsBuilder_ == null) {
         ensureSelectOperatorsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -930,14 +930,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
-    public com.server.graph_db.grpc.traverser.selectOperator.Builder getSelectOperatorsBuilder(
+    public selectOperator.Builder getSelectOperatorsBuilder(
         int index) {
       return getSelectOperatorsFieldBuilder().getBuilder(index);
     }
     /**
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
-    public com.server.graph_db.grpc.traverser.selectOperatorOrBuilder getSelectOperatorsOrBuilder(
+    public selectOperatorOrBuilder getSelectOperatorsOrBuilder(
         int index) {
       if (selectOperatorsBuilder_ == null) {
         return selectOperators_.get(index);  } else {
@@ -947,7 +947,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
-    public java.util.List<? extends com.server.graph_db.grpc.traverser.selectOperatorOrBuilder> 
+    public java.util.List<? extends selectOperatorOrBuilder>
          getSelectOperatorsOrBuilderList() {
       if (selectOperatorsBuilder_ != null) {
         return selectOperatorsBuilder_.getMessageOrBuilderList();
@@ -958,31 +958,31 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
-    public com.server.graph_db.grpc.traverser.selectOperator.Builder addSelectOperatorsBuilder() {
+    public selectOperator.Builder addSelectOperatorsBuilder() {
       return getSelectOperatorsFieldBuilder().addBuilder(
-          com.server.graph_db.grpc.traverser.selectOperator.getDefaultInstance());
+          selectOperator.getDefaultInstance());
     }
     /**
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
-    public com.server.graph_db.grpc.traverser.selectOperator.Builder addSelectOperatorsBuilder(
+    public selectOperator.Builder addSelectOperatorsBuilder(
         int index) {
       return getSelectOperatorsFieldBuilder().addBuilder(
-          index, com.server.graph_db.grpc.traverser.selectOperator.getDefaultInstance());
+          index, selectOperator.getDefaultInstance());
     }
     /**
      * <code>repeated .selectOperator selectOperators = 3;</code>
      */
-    public java.util.List<com.server.graph_db.grpc.traverser.selectOperator.Builder> 
+    public java.util.List<selectOperator.Builder>
          getSelectOperatorsBuilderList() {
       return getSelectOperatorsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.server.graph_db.grpc.traverser.selectOperator, com.server.graph_db.grpc.traverser.selectOperator.Builder, com.server.graph_db.grpc.traverser.selectOperatorOrBuilder> 
+        selectOperator, selectOperator.Builder, selectOperatorOrBuilder>
         getSelectOperatorsFieldBuilder() {
       if (selectOperatorsBuilder_ == null) {
         selectOperatorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.server.graph_db.grpc.traverser.selectOperator, com.server.graph_db.grpc.traverser.selectOperator.Builder, com.server.graph_db.grpc.traverser.selectOperatorOrBuilder>(
+            selectOperator, selectOperator.Builder, selectOperatorOrBuilder>(
                 selectOperators_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
@@ -991,13 +991,13 @@ private static final long serialVersionUID = 0L;
       }
       return selectOperatorsBuilder_;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1008,18 +1008,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:vertexBinding)
-  private static final com.server.graph_db.grpc.traverser.vertexBinding DEFAULT_INSTANCE;
+  private static final vertexBinding DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.server.graph_db.grpc.traverser.vertexBinding();
+    DEFAULT_INSTANCE = new vertexBinding();
   }
 
-  public static com.server.graph_db.grpc.traverser.vertexBinding getDefaultInstance() {
+  public static vertexBinding getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<vertexBinding>
       PARSER = new com.google.protobuf.AbstractParser<vertexBinding>() {
-    @java.lang.Override
+    @Override
     public vertexBinding parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1032,13 +1032,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<vertexBinding> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.server.graph_db.grpc.traverser.vertexBinding getDefaultInstanceForType() {
+  @Override
+  public vertexBinding getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

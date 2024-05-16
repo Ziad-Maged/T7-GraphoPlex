@@ -3,10 +3,13 @@ import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.TestingStrategy;
 import com.server.graph_db.alghorithms.strategies.misc.Tuple;
 import com.server.graph_db.alghorithms.strategies.sharding.HashBasedShardingStrategy;
+import com.server.graph_db.alghorithms.strategies.sharding.RandomPartitionShardingStrategy;
+import com.server.graph_db.connection.GraphoPlexConnection;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
 import com.server.graph_db.graphs.utilities.DisjointSet;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -504,6 +507,26 @@ abstract public class Graph {
         return fordFulkersonMaxFlow(vertexMap.get(sourceId), vertexMap.get(sinkId), capacityProperty);
     }
 
+    public int getVertexConnectivity() {
+        return getVertexConnectivity("capacity");
+    }
+
+    public int getVertexConnectivity(String capacityProperty) {
+        int vertexConnectivity = Integer.MAX_VALUE;
+        // Iterate through all pairs of vertices
+        for (Vertex sourceVertex : vertexMap.values()) {
+            for (Vertex destinationVertex : vertexMap.values()) {
+                if (!sourceVertex.equals(destinationVertex)) {
+                    // Calculate maximum flow using Ford-Fulkerson algorithm
+                    int maxFlow = fordFulkersonMaxFlow(sourceVertex, destinationVertex, capacityProperty);
+                    // Update vertex connectivity as the minimum of all maximum flows
+                    vertexConnectivity = Math.min(vertexConnectivity, maxFlow);
+                }
+            }
+        }
+        return vertexConnectivity;
+    }
+
     public int getEdgeConnectivity() {
         return getEdgeConnectivity("capacity");
     }
@@ -745,5 +768,42 @@ abstract public class Graph {
     }
     public Tuple<HashMap<Integer, List<Vertex>>, HashMap<Integer, List<Edge>>> shard(){
         return shardingStrategy.shard(this);
+    }
+
+    public static void main(String[] args) throws IOException {
+        Graph g = new HamiltonianGraph(3, 3, 3, GraphType.DIRECTED);
+//        g.setShardingStrategy(new RandomPartitionShardingStrategy());
+        g.addVertex("A");
+        g.addVertex("B");
+        g.addVertex("C");
+
+        Edge e1 = new Edge("A", "C");
+        e1.setLabel("goto");
+        e1.addProperty("cost", "2");
+        Edge e2 = new Edge("A", "B");
+        e2.setLabel("goto");
+        e2.addProperty("cost", "3");
+        Edge e3 = new Edge("B", "C");
+        e3.setLabel("goto");
+        e3.addProperty("cost", "-2");
+        g.addEdge(e1);
+        g.addEdge(e2);
+        g.addEdge(e3);
+
+        GraphoPlexConnection connection = new GraphoPlexConnection();
+        connection.connect();
+        connection.createDatabase("test1");
+        connection.switchDatabase("test1");
+        connection.createGraph(g);
+        connection.match("[() AS TEST] RETURN TEST");
+        connection.assertGraphType("GRID 20 20");
+        connection.shortestPath("A", "C", "cost", true);
+        connection.topologicalSort();
+        connection.maximumFlow("A", "C", "cost");
+        connection.minimumSpanningTree("cost");
+        connection.allShortestPaths("cost");
+        connection.bridgeEdges();
+        connection.deleteDatabase("test1");
+        connection.shutdown();
     }
 }

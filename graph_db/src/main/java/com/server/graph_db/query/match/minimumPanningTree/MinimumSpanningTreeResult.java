@@ -23,4 +23,12 @@ public class MinimumSpanningTreeResult extends Result {
         sb.deleteCharAt(sb.length()-1);
         return sb.toString()+"\n\n" +super.toString();
     }
+
+    public Iterable<Edge> getEdges() {
+        return edges;
+    }
+
+    public void setEdges(Iterable<Edge> edges) {
+        this.edges = edges;
+    }
 }

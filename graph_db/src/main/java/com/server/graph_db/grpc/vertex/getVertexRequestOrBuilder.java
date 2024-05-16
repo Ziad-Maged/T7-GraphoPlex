@@ -11,7 +11,7 @@ public interface getVertexRequestOrBuilder extends
    * <code>string vertexId = 1;</code>
    * @return The vertexId.
    */
-  java.lang.String getVertexId();
+  String getVertexId();
   /**
    * <code>string vertexId = 1;</code>
    * @return The bytes for vertexId.

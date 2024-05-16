@@ -1,12 +1,12 @@
 package com.server.graph_db.alghorithms;
 
-import com.server.graph_db.core.vertex.Edge;
-import com.server.graph_db.core.vertex.GlobalVertexService;
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import com.server.graph_db.core.vertex.Edge;
+import com.server.graph_db.core.vertex.GlobalVertexService;
 
 public class BellmanFord implements ShortestPathAlghorithm {
 

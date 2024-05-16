@@ -84,5 +84,20 @@ public class PathResult extends Result{
         }
         return sb.toString();
     }
-    
+
+    public List<String> getColumnNames() {
+        return columnNames;
+    }
+
+    public void setColumnNames(List<String> columnNames) {
+        this.columnNames = columnNames;
+    }
+
+    public List<List<String>> getRows() {
+        return rows;
+    }
+
+    public void setRows(List<List<String>> rows) {
+        this.rows = rows;
+    }
 }

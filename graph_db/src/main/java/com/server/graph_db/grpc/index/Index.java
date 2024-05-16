@@ -62,7 +62,7 @@ public final class Index {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\013index.proto\"\'\n\022createIndexRequest\022\021\n\ti" +
       "ndexName\030\001 \001(\t\"&\n\023createIndexResponse\022\017\n" +
       "\007success\030\001 \001(\010\"\'\n\022deleteIndexRequest\022\021\n\t" +
@@ -90,49 +90,49 @@ public final class Index {
     internal_static_createIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createIndexRequest_descriptor,
-        new java.lang.String[] { "IndexName", });
+        new String[] { "IndexName", });
     internal_static_createIndexResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_createIndexResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createIndexResponse_descriptor,
-        new java.lang.String[] { "Success", });
+        new String[] { "Success", });
     internal_static_deleteIndexRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_deleteIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_deleteIndexRequest_descriptor,
-        new java.lang.String[] { "IndexName", });
+        new String[] { "IndexName", });
     internal_static_deleteIndexResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_deleteIndexResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_deleteIndexResponse_descriptor,
-        new java.lang.String[] { "Success", });
+        new String[] { "Success", });
     internal_static_createIndicesRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_createIndicesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createIndicesRequest_descriptor,
-        new java.lang.String[] { "IndicesNames", });
+        new String[] { "IndicesNames", });
     internal_static_createIndicesResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_createIndicesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createIndicesResponse_descriptor,
-        new java.lang.String[] { "Success", });
+        new String[] { "Success", });
     internal_static_deleteIndicesRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_deleteIndicesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_deleteIndicesRequest_descriptor,
-        new java.lang.String[] { "IndicesNames", });
+        new String[] { "IndicesNames", });
     internal_static_deleteIndicesResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_deleteIndicesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_deleteIndicesResponse_descriptor,
-        new java.lang.String[] { "Success", });
+        new String[] { "Success", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

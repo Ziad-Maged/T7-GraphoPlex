@@ -19,14 +19,14 @@ private static final long serialVersionUID = 0L;
     edges_ = java.util.Collections.emptyList();
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new getIncomingEdgesResponse();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -37,7 +37,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -52,11 +52,11 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              edges_ = new java.util.ArrayList<com.server.graph_db.grpc.vertex.edge>();
+              edges_ = new java.util.ArrayList<edge>();
               mutable_bitField0_ |= 0x00000001;
             }
             edges_.add(
-                input.readMessage(com.server.graph_db.grpc.vertex.edge.parser(), extensionRegistry));
+                input.readMessage(edge.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -83,59 +83,59 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.server.graph_db.grpc.vertex.Vertex.internal_static_getIncomingEdgesResponse_descriptor;
+    return Vertex.internal_static_getIncomingEdgesResponse_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.server.graph_db.grpc.vertex.Vertex.internal_static_getIncomingEdgesResponse_fieldAccessorTable
+    return Vertex.internal_static_getIncomingEdgesResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.server.graph_db.grpc.vertex.getIncomingEdgesResponse.class, com.server.graph_db.grpc.vertex.getIncomingEdgesResponse.Builder.class);
+            getIncomingEdgesResponse.class, Builder.class);
   }
 
   public static final int EDGES_FIELD_NUMBER = 1;
-  private java.util.List<com.server.graph_db.grpc.vertex.edge> edges_;
+  private java.util.List<edge> edges_;
   /**
    * <code>repeated .edge edges = 1;</code>
    */
-  @java.lang.Override
-  public java.util.List<com.server.graph_db.grpc.vertex.edge> getEdgesList() {
+  @Override
+  public java.util.List<edge> getEdgesList() {
     return edges_;
   }
   /**
    * <code>repeated .edge edges = 1;</code>
    */
-  @java.lang.Override
-  public java.util.List<? extends com.server.graph_db.grpc.vertex.edgeOrBuilder> 
+  @Override
+  public java.util.List<? extends edgeOrBuilder>
       getEdgesOrBuilderList() {
     return edges_;
   }
   /**
    * <code>repeated .edge edges = 1;</code>
    */
-  @java.lang.Override
+  @Override
   public int getEdgesCount() {
     return edges_.size();
   }
   /**
    * <code>repeated .edge edges = 1;</code>
    */
-  @java.lang.Override
-  public com.server.graph_db.grpc.vertex.edge getEdges(int index) {
+  @Override
+  public edge getEdges(int index) {
     return edges_.get(index);
   }
   /**
    * <code>repeated .edge edges = 1;</code>
    */
-  @java.lang.Override
-  public com.server.graph_db.grpc.vertex.edgeOrBuilder getEdgesOrBuilder(
+  @Override
+  public edgeOrBuilder getEdgesOrBuilder(
       int index) {
     return edges_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     for (int i = 0; i < edges_.size(); i++) {
@@ -154,7 +154,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -169,15 +169,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.server.graph_db.grpc.vertex.getIncomingEdgesResponse)) {
+    if (!(obj instanceof getIncomingEdgesResponse)) {
       return super.equals(obj);
     }
-    com.server.graph_db.grpc.vertex.getIncomingEdgesResponse other = (com.server.graph_db.grpc.vertex.getIncomingEdgesResponse) obj;
+    getIncomingEdgesResponse other = (getIncomingEdgesResponse) obj;
 
     if (!getEdgesList()
         .equals(other.getEdgesList())) return false;
@@ -185,7 +185,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -201,69 +201,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(
+  public static getIncomingEdgesResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(
+  public static getIncomingEdgesResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(
+  public static getIncomingEdgesResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(
+  public static getIncomingEdgesResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(byte[] data)
+  public static getIncomingEdgesResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(
+  public static getIncomingEdgesResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(java.io.InputStream input)
+  public static getIncomingEdgesResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(
+  public static getIncomingEdgesResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseDelimitedFrom(java.io.InputStream input)
+  public static getIncomingEdgesResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseDelimitedFrom(
+  public static getIncomingEdgesResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(
+  public static getIncomingEdgesResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parseFrom(
+  public static getIncomingEdgesResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -271,23 +271,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.server.graph_db.grpc.vertex.getIncomingEdgesResponse prototype) {
+  public static Builder newBuilder(getIncomingEdgesResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -297,18 +297,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:getIncomingEdgesResponse)
-      com.server.graph_db.grpc.vertex.getIncomingEdgesResponseOrBuilder {
+      getIncomingEdgesResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.server.graph_db.grpc.vertex.Vertex.internal_static_getIncomingEdgesResponse_descriptor;
+      return Vertex.internal_static_getIncomingEdgesResponse_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.server.graph_db.grpc.vertex.Vertex.internal_static_getIncomingEdgesResponse_fieldAccessorTable
+      return Vertex.internal_static_getIncomingEdgesResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.server.graph_db.grpc.vertex.getIncomingEdgesResponse.class, com.server.graph_db.grpc.vertex.getIncomingEdgesResponse.Builder.class);
+              getIncomingEdgesResponse.class, Builder.class);
     }
 
     // Construct using com.server.graph_db.grpc.vertex.getIncomingEdgesResponse.newBuilder()
@@ -317,7 +317,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -327,7 +327,7 @@ private static final long serialVersionUID = 0L;
         getEdgesFieldBuilder();
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       if (edgesBuilder_ == null) {
@@ -339,29 +339,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.server.graph_db.grpc.vertex.Vertex.internal_static_getIncomingEdgesResponse_descriptor;
+      return Vertex.internal_static_getIncomingEdgesResponse_descriptor;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.vertex.getIncomingEdgesResponse getDefaultInstanceForType() {
-      return com.server.graph_db.grpc.vertex.getIncomingEdgesResponse.getDefaultInstance();
+    @Override
+    public getIncomingEdgesResponse getDefaultInstanceForType() {
+      return getIncomingEdgesResponse.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.vertex.getIncomingEdgesResponse build() {
-      com.server.graph_db.grpc.vertex.getIncomingEdgesResponse result = buildPartial();
+    @Override
+    public getIncomingEdgesResponse build() {
+      getIncomingEdgesResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.vertex.getIncomingEdgesResponse buildPartial() {
-      com.server.graph_db.grpc.vertex.getIncomingEdgesResponse result = new com.server.graph_db.grpc.vertex.getIncomingEdgesResponse(this);
+    @Override
+    public getIncomingEdgesResponse buildPartial() {
+      getIncomingEdgesResponse result = new getIncomingEdgesResponse(this);
       int from_bitField0_ = bitField0_;
       if (edgesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -376,50 +376,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.server.graph_db.grpc.vertex.getIncomingEdgesResponse) {
-        return mergeFrom((com.server.graph_db.grpc.vertex.getIncomingEdgesResponse)other);
+      if (other instanceof getIncomingEdgesResponse) {
+        return mergeFrom((getIncomingEdgesResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.server.graph_db.grpc.vertex.getIncomingEdgesResponse other) {
-      if (other == com.server.graph_db.grpc.vertex.getIncomingEdgesResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(getIncomingEdgesResponse other) {
+      if (other == getIncomingEdgesResponse.getDefaultInstance()) return this;
       if (edgesBuilder_ == null) {
         if (!other.edges_.isEmpty()) {
           if (edges_.isEmpty()) {
@@ -451,21 +451,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.server.graph_db.grpc.vertex.getIncomingEdgesResponse parsedMessage = null;
+      getIncomingEdgesResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.server.graph_db.grpc.vertex.getIncomingEdgesResponse) e.getUnfinishedMessage();
+        parsedMessage = (getIncomingEdgesResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -476,22 +476,22 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<com.server.graph_db.grpc.vertex.edge> edges_ =
+    private java.util.List<edge> edges_ =
       java.util.Collections.emptyList();
     private void ensureEdgesIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        edges_ = new java.util.ArrayList<com.server.graph_db.grpc.vertex.edge>(edges_);
+        edges_ = new java.util.ArrayList<edge>(edges_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.server.graph_db.grpc.vertex.edge, com.server.graph_db.grpc.vertex.edge.Builder, com.server.graph_db.grpc.vertex.edgeOrBuilder> edgesBuilder_;
+        edge, edge.Builder, edgeOrBuilder> edgesBuilder_;
 
     /**
      * <code>repeated .edge edges = 1;</code>
      */
-    public java.util.List<com.server.graph_db.grpc.vertex.edge> getEdgesList() {
+    public java.util.List<edge> getEdgesList() {
       if (edgesBuilder_ == null) {
         return java.util.Collections.unmodifiableList(edges_);
       } else {
@@ -511,7 +511,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edge edges = 1;</code>
      */
-    public com.server.graph_db.grpc.vertex.edge getEdges(int index) {
+    public edge getEdges(int index) {
       if (edgesBuilder_ == null) {
         return edges_.get(index);
       } else {
@@ -522,7 +522,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edge edges = 1;</code>
      */
     public Builder setEdges(
-        int index, com.server.graph_db.grpc.vertex.edge value) {
+        int index, edge value) {
       if (edgesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -539,7 +539,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edge edges = 1;</code>
      */
     public Builder setEdges(
-        int index, com.server.graph_db.grpc.vertex.edge.Builder builderForValue) {
+        int index, edge.Builder builderForValue) {
       if (edgesBuilder_ == null) {
         ensureEdgesIsMutable();
         edges_.set(index, builderForValue.build());
@@ -552,7 +552,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edge edges = 1;</code>
      */
-    public Builder addEdges(com.server.graph_db.grpc.vertex.edge value) {
+    public Builder addEdges(edge value) {
       if (edgesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -569,7 +569,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edge edges = 1;</code>
      */
     public Builder addEdges(
-        int index, com.server.graph_db.grpc.vertex.edge value) {
+        int index, edge value) {
       if (edgesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -586,7 +586,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edge edges = 1;</code>
      */
     public Builder addEdges(
-        com.server.graph_db.grpc.vertex.edge.Builder builderForValue) {
+        edge.Builder builderForValue) {
       if (edgesBuilder_ == null) {
         ensureEdgesIsMutable();
         edges_.add(builderForValue.build());
@@ -600,7 +600,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edge edges = 1;</code>
      */
     public Builder addEdges(
-        int index, com.server.graph_db.grpc.vertex.edge.Builder builderForValue) {
+        int index, edge.Builder builderForValue) {
       if (edgesBuilder_ == null) {
         ensureEdgesIsMutable();
         edges_.add(index, builderForValue.build());
@@ -614,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edge edges = 1;</code>
      */
     public Builder addAllEdges(
-        java.lang.Iterable<? extends com.server.graph_db.grpc.vertex.edge> values) {
+        Iterable<? extends edge> values) {
       if (edgesBuilder_ == null) {
         ensureEdgesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -654,14 +654,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edge edges = 1;</code>
      */
-    public com.server.graph_db.grpc.vertex.edge.Builder getEdgesBuilder(
+    public edge.Builder getEdgesBuilder(
         int index) {
       return getEdgesFieldBuilder().getBuilder(index);
     }
     /**
      * <code>repeated .edge edges = 1;</code>
      */
-    public com.server.graph_db.grpc.vertex.edgeOrBuilder getEdgesOrBuilder(
+    public edgeOrBuilder getEdgesOrBuilder(
         int index) {
       if (edgesBuilder_ == null) {
         return edges_.get(index);  } else {
@@ -671,7 +671,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edge edges = 1;</code>
      */
-    public java.util.List<? extends com.server.graph_db.grpc.vertex.edgeOrBuilder> 
+    public java.util.List<? extends edgeOrBuilder>
          getEdgesOrBuilderList() {
       if (edgesBuilder_ != null) {
         return edgesBuilder_.getMessageOrBuilderList();
@@ -682,31 +682,31 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edge edges = 1;</code>
      */
-    public com.server.graph_db.grpc.vertex.edge.Builder addEdgesBuilder() {
+    public edge.Builder addEdgesBuilder() {
       return getEdgesFieldBuilder().addBuilder(
-          com.server.graph_db.grpc.vertex.edge.getDefaultInstance());
+          edge.getDefaultInstance());
     }
     /**
      * <code>repeated .edge edges = 1;</code>
      */
-    public com.server.graph_db.grpc.vertex.edge.Builder addEdgesBuilder(
+    public edge.Builder addEdgesBuilder(
         int index) {
       return getEdgesFieldBuilder().addBuilder(
-          index, com.server.graph_db.grpc.vertex.edge.getDefaultInstance());
+          index, edge.getDefaultInstance());
     }
     /**
      * <code>repeated .edge edges = 1;</code>
      */
-    public java.util.List<com.server.graph_db.grpc.vertex.edge.Builder> 
+    public java.util.List<edge.Builder>
          getEdgesBuilderList() {
       return getEdgesFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.server.graph_db.grpc.vertex.edge, com.server.graph_db.grpc.vertex.edge.Builder, com.server.graph_db.grpc.vertex.edgeOrBuilder> 
+        edge, edge.Builder, edgeOrBuilder>
         getEdgesFieldBuilder() {
       if (edgesBuilder_ == null) {
         edgesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.server.graph_db.grpc.vertex.edge, com.server.graph_db.grpc.vertex.edge.Builder, com.server.graph_db.grpc.vertex.edgeOrBuilder>(
+            edge, edge.Builder, edgeOrBuilder>(
                 edges_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
@@ -715,13 +715,13 @@ private static final long serialVersionUID = 0L;
       }
       return edgesBuilder_;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -732,18 +732,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:getIncomingEdgesResponse)
-  private static final com.server.graph_db.grpc.vertex.getIncomingEdgesResponse DEFAULT_INSTANCE;
+  private static final getIncomingEdgesResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.server.graph_db.grpc.vertex.getIncomingEdgesResponse();
+    DEFAULT_INSTANCE = new getIncomingEdgesResponse();
   }
 
-  public static com.server.graph_db.grpc.vertex.getIncomingEdgesResponse getDefaultInstance() {
+  public static getIncomingEdgesResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<getIncomingEdgesResponse>
       PARSER = new com.google.protobuf.AbstractParser<getIncomingEdgesResponse>() {
-    @java.lang.Override
+    @Override
     public getIncomingEdgesResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -756,13 +756,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<getIncomingEdgesResponse> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.server.graph_db.grpc.vertex.getIncomingEdgesResponse getDefaultInstanceForType() {
+  @Override
+  public getIncomingEdgesResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

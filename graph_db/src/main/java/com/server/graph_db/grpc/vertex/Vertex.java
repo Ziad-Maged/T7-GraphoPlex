@@ -187,7 +187,7 @@ public final class Vertex {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\014vertex.proto\032\017traverser.proto\"\032\n\030getAl" +
       "lVerticesIdsRequest\".\n\031getAllVerticesIds" +
       "Response\022\021\n\tvertexIds\030\001 \003(\t\"+\n\017getEdgesR" +
@@ -280,199 +280,199 @@ public final class Vertex {
     internal_static_getAllVerticesIdsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getAllVerticesIdsRequest_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_getAllVerticesIdsResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_getAllVerticesIdsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getAllVerticesIdsResponse_descriptor,
-        new java.lang.String[] { "VertexIds", });
+        new String[] { "VertexIds", });
     internal_static_getEdgesRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_getEdgesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getEdgesRequest_descriptor,
-        new java.lang.String[] { "EdgeIds", });
+        new String[] { "EdgeIds", });
     internal_static_getEdgesResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_getEdgesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getEdgesResponse_descriptor,
-        new java.lang.String[] { "Edges", });
+        new String[] { "Edges", });
     internal_static_getOutGoingEdgesForVerticesRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_getOutGoingEdgesForVerticesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getOutGoingEdgesForVerticesRequest_descriptor,
-        new java.lang.String[] { "VertexIds", });
+        new String[] { "VertexIds", });
     internal_static_getIncomingEdgesForVerticesRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_getIncomingEdgesForVerticesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getIncomingEdgesForVerticesRequest_descriptor,
-        new java.lang.String[] { "VertexIds", });
+        new String[] { "VertexIds", });
     internal_static_getOutgoingEdgesRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_getOutgoingEdgesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getOutgoingEdgesRequest_descriptor,
-        new java.lang.String[] { "VertexId", });
+        new String[] { "VertexId", });
     internal_static_getIncomingEdgesRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_getIncomingEdgesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getIncomingEdgesRequest_descriptor,
-        new java.lang.String[] { "VertexId", });
+        new String[] { "VertexId", });
     internal_static_getOutgoingEdgesResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_getOutgoingEdgesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getOutgoingEdgesResponse_descriptor,
-        new java.lang.String[] { "Edges", });
+        new String[] { "Edges", });
     internal_static_getIncomingEdgesResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_getIncomingEdgesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getIncomingEdgesResponse_descriptor,
-        new java.lang.String[] { "Edges", });
+        new String[] { "Edges", });
     internal_static_createEdgeRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_createEdgeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createEdgeRequest_descriptor,
-        new java.lang.String[] { "SourceVertexId", "DestinationVertexId", "Label", "Properties", "IsOutGoing", });
+        new String[] { "SourceVertexId", "DestinationVertexId", "Label", "Properties", "IsOutGoing", });
     internal_static_createEdgeRequest_PropertiesEntry_descriptor =
       internal_static_createEdgeRequest_descriptor.getNestedTypes().get(0);
     internal_static_createEdgeRequest_PropertiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createEdgeRequest_PropertiesEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
     internal_static_deleteEdgeRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_deleteEdgeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_deleteEdgeRequest_descriptor,
-        new java.lang.String[] { "SourceVertexId", "DestinationVertexId", "Label", "IsOutGoing", });
+        new String[] { "SourceVertexId", "DestinationVertexId", "Label", "IsOutGoing", });
     internal_static_updateEdgeRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_updateEdgeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_updateEdgeRequest_descriptor,
-        new java.lang.String[] { "SourceVertexId", "DestinationVertexId", "Label", "Properties", "IsOutGoing", });
+        new String[] { "SourceVertexId", "DestinationVertexId", "Label", "Properties", "IsOutGoing", });
     internal_static_updateEdgeRequest_PropertiesEntry_descriptor =
       internal_static_updateEdgeRequest_descriptor.getNestedTypes().get(0);
     internal_static_updateEdgeRequest_PropertiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_updateEdgeRequest_PropertiesEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
     internal_static_createEdgeResponse_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_createEdgeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createEdgeResponse_descriptor,
-        new java.lang.String[] { "Success", "Message", });
+        new String[] { "Success", "Message", });
     internal_static_deleteEdgeResponse_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_deleteEdgeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_deleteEdgeResponse_descriptor,
-        new java.lang.String[] { "Success", "Message", });
+        new String[] { "Success", "Message", });
     internal_static_updateEdgeResponse_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_updateEdgeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_updateEdgeResponse_descriptor,
-        new java.lang.String[] { "Success", "Message", });
+        new String[] { "Success", "Message", });
     internal_static_getVertexRequest_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_getVertexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getVertexRequest_descriptor,
-        new java.lang.String[] { "VertexId", });
+        new String[] { "VertexId", });
     internal_static_getVerticesRequest_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_getVerticesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getVerticesRequest_descriptor,
-        new java.lang.String[] { "VertexIds", });
+        new String[] { "VertexIds", });
     internal_static_createVertexRequest_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_createVertexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createVertexRequest_descriptor,
-        new java.lang.String[] { "Id", "Label", "Properties", });
+        new String[] { "Id", "Label", "Properties", });
     internal_static_createVertexRequest_PropertiesEntry_descriptor =
       internal_static_createVertexRequest_descriptor.getNestedTypes().get(0);
     internal_static_createVertexRequest_PropertiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createVertexRequest_PropertiesEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
     internal_static_deleteVertexRequest_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_deleteVertexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_deleteVertexRequest_descriptor,
-        new java.lang.String[] { "VertexId", });
+        new String[] { "VertexId", });
     internal_static_updateVertexRequest_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_updateVertexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_updateVertexRequest_descriptor,
-        new java.lang.String[] { "Id", "Label", "Properties", });
+        new String[] { "Id", "Label", "Properties", });
     internal_static_updateVertexRequest_PropertiesEntry_descriptor =
       internal_static_updateVertexRequest_descriptor.getNestedTypes().get(0);
     internal_static_updateVertexRequest_PropertiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_updateVertexRequest_PropertiesEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
     internal_static_createVertexResponse_descriptor =
       getDescriptor().getMessageTypes().get(21);
     internal_static_createVertexResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_createVertexResponse_descriptor,
-        new java.lang.String[] { "Success", "Message", });
+        new String[] { "Success", "Message", });
     internal_static_deleteVertexResponse_descriptor =
       getDescriptor().getMessageTypes().get(22);
     internal_static_deleteVertexResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_deleteVertexResponse_descriptor,
-        new java.lang.String[] { "Success", "Message", });
+        new String[] { "Success", "Message", });
     internal_static_updateVertexResponse_descriptor =
       getDescriptor().getMessageTypes().get(23);
     internal_static_updateVertexResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_updateVertexResponse_descriptor,
-        new java.lang.String[] { "Success", "Message", });
+        new String[] { "Success", "Message", });
     internal_static_getVertexResponse_descriptor =
       getDescriptor().getMessageTypes().get(24);
     internal_static_getVertexResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getVertexResponse_descriptor,
-        new java.lang.String[] { "Id", "Label", "Properties", });
+        new String[] { "Id", "Label", "Properties", });
     internal_static_getVertexResponse_PropertiesEntry_descriptor =
       internal_static_getVertexResponse_descriptor.getNestedTypes().get(0);
     internal_static_getVertexResponse_PropertiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getVertexResponse_PropertiesEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
     internal_static_getVerticesResponse_descriptor =
       getDescriptor().getMessageTypes().get(25);
     internal_static_getVerticesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_getVerticesResponse_descriptor,
-        new java.lang.String[] { "Vertices", });
+        new String[] { "Vertices", });
     internal_static_edge_descriptor =
       getDescriptor().getMessageTypes().get(26);
     internal_static_edge_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edge_descriptor,
-        new java.lang.String[] { "DestinationVertexId", "SourceVertexId", "Label", "Properties", });
+        new String[] { "DestinationVertexId", "SourceVertexId", "Label", "Properties", });
     internal_static_edge_PropertiesEntry_descriptor =
       internal_static_edge_descriptor.getNestedTypes().get(0);
     internal_static_edge_PropertiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edge_PropertiesEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
     com.server.graph_db.grpc.traverser.Traverser.getDescriptor();
   }
 

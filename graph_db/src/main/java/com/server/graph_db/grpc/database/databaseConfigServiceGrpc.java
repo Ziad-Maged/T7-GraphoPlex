@@ -17,29 +17,29 @@ public final class databaseConfigServiceGrpc {
   public static final String SERVICE_NAME = "databaseConfigService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName,
-      com.server.graph_db.grpc.database.reply> getCreateDatabaseMethod;
+  private static volatile io.grpc.MethodDescriptor<DatabaseName,
+      reply> getCreateDatabaseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "createDatabase",
-      requestType = com.server.graph_db.grpc.database.DatabaseName.class,
-      responseType = com.server.graph_db.grpc.database.reply.class,
+      requestType = DatabaseName.class,
+      responseType = reply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName,
-      com.server.graph_db.grpc.database.reply> getCreateDatabaseMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName, com.server.graph_db.grpc.database.reply> getCreateDatabaseMethod;
+  public static io.grpc.MethodDescriptor<DatabaseName,
+      reply> getCreateDatabaseMethod() {
+    io.grpc.MethodDescriptor<DatabaseName, reply> getCreateDatabaseMethod;
     if ((getCreateDatabaseMethod = databaseConfigServiceGrpc.getCreateDatabaseMethod) == null) {
       synchronized (databaseConfigServiceGrpc.class) {
         if ((getCreateDatabaseMethod = databaseConfigServiceGrpc.getCreateDatabaseMethod) == null) {
           databaseConfigServiceGrpc.getCreateDatabaseMethod = getCreateDatabaseMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.database.DatabaseName, com.server.graph_db.grpc.database.reply>newBuilder()
+              io.grpc.MethodDescriptor.<DatabaseName, reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "createDatabase"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.DatabaseName.getDefaultInstance()))
+                  DatabaseName.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.reply.getDefaultInstance()))
+                  reply.getDefaultInstance()))
               .setSchemaDescriptor(new databaseConfigServiceMethodDescriptorSupplier("createDatabase"))
               .build();
         }
@@ -48,29 +48,29 @@ public final class databaseConfigServiceGrpc {
     return getCreateDatabaseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.emptyResponse,
-      com.server.graph_db.grpc.database.DatabaseName> getGetCurrentDatabaseMethod;
+  private static volatile io.grpc.MethodDescriptor<emptyResponse,
+      DatabaseName> getGetCurrentDatabaseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getCurrentDatabase",
-      requestType = com.server.graph_db.grpc.database.emptyResponse.class,
-      responseType = com.server.graph_db.grpc.database.DatabaseName.class,
+      requestType = emptyResponse.class,
+      responseType = DatabaseName.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.emptyResponse,
-      com.server.graph_db.grpc.database.DatabaseName> getGetCurrentDatabaseMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.emptyResponse, com.server.graph_db.grpc.database.DatabaseName> getGetCurrentDatabaseMethod;
+  public static io.grpc.MethodDescriptor<emptyResponse,
+      DatabaseName> getGetCurrentDatabaseMethod() {
+    io.grpc.MethodDescriptor<emptyResponse, DatabaseName> getGetCurrentDatabaseMethod;
     if ((getGetCurrentDatabaseMethod = databaseConfigServiceGrpc.getGetCurrentDatabaseMethod) == null) {
       synchronized (databaseConfigServiceGrpc.class) {
         if ((getGetCurrentDatabaseMethod = databaseConfigServiceGrpc.getGetCurrentDatabaseMethod) == null) {
           databaseConfigServiceGrpc.getGetCurrentDatabaseMethod = getGetCurrentDatabaseMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.database.emptyResponse, com.server.graph_db.grpc.database.DatabaseName>newBuilder()
+              io.grpc.MethodDescriptor.<emptyResponse, DatabaseName>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getCurrentDatabase"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.emptyResponse.getDefaultInstance()))
+                  emptyResponse.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.DatabaseName.getDefaultInstance()))
+                  DatabaseName.getDefaultInstance()))
               .setSchemaDescriptor(new databaseConfigServiceMethodDescriptorSupplier("getCurrentDatabase"))
               .build();
         }
@@ -79,29 +79,29 @@ public final class databaseConfigServiceGrpc {
     return getGetCurrentDatabaseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName,
-      com.server.graph_db.grpc.database.reply> getDeleteDatabaseMethod;
+  private static volatile io.grpc.MethodDescriptor<DatabaseName,
+      reply> getDeleteDatabaseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "deleteDatabase",
-      requestType = com.server.graph_db.grpc.database.DatabaseName.class,
-      responseType = com.server.graph_db.grpc.database.reply.class,
+      requestType = DatabaseName.class,
+      responseType = reply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName,
-      com.server.graph_db.grpc.database.reply> getDeleteDatabaseMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName, com.server.graph_db.grpc.database.reply> getDeleteDatabaseMethod;
+  public static io.grpc.MethodDescriptor<DatabaseName,
+      reply> getDeleteDatabaseMethod() {
+    io.grpc.MethodDescriptor<DatabaseName, reply> getDeleteDatabaseMethod;
     if ((getDeleteDatabaseMethod = databaseConfigServiceGrpc.getDeleteDatabaseMethod) == null) {
       synchronized (databaseConfigServiceGrpc.class) {
         if ((getDeleteDatabaseMethod = databaseConfigServiceGrpc.getDeleteDatabaseMethod) == null) {
           databaseConfigServiceGrpc.getDeleteDatabaseMethod = getDeleteDatabaseMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.database.DatabaseName, com.server.graph_db.grpc.database.reply>newBuilder()
+              io.grpc.MethodDescriptor.<DatabaseName, reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteDatabase"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.DatabaseName.getDefaultInstance()))
+                  DatabaseName.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.reply.getDefaultInstance()))
+                  reply.getDefaultInstance()))
               .setSchemaDescriptor(new databaseConfigServiceMethodDescriptorSupplier("deleteDatabase"))
               .build();
         }
@@ -110,29 +110,29 @@ public final class databaseConfigServiceGrpc {
     return getDeleteDatabaseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName,
-      com.server.graph_db.grpc.database.reply> getDropDatabaseMethod;
+  private static volatile io.grpc.MethodDescriptor<DatabaseName,
+      reply> getDropDatabaseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "dropDatabase",
-      requestType = com.server.graph_db.grpc.database.DatabaseName.class,
-      responseType = com.server.graph_db.grpc.database.reply.class,
+      requestType = DatabaseName.class,
+      responseType = reply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName,
-      com.server.graph_db.grpc.database.reply> getDropDatabaseMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName, com.server.graph_db.grpc.database.reply> getDropDatabaseMethod;
+  public static io.grpc.MethodDescriptor<DatabaseName,
+      reply> getDropDatabaseMethod() {
+    io.grpc.MethodDescriptor<DatabaseName, reply> getDropDatabaseMethod;
     if ((getDropDatabaseMethod = databaseConfigServiceGrpc.getDropDatabaseMethod) == null) {
       synchronized (databaseConfigServiceGrpc.class) {
         if ((getDropDatabaseMethod = databaseConfigServiceGrpc.getDropDatabaseMethod) == null) {
           databaseConfigServiceGrpc.getDropDatabaseMethod = getDropDatabaseMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.database.DatabaseName, com.server.graph_db.grpc.database.reply>newBuilder()
+              io.grpc.MethodDescriptor.<DatabaseName, reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "dropDatabase"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.DatabaseName.getDefaultInstance()))
+                  DatabaseName.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.reply.getDefaultInstance()))
+                  reply.getDefaultInstance()))
               .setSchemaDescriptor(new databaseConfigServiceMethodDescriptorSupplier("dropDatabase"))
               .build();
         }
@@ -141,29 +141,29 @@ public final class databaseConfigServiceGrpc {
     return getDropDatabaseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName,
-      com.server.graph_db.grpc.database.reply> getSwitchDatabaseMethod;
+  private static volatile io.grpc.MethodDescriptor<DatabaseName,
+      reply> getSwitchDatabaseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "switchDatabase",
-      requestType = com.server.graph_db.grpc.database.DatabaseName.class,
-      responseType = com.server.graph_db.grpc.database.reply.class,
+      requestType = DatabaseName.class,
+      responseType = reply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName,
-      com.server.graph_db.grpc.database.reply> getSwitchDatabaseMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.DatabaseName, com.server.graph_db.grpc.database.reply> getSwitchDatabaseMethod;
+  public static io.grpc.MethodDescriptor<DatabaseName,
+      reply> getSwitchDatabaseMethod() {
+    io.grpc.MethodDescriptor<DatabaseName, reply> getSwitchDatabaseMethod;
     if ((getSwitchDatabaseMethod = databaseConfigServiceGrpc.getSwitchDatabaseMethod) == null) {
       synchronized (databaseConfigServiceGrpc.class) {
         if ((getSwitchDatabaseMethod = databaseConfigServiceGrpc.getSwitchDatabaseMethod) == null) {
           databaseConfigServiceGrpc.getSwitchDatabaseMethod = getSwitchDatabaseMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.database.DatabaseName, com.server.graph_db.grpc.database.reply>newBuilder()
+              io.grpc.MethodDescriptor.<DatabaseName, reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "switchDatabase"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.DatabaseName.getDefaultInstance()))
+                  DatabaseName.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.reply.getDefaultInstance()))
+                  reply.getDefaultInstance()))
               .setSchemaDescriptor(new databaseConfigServiceMethodDescriptorSupplier("switchDatabase"))
               .build();
         }
@@ -172,29 +172,29 @@ public final class databaseConfigServiceGrpc {
     return getSwitchDatabaseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.emptyResponse,
-      com.server.graph_db.grpc.database.reply> getSwitchToDefaultDatabaseMethod;
+  private static volatile io.grpc.MethodDescriptor<emptyResponse,
+      reply> getSwitchToDefaultDatabaseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "switchToDefaultDatabase",
-      requestType = com.server.graph_db.grpc.database.emptyResponse.class,
-      responseType = com.server.graph_db.grpc.database.reply.class,
+      requestType = emptyResponse.class,
+      responseType = reply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.emptyResponse,
-      com.server.graph_db.grpc.database.reply> getSwitchToDefaultDatabaseMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.emptyResponse, com.server.graph_db.grpc.database.reply> getSwitchToDefaultDatabaseMethod;
+  public static io.grpc.MethodDescriptor<emptyResponse,
+      reply> getSwitchToDefaultDatabaseMethod() {
+    io.grpc.MethodDescriptor<emptyResponse, reply> getSwitchToDefaultDatabaseMethod;
     if ((getSwitchToDefaultDatabaseMethod = databaseConfigServiceGrpc.getSwitchToDefaultDatabaseMethod) == null) {
       synchronized (databaseConfigServiceGrpc.class) {
         if ((getSwitchToDefaultDatabaseMethod = databaseConfigServiceGrpc.getSwitchToDefaultDatabaseMethod) == null) {
           databaseConfigServiceGrpc.getSwitchToDefaultDatabaseMethod = getSwitchToDefaultDatabaseMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.database.emptyResponse, com.server.graph_db.grpc.database.reply>newBuilder()
+              io.grpc.MethodDescriptor.<emptyResponse, reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "switchToDefaultDatabase"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.emptyResponse.getDefaultInstance()))
+                  emptyResponse.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.reply.getDefaultInstance()))
+                  reply.getDefaultInstance()))
               .setSchemaDescriptor(new databaseConfigServiceMethodDescriptorSupplier("switchToDefaultDatabase"))
               .build();
         }
@@ -203,29 +203,29 @@ public final class databaseConfigServiceGrpc {
     return getSwitchToDefaultDatabaseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.emptyResponse,
-      com.server.graph_db.grpc.database.reply> getDropDefaultDatabaseMethod;
+  private static volatile io.grpc.MethodDescriptor<emptyResponse,
+      reply> getDropDefaultDatabaseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "dropDefaultDatabase",
-      requestType = com.server.graph_db.grpc.database.emptyResponse.class,
-      responseType = com.server.graph_db.grpc.database.reply.class,
+      requestType = emptyResponse.class,
+      responseType = reply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.emptyResponse,
-      com.server.graph_db.grpc.database.reply> getDropDefaultDatabaseMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.database.emptyResponse, com.server.graph_db.grpc.database.reply> getDropDefaultDatabaseMethod;
+  public static io.grpc.MethodDescriptor<emptyResponse,
+      reply> getDropDefaultDatabaseMethod() {
+    io.grpc.MethodDescriptor<emptyResponse, reply> getDropDefaultDatabaseMethod;
     if ((getDropDefaultDatabaseMethod = databaseConfigServiceGrpc.getDropDefaultDatabaseMethod) == null) {
       synchronized (databaseConfigServiceGrpc.class) {
         if ((getDropDefaultDatabaseMethod = databaseConfigServiceGrpc.getDropDefaultDatabaseMethod) == null) {
           databaseConfigServiceGrpc.getDropDefaultDatabaseMethod = getDropDefaultDatabaseMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.database.emptyResponse, com.server.graph_db.grpc.database.reply>newBuilder()
+              io.grpc.MethodDescriptor.<emptyResponse, reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "dropDefaultDatabase"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.emptyResponse.getDefaultInstance()))
+                  emptyResponse.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.database.reply.getDefaultInstance()))
+                  reply.getDefaultInstance()))
               .setSchemaDescriptor(new databaseConfigServiceMethodDescriptorSupplier("dropDefaultDatabase"))
               .build();
         }
@@ -240,7 +240,7 @@ public final class databaseConfigServiceGrpc {
   public static databaseConfigServiceStub newStub(io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<databaseConfigServiceStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<databaseConfigServiceStub>() {
-        @java.lang.Override
+        @Override
         public databaseConfigServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new databaseConfigServiceStub(channel, callOptions);
         }
@@ -255,7 +255,7 @@ public final class databaseConfigServiceGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<databaseConfigServiceBlockingStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<databaseConfigServiceBlockingStub>() {
-        @java.lang.Override
+        @Override
         public databaseConfigServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new databaseConfigServiceBlockingStub(channel, callOptions);
         }
@@ -270,7 +270,7 @@ public final class databaseConfigServiceGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<databaseConfigServiceFutureStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<databaseConfigServiceFutureStub>() {
-        @java.lang.Override
+        @Override
         public databaseConfigServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new databaseConfigServiceFutureStub(channel, callOptions);
         }
@@ -287,103 +287,103 @@ public final class databaseConfigServiceGrpc {
 
     /**
      */
-    public void createDatabase(com.server.graph_db.grpc.database.DatabaseName request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void createDatabase(DatabaseName request,
+                               io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateDatabaseMethod(), responseObserver);
     }
 
     /**
      */
-    public void getCurrentDatabase(com.server.graph_db.grpc.database.emptyResponse request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.DatabaseName> responseObserver) {
+    public void getCurrentDatabase(emptyResponse request,
+                                   io.grpc.stub.StreamObserver<DatabaseName> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetCurrentDatabaseMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteDatabase(com.server.graph_db.grpc.database.DatabaseName request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void deleteDatabase(DatabaseName request,
+                               io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteDatabaseMethod(), responseObserver);
     }
 
     /**
      */
-    public void dropDatabase(com.server.graph_db.grpc.database.DatabaseName request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void dropDatabase(DatabaseName request,
+                             io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDropDatabaseMethod(), responseObserver);
     }
 
     /**
      */
-    public void switchDatabase(com.server.graph_db.grpc.database.DatabaseName request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void switchDatabase(DatabaseName request,
+                               io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSwitchDatabaseMethod(), responseObserver);
     }
 
     /**
      */
-    public void switchToDefaultDatabase(com.server.graph_db.grpc.database.emptyResponse request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void switchToDefaultDatabase(emptyResponse request,
+                                        io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSwitchToDefaultDatabaseMethod(), responseObserver);
     }
 
     /**
      */
-    public void dropDefaultDatabase(com.server.graph_db.grpc.database.emptyResponse request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void dropDefaultDatabase(emptyResponse request,
+                                    io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDropDefaultDatabaseMethod(), responseObserver);
     }
 
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+    @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getCreateDatabaseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.database.DatabaseName,
-                com.server.graph_db.grpc.database.reply>(
+                DatabaseName,
+                reply>(
                   this, METHODID_CREATE_DATABASE)))
           .addMethod(
             getGetCurrentDatabaseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.database.emptyResponse,
-                com.server.graph_db.grpc.database.DatabaseName>(
+                emptyResponse,
+                DatabaseName>(
                   this, METHODID_GET_CURRENT_DATABASE)))
           .addMethod(
             getDeleteDatabaseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.database.DatabaseName,
-                com.server.graph_db.grpc.database.reply>(
+                DatabaseName,
+                reply>(
                   this, METHODID_DELETE_DATABASE)))
           .addMethod(
             getDropDatabaseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.database.DatabaseName,
-                com.server.graph_db.grpc.database.reply>(
+                DatabaseName,
+                reply>(
                   this, METHODID_DROP_DATABASE)))
           .addMethod(
             getSwitchDatabaseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.database.DatabaseName,
-                com.server.graph_db.grpc.database.reply>(
+                DatabaseName,
+                reply>(
                   this, METHODID_SWITCH_DATABASE)))
           .addMethod(
             getSwitchToDefaultDatabaseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.database.emptyResponse,
-                com.server.graph_db.grpc.database.reply>(
+                emptyResponse,
+                reply>(
                   this, METHODID_SWITCH_TO_DEFAULT_DATABASE)))
           .addMethod(
             getDropDefaultDatabaseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.database.emptyResponse,
-                com.server.graph_db.grpc.database.reply>(
+                emptyResponse,
+                reply>(
                   this, METHODID_DROP_DEFAULT_DATABASE)))
           .build();
     }
@@ -400,7 +400,7 @@ public final class databaseConfigServiceGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected databaseConfigServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new databaseConfigServiceStub(channel, callOptions);
@@ -408,56 +408,56 @@ public final class databaseConfigServiceGrpc {
 
     /**
      */
-    public void createDatabase(com.server.graph_db.grpc.database.DatabaseName request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void createDatabase(DatabaseName request,
+                               io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateDatabaseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getCurrentDatabase(com.server.graph_db.grpc.database.emptyResponse request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.DatabaseName> responseObserver) {
+    public void getCurrentDatabase(emptyResponse request,
+                                   io.grpc.stub.StreamObserver<DatabaseName> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetCurrentDatabaseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void deleteDatabase(com.server.graph_db.grpc.database.DatabaseName request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void deleteDatabase(DatabaseName request,
+                               io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteDatabaseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void dropDatabase(com.server.graph_db.grpc.database.DatabaseName request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void dropDatabase(DatabaseName request,
+                             io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDropDatabaseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void switchDatabase(com.server.graph_db.grpc.database.DatabaseName request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void switchDatabase(DatabaseName request,
+                               io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSwitchDatabaseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void switchToDefaultDatabase(com.server.graph_db.grpc.database.emptyResponse request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void switchToDefaultDatabase(emptyResponse request,
+                                        io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSwitchToDefaultDatabaseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void dropDefaultDatabase(com.server.graph_db.grpc.database.emptyResponse request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply> responseObserver) {
+    public void dropDefaultDatabase(emptyResponse request,
+                                    io.grpc.stub.StreamObserver<reply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDropDefaultDatabaseMethod(), getCallOptions()), request, responseObserver);
     }
@@ -474,7 +474,7 @@ public final class databaseConfigServiceGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected databaseConfigServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new databaseConfigServiceBlockingStub(channel, callOptions);
@@ -482,49 +482,49 @@ public final class databaseConfigServiceGrpc {
 
     /**
      */
-    public com.server.graph_db.grpc.database.reply createDatabase(com.server.graph_db.grpc.database.DatabaseName request) {
+    public reply createDatabase(DatabaseName request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateDatabaseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.server.graph_db.grpc.database.DatabaseName getCurrentDatabase(com.server.graph_db.grpc.database.emptyResponse request) {
+    public DatabaseName getCurrentDatabase(emptyResponse request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetCurrentDatabaseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.server.graph_db.grpc.database.reply deleteDatabase(com.server.graph_db.grpc.database.DatabaseName request) {
+    public reply deleteDatabase(DatabaseName request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteDatabaseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.server.graph_db.grpc.database.reply dropDatabase(com.server.graph_db.grpc.database.DatabaseName request) {
+    public reply dropDatabase(DatabaseName request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDropDatabaseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.server.graph_db.grpc.database.reply switchDatabase(com.server.graph_db.grpc.database.DatabaseName request) {
+    public reply switchDatabase(DatabaseName request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSwitchDatabaseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.server.graph_db.grpc.database.reply switchToDefaultDatabase(com.server.graph_db.grpc.database.emptyResponse request) {
+    public reply switchToDefaultDatabase(emptyResponse request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSwitchToDefaultDatabaseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.server.graph_db.grpc.database.reply dropDefaultDatabase(com.server.graph_db.grpc.database.emptyResponse request) {
+    public reply dropDefaultDatabase(emptyResponse request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDropDefaultDatabaseMethod(), getCallOptions(), request);
     }
@@ -541,7 +541,7 @@ public final class databaseConfigServiceGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected databaseConfigServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new databaseConfigServiceFutureStub(channel, callOptions);
@@ -549,56 +549,56 @@ public final class databaseConfigServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.database.reply> createDatabase(
-        com.server.graph_db.grpc.database.DatabaseName request) {
+    public com.google.common.util.concurrent.ListenableFuture<reply> createDatabase(
+        DatabaseName request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateDatabaseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.database.DatabaseName> getCurrentDatabase(
-        com.server.graph_db.grpc.database.emptyResponse request) {
+    public com.google.common.util.concurrent.ListenableFuture<DatabaseName> getCurrentDatabase(
+        emptyResponse request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetCurrentDatabaseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.database.reply> deleteDatabase(
-        com.server.graph_db.grpc.database.DatabaseName request) {
+    public com.google.common.util.concurrent.ListenableFuture<reply> deleteDatabase(
+        DatabaseName request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteDatabaseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.database.reply> dropDatabase(
-        com.server.graph_db.grpc.database.DatabaseName request) {
+    public com.google.common.util.concurrent.ListenableFuture<reply> dropDatabase(
+        DatabaseName request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDropDatabaseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.database.reply> switchDatabase(
-        com.server.graph_db.grpc.database.DatabaseName request) {
+    public com.google.common.util.concurrent.ListenableFuture<reply> switchDatabase(
+        DatabaseName request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSwitchDatabaseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.database.reply> switchToDefaultDatabase(
-        com.server.graph_db.grpc.database.emptyResponse request) {
+    public com.google.common.util.concurrent.ListenableFuture<reply> switchToDefaultDatabase(
+        emptyResponse request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSwitchToDefaultDatabaseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.database.reply> dropDefaultDatabase(
-        com.server.graph_db.grpc.database.emptyResponse request) {
+    public com.google.common.util.concurrent.ListenableFuture<reply> dropDefaultDatabase(
+        emptyResponse request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDropDefaultDatabaseMethod(), getCallOptions()), request);
     }
@@ -625,45 +625,45 @@ public final class databaseConfigServiceGrpc {
       this.methodId = methodId;
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_DATABASE:
-          serviceImpl.createDatabase((com.server.graph_db.grpc.database.DatabaseName) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply>) responseObserver);
+          serviceImpl.createDatabase((DatabaseName) request,
+              (io.grpc.stub.StreamObserver<reply>) responseObserver);
           break;
         case METHODID_GET_CURRENT_DATABASE:
-          serviceImpl.getCurrentDatabase((com.server.graph_db.grpc.database.emptyResponse) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.DatabaseName>) responseObserver);
+          serviceImpl.getCurrentDatabase((emptyResponse) request,
+              (io.grpc.stub.StreamObserver<DatabaseName>) responseObserver);
           break;
         case METHODID_DELETE_DATABASE:
-          serviceImpl.deleteDatabase((com.server.graph_db.grpc.database.DatabaseName) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply>) responseObserver);
+          serviceImpl.deleteDatabase((DatabaseName) request,
+              (io.grpc.stub.StreamObserver<reply>) responseObserver);
           break;
         case METHODID_DROP_DATABASE:
-          serviceImpl.dropDatabase((com.server.graph_db.grpc.database.DatabaseName) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply>) responseObserver);
+          serviceImpl.dropDatabase((DatabaseName) request,
+              (io.grpc.stub.StreamObserver<reply>) responseObserver);
           break;
         case METHODID_SWITCH_DATABASE:
-          serviceImpl.switchDatabase((com.server.graph_db.grpc.database.DatabaseName) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply>) responseObserver);
+          serviceImpl.switchDatabase((DatabaseName) request,
+              (io.grpc.stub.StreamObserver<reply>) responseObserver);
           break;
         case METHODID_SWITCH_TO_DEFAULT_DATABASE:
-          serviceImpl.switchToDefaultDatabase((com.server.graph_db.grpc.database.emptyResponse) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply>) responseObserver);
+          serviceImpl.switchToDefaultDatabase((emptyResponse) request,
+              (io.grpc.stub.StreamObserver<reply>) responseObserver);
           break;
         case METHODID_DROP_DEFAULT_DATABASE:
-          serviceImpl.dropDefaultDatabase((com.server.graph_db.grpc.database.emptyResponse) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.database.reply>) responseObserver);
+          serviceImpl.dropDefaultDatabase((emptyResponse) request,
+              (io.grpc.stub.StreamObserver<reply>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -677,12 +677,12 @@ public final class databaseConfigServiceGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     databaseConfigServiceBaseDescriptorSupplier() {}
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.server.graph_db.grpc.database.Database.getDescriptor();
+      return Database.getDescriptor();
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("databaseConfigService");
     }
@@ -702,7 +702,7 @@ public final class databaseConfigServiceGrpc {
       this.methodName = methodName;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }

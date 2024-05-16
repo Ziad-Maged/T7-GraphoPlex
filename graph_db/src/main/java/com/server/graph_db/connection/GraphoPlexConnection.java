@@ -247,6 +247,138 @@ public class GraphoPlexConnection {
         return this;
     }
 
+    public GraphoPlexConnection articulationPoints() throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH ARTICULATION POINTS" + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection eccentricity(String vertexId) throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH ECCENTRICITY OF " + vertexId + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection radius() throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH RADIUS" + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection girth() throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH GIRTH" + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection vertexConnectivity(String capacityField) throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH VERTEX CONNECTIVITY WITH CAPACITY = " + capacityField + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
+    public GraphoPlexConnection edgeConnectivity(String capacityField) throws IOException{
+        String jsonInputString = "{\"query\": \"MATCH EDGE CONNECTIVITY WITH CAPACITY = " + capacityField + "\"}";
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim() + "\n");
+            }
+            System.out.println(response.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.disconnect();
+        connect();
+        return this;
+    }
+
     public GraphoPlexConnection allShortestPaths(String cost) throws IOException{
         String jsonInputString = "{\"query\": \"MATCH ALL SHORTEST PATHS WITH COST = " + cost + "\"}";
         try (OutputStream os = conn.getOutputStream()) {

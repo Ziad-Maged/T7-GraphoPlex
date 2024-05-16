@@ -17,4 +17,12 @@ public class BridgeEdgesResult extends Result {
     public String toString() {
         return "Bridge Edges: " + edges+"\n\n" +super.toString();
     }
+
+    public List<Edge> getEdges() {
+        return edges;
+    }
+
+    public void setEdges(List<Edge> edges) {
+        this.edges = edges;
+    }
 }

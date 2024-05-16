@@ -14,29 +14,29 @@ public final class TraverserServiceGrpc {
   public static final String SERVICE_NAME = "TraverserService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.vertexBinding,
-      com.server.graph_db.grpc.traverser.verticesIds> getGetVerticesMethod;
+  private static volatile io.grpc.MethodDescriptor<vertexBinding,
+      verticesIds> getGetVerticesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getVertices",
-      requestType = com.server.graph_db.grpc.traverser.vertexBinding.class,
-      responseType = com.server.graph_db.grpc.traverser.verticesIds.class,
+      requestType = vertexBinding.class,
+      responseType = verticesIds.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.vertexBinding,
-      com.server.graph_db.grpc.traverser.verticesIds> getGetVerticesMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.vertexBinding, com.server.graph_db.grpc.traverser.verticesIds> getGetVerticesMethod;
+  public static io.grpc.MethodDescriptor<vertexBinding,
+      verticesIds> getGetVerticesMethod() {
+    io.grpc.MethodDescriptor<vertexBinding, verticesIds> getGetVerticesMethod;
     if ((getGetVerticesMethod = TraverserServiceGrpc.getGetVerticesMethod) == null) {
       synchronized (TraverserServiceGrpc.class) {
         if ((getGetVerticesMethod = TraverserServiceGrpc.getGetVerticesMethod) == null) {
           TraverserServiceGrpc.getGetVerticesMethod = getGetVerticesMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.traverser.vertexBinding, com.server.graph_db.grpc.traverser.verticesIds>newBuilder()
+              io.grpc.MethodDescriptor.<vertexBinding, verticesIds>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getVertices"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.traverser.vertexBinding.getDefaultInstance()))
+                  vertexBinding.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.traverser.verticesIds.getDefaultInstance()))
+                  verticesIds.getDefaultInstance()))
               .setSchemaDescriptor(new TraverserServiceMethodDescriptorSupplier("getVertices"))
               .build();
         }
@@ -45,29 +45,29 @@ public final class TraverserServiceGrpc {
     return getGetVerticesMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.filterVerticesRequest,
-      com.server.graph_db.grpc.traverser.verticesIds> getFilterVerticesMethod;
+  private static volatile io.grpc.MethodDescriptor<filterVerticesRequest,
+      verticesIds> getFilterVerticesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "filterVertices",
-      requestType = com.server.graph_db.grpc.traverser.filterVerticesRequest.class,
-      responseType = com.server.graph_db.grpc.traverser.verticesIds.class,
+      requestType = filterVerticesRequest.class,
+      responseType = verticesIds.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.filterVerticesRequest,
-      com.server.graph_db.grpc.traverser.verticesIds> getFilterVerticesMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.filterVerticesRequest, com.server.graph_db.grpc.traverser.verticesIds> getFilterVerticesMethod;
+  public static io.grpc.MethodDescriptor<filterVerticesRequest,
+      verticesIds> getFilterVerticesMethod() {
+    io.grpc.MethodDescriptor<filterVerticesRequest, verticesIds> getFilterVerticesMethod;
     if ((getFilterVerticesMethod = TraverserServiceGrpc.getFilterVerticesMethod) == null) {
       synchronized (TraverserServiceGrpc.class) {
         if ((getFilterVerticesMethod = TraverserServiceGrpc.getFilterVerticesMethod) == null) {
           TraverserServiceGrpc.getFilterVerticesMethod = getFilterVerticesMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.traverser.filterVerticesRequest, com.server.graph_db.grpc.traverser.verticesIds>newBuilder()
+              io.grpc.MethodDescriptor.<filterVerticesRequest, verticesIds>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "filterVertices"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.traverser.filterVerticesRequest.getDefaultInstance()))
+                  filterVerticesRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.traverser.verticesIds.getDefaultInstance()))
+                  verticesIds.getDefaultInstance()))
               .setSchemaDescriptor(new TraverserServiceMethodDescriptorSupplier("filterVertices"))
               .build();
         }
@@ -76,29 +76,29 @@ public final class TraverserServiceGrpc {
     return getFilterVerticesMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.filterEdgesRequest,
-      com.server.graph_db.grpc.traverser.edgeIds> getFilterOutGoingEdgesMethod;
+  private static volatile io.grpc.MethodDescriptor<filterEdgesRequest,
+      edgeIds> getFilterOutGoingEdgesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "filterOutGoingEdges",
-      requestType = com.server.graph_db.grpc.traverser.filterEdgesRequest.class,
-      responseType = com.server.graph_db.grpc.traverser.edgeIds.class,
+      requestType = filterEdgesRequest.class,
+      responseType = edgeIds.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.filterEdgesRequest,
-      com.server.graph_db.grpc.traverser.edgeIds> getFilterOutGoingEdgesMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.filterEdgesRequest, com.server.graph_db.grpc.traverser.edgeIds> getFilterOutGoingEdgesMethod;
+  public static io.grpc.MethodDescriptor<filterEdgesRequest,
+      edgeIds> getFilterOutGoingEdgesMethod() {
+    io.grpc.MethodDescriptor<filterEdgesRequest, edgeIds> getFilterOutGoingEdgesMethod;
     if ((getFilterOutGoingEdgesMethod = TraverserServiceGrpc.getFilterOutGoingEdgesMethod) == null) {
       synchronized (TraverserServiceGrpc.class) {
         if ((getFilterOutGoingEdgesMethod = TraverserServiceGrpc.getFilterOutGoingEdgesMethod) == null) {
           TraverserServiceGrpc.getFilterOutGoingEdgesMethod = getFilterOutGoingEdgesMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.traverser.filterEdgesRequest, com.server.graph_db.grpc.traverser.edgeIds>newBuilder()
+              io.grpc.MethodDescriptor.<filterEdgesRequest, edgeIds>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "filterOutGoingEdges"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.traverser.filterEdgesRequest.getDefaultInstance()))
+                  filterEdgesRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.traverser.edgeIds.getDefaultInstance()))
+                  edgeIds.getDefaultInstance()))
               .setSchemaDescriptor(new TraverserServiceMethodDescriptorSupplier("filterOutGoingEdges"))
               .build();
         }
@@ -107,29 +107,29 @@ public final class TraverserServiceGrpc {
     return getFilterOutGoingEdgesMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.filterEdgesRequest,
-      com.server.graph_db.grpc.traverser.edgeIds> getFilterInGoingEdgesMethod;
+  private static volatile io.grpc.MethodDescriptor<filterEdgesRequest,
+      edgeIds> getFilterInGoingEdgesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "filterInGoingEdges",
-      requestType = com.server.graph_db.grpc.traverser.filterEdgesRequest.class,
-      responseType = com.server.graph_db.grpc.traverser.edgeIds.class,
+      requestType = filterEdgesRequest.class,
+      responseType = edgeIds.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.filterEdgesRequest,
-      com.server.graph_db.grpc.traverser.edgeIds> getFilterInGoingEdgesMethod() {
-    io.grpc.MethodDescriptor<com.server.graph_db.grpc.traverser.filterEdgesRequest, com.server.graph_db.grpc.traverser.edgeIds> getFilterInGoingEdgesMethod;
+  public static io.grpc.MethodDescriptor<filterEdgesRequest,
+      edgeIds> getFilterInGoingEdgesMethod() {
+    io.grpc.MethodDescriptor<filterEdgesRequest, edgeIds> getFilterInGoingEdgesMethod;
     if ((getFilterInGoingEdgesMethod = TraverserServiceGrpc.getFilterInGoingEdgesMethod) == null) {
       synchronized (TraverserServiceGrpc.class) {
         if ((getFilterInGoingEdgesMethod = TraverserServiceGrpc.getFilterInGoingEdgesMethod) == null) {
           TraverserServiceGrpc.getFilterInGoingEdgesMethod = getFilterInGoingEdgesMethod =
-              io.grpc.MethodDescriptor.<com.server.graph_db.grpc.traverser.filterEdgesRequest, com.server.graph_db.grpc.traverser.edgeIds>newBuilder()
+              io.grpc.MethodDescriptor.<filterEdgesRequest, edgeIds>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "filterInGoingEdges"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.traverser.filterEdgesRequest.getDefaultInstance()))
+                  filterEdgesRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.server.graph_db.grpc.traverser.edgeIds.getDefaultInstance()))
+                  edgeIds.getDefaultInstance()))
               .setSchemaDescriptor(new TraverserServiceMethodDescriptorSupplier("filterInGoingEdges"))
               .build();
         }
@@ -144,7 +144,7 @@ public final class TraverserServiceGrpc {
   public static TraverserServiceStub newStub(io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<TraverserServiceStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<TraverserServiceStub>() {
-        @java.lang.Override
+        @Override
         public TraverserServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new TraverserServiceStub(channel, callOptions);
         }
@@ -159,7 +159,7 @@ public final class TraverserServiceGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<TraverserServiceBlockingStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<TraverserServiceBlockingStub>() {
-        @java.lang.Override
+        @Override
         public TraverserServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new TraverserServiceBlockingStub(channel, callOptions);
         }
@@ -174,7 +174,7 @@ public final class TraverserServiceGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<TraverserServiceFutureStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<TraverserServiceFutureStub>() {
-        @java.lang.Override
+        @Override
         public TraverserServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new TraverserServiceFutureStub(channel, callOptions);
         }
@@ -188,61 +188,61 @@ public final class TraverserServiceGrpc {
 
     /**
      */
-    public void getVertices(com.server.graph_db.grpc.traverser.vertexBinding request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.verticesIds> responseObserver) {
+    public void getVertices(vertexBinding request,
+                            io.grpc.stub.StreamObserver<verticesIds> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetVerticesMethod(), responseObserver);
     }
 
     /**
      */
-    public void filterVertices(com.server.graph_db.grpc.traverser.filterVerticesRequest request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.verticesIds> responseObserver) {
+    public void filterVertices(filterVerticesRequest request,
+                               io.grpc.stub.StreamObserver<verticesIds> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFilterVerticesMethod(), responseObserver);
     }
 
     /**
      */
-    public void filterOutGoingEdges(com.server.graph_db.grpc.traverser.filterEdgesRequest request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.edgeIds> responseObserver) {
+    public void filterOutGoingEdges(filterEdgesRequest request,
+                                    io.grpc.stub.StreamObserver<edgeIds> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFilterOutGoingEdgesMethod(), responseObserver);
     }
 
     /**
      */
-    public void filterInGoingEdges(com.server.graph_db.grpc.traverser.filterEdgesRequest request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.edgeIds> responseObserver) {
+    public void filterInGoingEdges(filterEdgesRequest request,
+                                   io.grpc.stub.StreamObserver<edgeIds> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFilterInGoingEdgesMethod(), responseObserver);
     }
 
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+    @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getGetVerticesMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.traverser.vertexBinding,
-                com.server.graph_db.grpc.traverser.verticesIds>(
+                vertexBinding,
+                verticesIds>(
                   this, METHODID_GET_VERTICES)))
           .addMethod(
             getFilterVerticesMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.traverser.filterVerticesRequest,
-                com.server.graph_db.grpc.traverser.verticesIds>(
+                filterVerticesRequest,
+                verticesIds>(
                   this, METHODID_FILTER_VERTICES)))
           .addMethod(
             getFilterOutGoingEdgesMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.traverser.filterEdgesRequest,
-                com.server.graph_db.grpc.traverser.edgeIds>(
+                filterEdgesRequest,
+                edgeIds>(
                   this, METHODID_FILTER_OUT_GOING_EDGES)))
           .addMethod(
             getFilterInGoingEdgesMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.server.graph_db.grpc.traverser.filterEdgesRequest,
-                com.server.graph_db.grpc.traverser.edgeIds>(
+                filterEdgesRequest,
+                edgeIds>(
                   this, METHODID_FILTER_IN_GOING_EDGES)))
           .build();
     }
@@ -256,7 +256,7 @@ public final class TraverserServiceGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected TraverserServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new TraverserServiceStub(channel, callOptions);
@@ -264,32 +264,32 @@ public final class TraverserServiceGrpc {
 
     /**
      */
-    public void getVertices(com.server.graph_db.grpc.traverser.vertexBinding request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.verticesIds> responseObserver) {
+    public void getVertices(vertexBinding request,
+                            io.grpc.stub.StreamObserver<verticesIds> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetVerticesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void filterVertices(com.server.graph_db.grpc.traverser.filterVerticesRequest request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.verticesIds> responseObserver) {
+    public void filterVertices(filterVerticesRequest request,
+                               io.grpc.stub.StreamObserver<verticesIds> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getFilterVerticesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void filterOutGoingEdges(com.server.graph_db.grpc.traverser.filterEdgesRequest request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.edgeIds> responseObserver) {
+    public void filterOutGoingEdges(filterEdgesRequest request,
+                                    io.grpc.stub.StreamObserver<edgeIds> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getFilterOutGoingEdgesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void filterInGoingEdges(com.server.graph_db.grpc.traverser.filterEdgesRequest request,
-        io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.edgeIds> responseObserver) {
+    public void filterInGoingEdges(filterEdgesRequest request,
+                                   io.grpc.stub.StreamObserver<edgeIds> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getFilterInGoingEdgesMethod(), getCallOptions()), request, responseObserver);
     }
@@ -303,7 +303,7 @@ public final class TraverserServiceGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected TraverserServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new TraverserServiceBlockingStub(channel, callOptions);
@@ -311,28 +311,28 @@ public final class TraverserServiceGrpc {
 
     /**
      */
-    public com.server.graph_db.grpc.traverser.verticesIds getVertices(com.server.graph_db.grpc.traverser.vertexBinding request) {
+    public verticesIds getVertices(vertexBinding request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetVerticesMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.server.graph_db.grpc.traverser.verticesIds filterVertices(com.server.graph_db.grpc.traverser.filterVerticesRequest request) {
+    public verticesIds filterVertices(filterVerticesRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFilterVerticesMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.server.graph_db.grpc.traverser.edgeIds filterOutGoingEdges(com.server.graph_db.grpc.traverser.filterEdgesRequest request) {
+    public edgeIds filterOutGoingEdges(filterEdgesRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFilterOutGoingEdgesMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.server.graph_db.grpc.traverser.edgeIds filterInGoingEdges(com.server.graph_db.grpc.traverser.filterEdgesRequest request) {
+    public edgeIds filterInGoingEdges(filterEdgesRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFilterInGoingEdgesMethod(), getCallOptions(), request);
     }
@@ -346,7 +346,7 @@ public final class TraverserServiceGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected TraverserServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new TraverserServiceFutureStub(channel, callOptions);
@@ -354,32 +354,32 @@ public final class TraverserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.traverser.verticesIds> getVertices(
-        com.server.graph_db.grpc.traverser.vertexBinding request) {
+    public com.google.common.util.concurrent.ListenableFuture<verticesIds> getVertices(
+        vertexBinding request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetVerticesMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.traverser.verticesIds> filterVertices(
-        com.server.graph_db.grpc.traverser.filterVerticesRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<verticesIds> filterVertices(
+        filterVerticesRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getFilterVerticesMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.traverser.edgeIds> filterOutGoingEdges(
-        com.server.graph_db.grpc.traverser.filterEdgesRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<edgeIds> filterOutGoingEdges(
+        filterEdgesRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getFilterOutGoingEdgesMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.server.graph_db.grpc.traverser.edgeIds> filterInGoingEdges(
-        com.server.graph_db.grpc.traverser.filterEdgesRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<edgeIds> filterInGoingEdges(
+        filterEdgesRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getFilterInGoingEdgesMethod(), getCallOptions()), request);
     }
@@ -403,33 +403,33 @@ public final class TraverserServiceGrpc {
       this.methodId = methodId;
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_VERTICES:
-          serviceImpl.getVertices((com.server.graph_db.grpc.traverser.vertexBinding) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.verticesIds>) responseObserver);
+          serviceImpl.getVertices((vertexBinding) request,
+              (io.grpc.stub.StreamObserver<verticesIds>) responseObserver);
           break;
         case METHODID_FILTER_VERTICES:
-          serviceImpl.filterVertices((com.server.graph_db.grpc.traverser.filterVerticesRequest) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.verticesIds>) responseObserver);
+          serviceImpl.filterVertices((filterVerticesRequest) request,
+              (io.grpc.stub.StreamObserver<verticesIds>) responseObserver);
           break;
         case METHODID_FILTER_OUT_GOING_EDGES:
-          serviceImpl.filterOutGoingEdges((com.server.graph_db.grpc.traverser.filterEdgesRequest) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.edgeIds>) responseObserver);
+          serviceImpl.filterOutGoingEdges((filterEdgesRequest) request,
+              (io.grpc.stub.StreamObserver<edgeIds>) responseObserver);
           break;
         case METHODID_FILTER_IN_GOING_EDGES:
-          serviceImpl.filterInGoingEdges((com.server.graph_db.grpc.traverser.filterEdgesRequest) request,
-              (io.grpc.stub.StreamObserver<com.server.graph_db.grpc.traverser.edgeIds>) responseObserver);
+          serviceImpl.filterInGoingEdges((filterEdgesRequest) request,
+              (io.grpc.stub.StreamObserver<edgeIds>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -443,12 +443,12 @@ public final class TraverserServiceGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     TraverserServiceBaseDescriptorSupplier() {}
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.server.graph_db.grpc.traverser.Traverser.getDescriptor();
+      return Traverser.getDescriptor();
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("TraverserService");
     }
@@ -468,7 +468,7 @@ public final class TraverserServiceGrpc {
       this.methodName = methodName;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }

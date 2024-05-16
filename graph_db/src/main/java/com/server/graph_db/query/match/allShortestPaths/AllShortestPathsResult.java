@@ -24,4 +24,12 @@ public class AllShortestPathsResult extends Result {
         }
         return sb.toString()+"\n\n" +super.toString();
     }
+
+    public Map<Vertex, Map<Vertex, Integer>> getAllShortestPaths() {
+        return allShortestPaths;
+    }
+
+    public void setAllShortestPaths(Map<Vertex, Map<Vertex, Integer>> allShortestPaths) {
+        this.allShortestPaths = allShortestPaths;
+    }
 }

@@ -24,14 +24,14 @@ private static final long serialVersionUID = 0L;
     label_ = "";
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new createVertexRequest();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -42,7 +42,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -56,13 +56,13 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             id_ = s;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             label_ = s;
             break;
@@ -73,7 +73,7 @@ private static final long serialVersionUID = 0L;
                   PropertiesDefaultEntryHolder.defaultEntry);
               mutable_bitField0_ |= 0x00000001;
             }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            com.google.protobuf.MapEntry<String, String>
             properties__ = input.readMessage(
                 PropertiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
             properties_.getMutableMap().put(
@@ -101,11 +101,11 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.server.graph_db.grpc.vertex.Vertex.internal_static_createVertexRequest_descriptor;
+    return Vertex.internal_static_createVertexRequest_descriptor;
   }
 
   @SuppressWarnings({"rawtypes"})
-  @java.lang.Override
+  @Override
   protected com.google.protobuf.MapField internalGetMapField(
       int number) {
     switch (number) {
@@ -116,29 +116,29 @@ private static final long serialVersionUID = 0L;
             "Invalid map field number: " + number);
     }
   }
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.server.graph_db.grpc.vertex.Vertex.internal_static_createVertexRequest_fieldAccessorTable
+    return Vertex.internal_static_createVertexRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.server.graph_db.grpc.vertex.createVertexRequest.class, com.server.graph_db.grpc.vertex.createVertexRequest.Builder.class);
+            createVertexRequest.class, Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  private volatile Object id_;
   /**
    * <code>string id = 1;</code>
    * @return The id.
    */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       id_ = s;
       return s;
     }
@@ -147,14 +147,14 @@ private static final long serialVersionUID = 0L;
    * <code>string id = 1;</code>
    * @return The bytes for id.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
+    Object ref = id_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       id_ = b;
       return b;
     } else {
@@ -163,20 +163,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LABEL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object label_;
+  private volatile Object label_;
   /**
    * <code>string label = 2;</code>
    * @return The label.
    */
-  @java.lang.Override
-  public java.lang.String getLabel() {
-    java.lang.Object ref = label_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getLabel() {
+    Object ref = label_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       label_ = s;
       return s;
     }
@@ -185,14 +185,14 @@ private static final long serialVersionUID = 0L;
    * <code>string label = 2;</code>
    * @return The bytes for label.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getLabelBytes() {
-    java.lang.Object ref = label_;
-    if (ref instanceof java.lang.String) {
+    Object ref = label_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       label_ = b;
       return b;
     } else {
@@ -203,18 +203,18 @@ private static final long serialVersionUID = 0L;
   public static final int PROPERTIES_FIELD_NUMBER = 3;
   private static final class PropertiesDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
-        java.lang.String, java.lang.String> defaultEntry =
+        String, String> defaultEntry =
             com.google.protobuf.MapEntry
-            .<java.lang.String, java.lang.String>newDefaultInstance(
-                com.server.graph_db.grpc.vertex.Vertex.internal_static_createVertexRequest_PropertiesEntry_descriptor, 
+            .<String, String>newDefaultInstance(
+                Vertex.internal_static_createVertexRequest_PropertiesEntry_descriptor,
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
   private com.google.protobuf.MapField<
-      java.lang.String, java.lang.String> properties_;
-  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      String, String> properties_;
+  private com.google.protobuf.MapField<String, String>
   internalGetProperties() {
     if (properties_ == null) {
       return com.google.protobuf.MapField.emptyMapField(
@@ -230,59 +230,59 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; properties = 3;</code>
    */
 
-  @java.lang.Override
+  @Override
   public boolean containsProperties(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
     return internalGetProperties().getMap().containsKey(key);
   }
   /**
    * Use {@link #getPropertiesMap()} instead.
    */
-  @java.lang.Override
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.String, java.lang.String> getProperties() {
+  @Override
+  @Deprecated
+  public java.util.Map<String, String> getProperties() {
     return getPropertiesMap();
   }
   /**
    * <code>map&lt;string, string&gt; properties = 3;</code>
    */
-  @java.lang.Override
+  @Override
 
-  public java.util.Map<java.lang.String, java.lang.String> getPropertiesMap() {
+  public java.util.Map<String, String> getPropertiesMap() {
     return internalGetProperties().getMap();
   }
   /**
    * <code>map&lt;string, string&gt; properties = 3;</code>
    */
-  @java.lang.Override
+  @Override
 
-  public java.lang.String getPropertiesOrDefault(
-      java.lang.String key,
-      java.lang.String defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, java.lang.String> map =
+  public String getPropertiesOrDefault(
+      String key,
+      String defaultValue) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, String> map =
         internalGetProperties().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
    * <code>map&lt;string, string&gt; properties = 3;</code>
    */
-  @java.lang.Override
+  @Override
 
-  public java.lang.String getPropertiesOrThrow(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, java.lang.String> map =
+  public String getPropertiesOrThrow(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, String> map =
         internalGetProperties().getMap();
     if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
+      throw new IllegalArgumentException();
     }
     return map.get(key);
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -292,7 +292,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getIdBytes().isEmpty()) {
@@ -310,7 +310,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -322,9 +322,9 @@ private static final long serialVersionUID = 0L;
     if (!getLabelBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, label_);
     }
-    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+    for (java.util.Map.Entry<String, String> entry
          : internalGetProperties().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      com.google.protobuf.MapEntry<String, String>
       properties__ = PropertiesDefaultEntryHolder.defaultEntry.newBuilderForType()
           .setKey(entry.getKey())
           .setValue(entry.getValue())
@@ -337,15 +337,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.server.graph_db.grpc.vertex.createVertexRequest)) {
+    if (!(obj instanceof createVertexRequest)) {
       return super.equals(obj);
     }
-    com.server.graph_db.grpc.vertex.createVertexRequest other = (com.server.graph_db.grpc.vertex.createVertexRequest) obj;
+    createVertexRequest other = (createVertexRequest) obj;
 
     if (!getId()
         .equals(other.getId())) return false;
@@ -357,7 +357,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -377,69 +377,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(
+  public static createVertexRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(
+  public static createVertexRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(
+  public static createVertexRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(
+  public static createVertexRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(byte[] data)
+  public static createVertexRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(
+  public static createVertexRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(java.io.InputStream input)
+  public static createVertexRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(
+  public static createVertexRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseDelimitedFrom(java.io.InputStream input)
+  public static createVertexRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseDelimitedFrom(
+  public static createVertexRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(
+  public static createVertexRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.vertex.createVertexRequest parseFrom(
+  public static createVertexRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -447,23 +447,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.server.graph_db.grpc.vertex.createVertexRequest prototype) {
+  public static Builder newBuilder(createVertexRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -477,10 +477,10 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:createVertexRequest)
-      com.server.graph_db.grpc.vertex.createVertexRequestOrBuilder {
+      createVertexRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.server.graph_db.grpc.vertex.Vertex.internal_static_createVertexRequest_descriptor;
+      return Vertex.internal_static_createVertexRequest_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -505,12 +505,12 @@ private static final long serialVersionUID = 0L;
               "Invalid map field number: " + number);
       }
     }
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.server.graph_db.grpc.vertex.Vertex.internal_static_createVertexRequest_fieldAccessorTable
+      return Vertex.internal_static_createVertexRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.server.graph_db.grpc.vertex.createVertexRequest.class, com.server.graph_db.grpc.vertex.createVertexRequest.Builder.class);
+              createVertexRequest.class, Builder.class);
     }
 
     // Construct using com.server.graph_db.grpc.vertex.createVertexRequest.newBuilder()
@@ -519,7 +519,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -528,7 +528,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       id_ = "";
@@ -539,29 +539,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.server.graph_db.grpc.vertex.Vertex.internal_static_createVertexRequest_descriptor;
+      return Vertex.internal_static_createVertexRequest_descriptor;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.vertex.createVertexRequest getDefaultInstanceForType() {
-      return com.server.graph_db.grpc.vertex.createVertexRequest.getDefaultInstance();
+    @Override
+    public createVertexRequest getDefaultInstanceForType() {
+      return createVertexRequest.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.vertex.createVertexRequest build() {
-      com.server.graph_db.grpc.vertex.createVertexRequest result = buildPartial();
+    @Override
+    public createVertexRequest build() {
+      createVertexRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.vertex.createVertexRequest buildPartial() {
-      com.server.graph_db.grpc.vertex.createVertexRequest result = new com.server.graph_db.grpc.vertex.createVertexRequest(this);
+    @Override
+    public createVertexRequest buildPartial() {
+      createVertexRequest result = new createVertexRequest(this);
       int from_bitField0_ = bitField0_;
       result.id_ = id_;
       result.label_ = label_;
@@ -571,50 +571,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.server.graph_db.grpc.vertex.createVertexRequest) {
-        return mergeFrom((com.server.graph_db.grpc.vertex.createVertexRequest)other);
+      if (other instanceof createVertexRequest) {
+        return mergeFrom((createVertexRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.server.graph_db.grpc.vertex.createVertexRequest other) {
-      if (other == com.server.graph_db.grpc.vertex.createVertexRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(createVertexRequest other) {
+      if (other == createVertexRequest.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
         onChanged();
@@ -630,21 +630,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.server.graph_db.grpc.vertex.createVertexRequest parsedMessage = null;
+      createVertexRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.server.graph_db.grpc.vertex.createVertexRequest) e.getUnfinishedMessage();
+        parsedMessage = (createVertexRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -655,21 +655,21 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object id_ = "";
+    private Object id_ = "";
     /**
      * <code>string id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         id_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -678,11 +678,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
+      Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -695,7 +695,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -731,21 +731,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object label_ = "";
+    private Object label_ = "";
     /**
      * <code>string label = 2;</code>
      * @return The label.
      */
-    public java.lang.String getLabel() {
-      java.lang.Object ref = label_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getLabel() {
+      Object ref = label_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         label_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -754,11 +754,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getLabelBytes() {
-      java.lang.Object ref = label_;
+      Object ref = label_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         label_ = b;
         return b;
       } else {
@@ -771,7 +771,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLabel(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -808,8 +808,8 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> properties_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        String, String> properties_;
+    private com.google.protobuf.MapField<String, String>
     internalGetProperties() {
       if (properties_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -817,7 +817,7 @@ private static final long serialVersionUID = 0L;
       }
       return properties_;
     }
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    private com.google.protobuf.MapField<String, String>
     internalGetMutableProperties() {
       onChanged();;
       if (properties_ == null) {
@@ -837,53 +837,53 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; properties = 3;</code>
      */
 
-    @java.lang.Override
+    @Override
     public boolean containsProperties(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
       return internalGetProperties().getMap().containsKey(key);
     }
     /**
      * Use {@link #getPropertiesMap()} instead.
      */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getProperties() {
+    @Override
+    @Deprecated
+    public java.util.Map<String, String> getProperties() {
       return getPropertiesMap();
     }
     /**
      * <code>map&lt;string, string&gt; properties = 3;</code>
      */
-    @java.lang.Override
+    @Override
 
-    public java.util.Map<java.lang.String, java.lang.String> getPropertiesMap() {
+    public java.util.Map<String, String> getPropertiesMap() {
       return internalGetProperties().getMap();
     }
     /**
      * <code>map&lt;string, string&gt; properties = 3;</code>
      */
-    @java.lang.Override
+    @Override
 
-    public java.lang.String getPropertiesOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
+    public String getPropertiesOrDefault(
+        String key,
+        String defaultValue) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, String> map =
           internalGetProperties().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
      * <code>map&lt;string, string&gt; properties = 3;</code>
      */
-    @java.lang.Override
+    @Override
 
-    public java.lang.String getPropertiesOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
+    public String getPropertiesOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, String> map =
           internalGetProperties().getMap();
       if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
+        throw new IllegalArgumentException();
       }
       return map.get(key);
     }
@@ -898,8 +898,8 @@ private static final long serialVersionUID = 0L;
      */
 
     public Builder removeProperties(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
       internalGetMutableProperties().getMutableMap()
           .remove(key);
       return this;
@@ -907,8 +907,8 @@ private static final long serialVersionUID = 0L;
     /**
      * Use alternate mutation accessors instead.
      */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String>
+    @Deprecated
+    public java.util.Map<String, String>
     getMutableProperties() {
       return internalGetMutableProperties().getMutableMap();
     }
@@ -916,10 +916,10 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; properties = 3;</code>
      */
     public Builder putProperties(
-        java.lang.String key,
-        java.lang.String value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+        String key,
+        String value) {
+      if (key == null) { throw new NullPointerException(); }
+      if (value == null) { throw new NullPointerException(); }
       internalGetMutableProperties().getMutableMap()
           .put(key, value);
       return this;
@@ -929,18 +929,18 @@ private static final long serialVersionUID = 0L;
      */
 
     public Builder putAllProperties(
-        java.util.Map<java.lang.String, java.lang.String> values) {
+        java.util.Map<String, String> values) {
       internalGetMutableProperties().getMutableMap()
           .putAll(values);
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -951,18 +951,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:createVertexRequest)
-  private static final com.server.graph_db.grpc.vertex.createVertexRequest DEFAULT_INSTANCE;
+  private static final createVertexRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.server.graph_db.grpc.vertex.createVertexRequest();
+    DEFAULT_INSTANCE = new createVertexRequest();
   }
 
-  public static com.server.graph_db.grpc.vertex.createVertexRequest getDefaultInstance() {
+  public static createVertexRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<createVertexRequest>
       PARSER = new com.google.protobuf.AbstractParser<createVertexRequest>() {
-    @java.lang.Override
+    @Override
     public createVertexRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -975,13 +975,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<createVertexRequest> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.server.graph_db.grpc.vertex.createVertexRequest getDefaultInstanceForType() {
+  @Override
+  public createVertexRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

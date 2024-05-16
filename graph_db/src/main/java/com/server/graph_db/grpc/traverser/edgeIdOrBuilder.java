@@ -11,7 +11,7 @@ public interface edgeIdOrBuilder extends
    * <code>string sourceId = 1;</code>
    * @return The sourceId.
    */
-  java.lang.String getSourceId();
+  String getSourceId();
   /**
    * <code>string sourceId = 1;</code>
    * @return The bytes for sourceId.
@@ -23,7 +23,7 @@ public interface edgeIdOrBuilder extends
    * <code>string destinationId = 2;</code>
    * @return The destinationId.
    */
-  java.lang.String getDestinationId();
+  String getDestinationId();
   /**
    * <code>string destinationId = 2;</code>
    * @return The bytes for destinationId.
@@ -35,7 +35,7 @@ public interface edgeIdOrBuilder extends
    * <code>string label = 3;</code>
    * @return The label.
    */
-  java.lang.String getLabel();
+  String getLabel();
   /**
    * <code>string label = 3;</code>
    * @return The bytes for label.

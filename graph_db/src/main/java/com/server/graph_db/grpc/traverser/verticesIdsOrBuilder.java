@@ -11,7 +11,7 @@ public interface verticesIdsOrBuilder extends
    * <code>repeated string verticesIds = 1;</code>
    * @return A list containing the verticesIds.
    */
-  java.util.List<java.lang.String>
+  java.util.List<String>
       getVerticesIdsList();
   /**
    * <code>repeated string verticesIds = 1;</code>
@@ -23,7 +23,7 @@ public interface verticesIdsOrBuilder extends
    * @param index The index of the element to return.
    * @return The verticesIds at the given index.
    */
-  java.lang.String getVerticesIds(int index);
+  String getVerticesIds(int index);
   /**
    * <code>repeated string verticesIds = 1;</code>
    * @param index The index of the value to return.

@@ -57,7 +57,7 @@ public final class Traverser {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\017traverser.proto\"I\n\016selectOperator\022\021\n\tf" +
       "ieldName\030\001 \001(\t\022\020\n\010operator\030\002 \001(\t\022\022\n\nfiel" +
       "dValue\030\003 \001(\t\"T\n\rvertexBinding\022\n\n\002id\030\001 \001(" +
@@ -87,43 +87,43 @@ public final class Traverser {
     internal_static_selectOperator_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_selectOperator_descriptor,
-        new java.lang.String[] { "FieldName", "Operator", "FieldValue", });
+        new String[] { "FieldName", "Operator", "FieldValue", });
     internal_static_vertexBinding_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_vertexBinding_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vertexBinding_descriptor,
-        new java.lang.String[] { "Id", "Label", "SelectOperators", });
+        new String[] { "Id", "Label", "SelectOperators", });
     internal_static_filterVerticesRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_filterVerticesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_filterVerticesRequest_descriptor,
-        new java.lang.String[] { "VerticesIds", "VertexBinding", });
+        new String[] { "VerticesIds", "VertexBinding", });
     internal_static_filterEdgesRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_filterEdgesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_filterEdgesRequest_descriptor,
-        new java.lang.String[] { "VerticesIds", "EdgeLabel", "SelectOperators", });
+        new String[] { "VerticesIds", "EdgeLabel", "SelectOperators", });
     internal_static_verticesIds_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_verticesIds_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_verticesIds_descriptor,
-        new java.lang.String[] { "VerticesIds", });
+        new String[] { "VerticesIds", });
     internal_static_edgeIds_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_edgeIds_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edgeIds_descriptor,
-        new java.lang.String[] { "EdgeIds", });
+        new String[] { "EdgeIds", });
     internal_static_edgeId_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_edgeId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edgeId_descriptor,
-        new java.lang.String[] { "SourceId", "DestinationId", "Label", });
+        new String[] { "SourceId", "DestinationId", "Label", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

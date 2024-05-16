@@ -11,7 +11,7 @@ public interface deleteIndicesRequestOrBuilder extends
    * <code>repeated string indicesNames = 1;</code>
    * @return A list containing the indicesNames.
    */
-  java.util.List<java.lang.String>
+  java.util.List<String>
       getIndicesNamesList();
   /**
    * <code>repeated string indicesNames = 1;</code>
@@ -23,7 +23,7 @@ public interface deleteIndicesRequestOrBuilder extends
    * @param index The index of the element to return.
    * @return The indicesNames at the given index.
    */
-  java.lang.String getIndicesNames(int index);
+  String getIndicesNames(int index);
   /**
    * <code>repeated string indicesNames = 1;</code>
    * @param index The index of the value to return.

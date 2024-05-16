@@ -11,7 +11,7 @@ public interface getAllVerticesIdsResponseOrBuilder extends
    * <code>repeated string vertexIds = 1;</code>
    * @return A list containing the vertexIds.
    */
-  java.util.List<java.lang.String>
+  java.util.List<String>
       getVertexIdsList();
   /**
    * <code>repeated string vertexIds = 1;</code>
@@ -23,7 +23,7 @@ public interface getAllVerticesIdsResponseOrBuilder extends
    * @param index The index of the element to return.
    * @return The vertexIds at the given index.
    */
-  java.lang.String getVertexIds(int index);
+  String getVertexIds(int index);
   /**
    * <code>repeated string vertexIds = 1;</code>
    * @param index The index of the value to return.

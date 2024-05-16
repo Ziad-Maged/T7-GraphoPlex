@@ -11,7 +11,7 @@ public interface filterEdgesRequestOrBuilder extends
    * <code>repeated string verticesIds = 1;</code>
    * @return A list containing the verticesIds.
    */
-  java.util.List<java.lang.String>
+  java.util.List<String>
       getVerticesIdsList();
   /**
    * <code>repeated string verticesIds = 1;</code>
@@ -23,7 +23,7 @@ public interface filterEdgesRequestOrBuilder extends
    * @param index The index of the element to return.
    * @return The verticesIds at the given index.
    */
-  java.lang.String getVerticesIds(int index);
+  String getVerticesIds(int index);
   /**
    * <code>repeated string verticesIds = 1;</code>
    * @param index The index of the value to return.
@@ -36,7 +36,7 @@ public interface filterEdgesRequestOrBuilder extends
    * <code>string edgeLabel = 2;</code>
    * @return The edgeLabel.
    */
-  java.lang.String getEdgeLabel();
+  String getEdgeLabel();
   /**
    * <code>string edgeLabel = 2;</code>
    * @return The bytes for edgeLabel.
@@ -47,12 +47,12 @@ public interface filterEdgesRequestOrBuilder extends
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  java.util.List<com.server.graph_db.grpc.traverser.selectOperator> 
+  java.util.List<selectOperator>
       getSelectOperatorsList();
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  com.server.graph_db.grpc.traverser.selectOperator getSelectOperators(int index);
+  selectOperator getSelectOperators(int index);
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
@@ -60,11 +60,11 @@ public interface filterEdgesRequestOrBuilder extends
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  java.util.List<? extends com.server.graph_db.grpc.traverser.selectOperatorOrBuilder> 
+  java.util.List<? extends selectOperatorOrBuilder>
       getSelectOperatorsOrBuilderList();
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  com.server.graph_db.grpc.traverser.selectOperatorOrBuilder getSelectOperatorsOrBuilder(
+  selectOperatorOrBuilder getSelectOperatorsOrBuilder(
       int index);
 }

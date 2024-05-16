@@ -1,9 +1,17 @@
 package com.server.graph_db.core.vertex;
 
+import java.util.*;
+
 import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.misc.Tuple;
 import com.server.graph_db.alghorithms.strategies.sharding.HashBasedShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.testing.*;
+import com.server.graph_db.graphs.*;
+import com.server.graph_db.graphs.Graph;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import com.server.graph_db.core.exceptions.vertex.VertexAlreadyExistsException;
 import com.server.graph_db.core.exceptions.vertex.VertexNotFoundException;
 import com.server.graph_db.core.partition.PartitionManager;
@@ -11,13 +19,7 @@ import com.server.graph_db.core.vertex.runnables.getEdgesByIdsAsync;
 import com.server.graph_db.core.vertex.runnables.getIncomingEdgesAsync;
 import com.server.graph_db.core.vertex.runnables.getOutgoingEdgesAsync;
 import com.server.graph_db.core.vertex.runnables.getVerticesByIdsAsync;
-import com.server.graph_db.graphs.*;
 import com.server.graph_db.grpc.clients.VertexClient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
-import java.util.*;
 
 @Component
 public class GlobalVertexService implements VertexService {

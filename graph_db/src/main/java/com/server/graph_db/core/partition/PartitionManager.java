@@ -1,15 +1,16 @@
 package com.server.graph_db.core.partition;
 
-import com.server.graph_db.core.vertex.EdgeId;
-import com.server.graph_db.core.vertex.LocalVertexService;
-import com.server.graph_db.core.vertex.Vertex;
-import com.server.graph_db.grpc.clients.VertexClient;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.server.graph_db.core.vertex.EdgeId;
+import com.server.graph_db.core.vertex.LocalVertexService;
+import com.server.graph_db.core.vertex.Vertex;
+import com.server.graph_db.grpc.clients.VertexClient;
 
 
 @Component

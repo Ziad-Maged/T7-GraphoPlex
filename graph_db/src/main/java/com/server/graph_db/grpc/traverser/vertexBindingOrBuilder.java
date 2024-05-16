@@ -11,7 +11,7 @@ public interface vertexBindingOrBuilder extends
    * <code>string id = 1;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 1;</code>
    * @return The bytes for id.
@@ -23,7 +23,7 @@ public interface vertexBindingOrBuilder extends
    * <code>string label = 2;</code>
    * @return The label.
    */
-  java.lang.String getLabel();
+  String getLabel();
   /**
    * <code>string label = 2;</code>
    * @return The bytes for label.
@@ -34,12 +34,12 @@ public interface vertexBindingOrBuilder extends
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  java.util.List<com.server.graph_db.grpc.traverser.selectOperator> 
+  java.util.List<selectOperator>
       getSelectOperatorsList();
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  com.server.graph_db.grpc.traverser.selectOperator getSelectOperators(int index);
+  selectOperator getSelectOperators(int index);
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
@@ -47,11 +47,11 @@ public interface vertexBindingOrBuilder extends
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  java.util.List<? extends com.server.graph_db.grpc.traverser.selectOperatorOrBuilder> 
+  java.util.List<? extends selectOperatorOrBuilder>
       getSelectOperatorsOrBuilderList();
   /**
    * <code>repeated .selectOperator selectOperators = 3;</code>
    */
-  com.server.graph_db.grpc.traverser.selectOperatorOrBuilder getSelectOperatorsOrBuilder(
+  selectOperatorOrBuilder getSelectOperatorsOrBuilder(
       int index);
 }

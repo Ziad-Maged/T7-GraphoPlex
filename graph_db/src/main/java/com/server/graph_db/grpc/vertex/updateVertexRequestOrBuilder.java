@@ -11,7 +11,7 @@ public interface updateVertexRequestOrBuilder extends
    * <code>string id = 1;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 1;</code>
    * @return The bytes for id.
@@ -23,7 +23,7 @@ public interface updateVertexRequestOrBuilder extends
    * <code>string label = 2;</code>
    * @return The label.
    */
-  java.lang.String getLabel();
+  String getLabel();
   /**
    * <code>string label = 2;</code>
    * @return The bytes for label.
@@ -39,29 +39,29 @@ public interface updateVertexRequestOrBuilder extends
    * <code>map&lt;string, string&gt; properties = 3;</code>
    */
   boolean containsProperties(
-      java.lang.String key);
+      String key);
   /**
    * Use {@link #getPropertiesMap()} instead.
    */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, java.lang.String>
+  @Deprecated
+  java.util.Map<String, String>
   getProperties();
   /**
    * <code>map&lt;string, string&gt; properties = 3;</code>
    */
-  java.util.Map<java.lang.String, java.lang.String>
+  java.util.Map<String, String>
   getPropertiesMap();
   /**
    * <code>map&lt;string, string&gt; properties = 3;</code>
    */
 
-  java.lang.String getPropertiesOrDefault(
-      java.lang.String key,
-      java.lang.String defaultValue);
+  String getPropertiesOrDefault(
+      String key,
+      String defaultValue);
   /**
    * <code>map&lt;string, string&gt; properties = 3;</code>
    */
 
-  java.lang.String getPropertiesOrThrow(
-      java.lang.String key);
+  String getPropertiesOrThrow(
+      String key);
 }

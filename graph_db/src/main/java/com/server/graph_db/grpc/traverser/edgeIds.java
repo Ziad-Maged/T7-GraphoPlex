@@ -19,14 +19,14 @@ private static final long serialVersionUID = 0L;
     edgeIds_ = java.util.Collections.emptyList();
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new edgeIds();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -37,7 +37,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -52,11 +52,11 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              edgeIds_ = new java.util.ArrayList<com.server.graph_db.grpc.traverser.edgeId>();
+              edgeIds_ = new java.util.ArrayList<edgeId>();
               mutable_bitField0_ |= 0x00000001;
             }
             edgeIds_.add(
-                input.readMessage(com.server.graph_db.grpc.traverser.edgeId.parser(), extensionRegistry));
+                input.readMessage(edgeId.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -83,59 +83,59 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.server.graph_db.grpc.traverser.Traverser.internal_static_edgeIds_descriptor;
+    return Traverser.internal_static_edgeIds_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.server.graph_db.grpc.traverser.Traverser.internal_static_edgeIds_fieldAccessorTable
+    return Traverser.internal_static_edgeIds_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.server.graph_db.grpc.traverser.edgeIds.class, com.server.graph_db.grpc.traverser.edgeIds.Builder.class);
+            edgeIds.class, Builder.class);
   }
 
   public static final int EDGEIDS_FIELD_NUMBER = 1;
-  private java.util.List<com.server.graph_db.grpc.traverser.edgeId> edgeIds_;
+  private java.util.List<edgeId> edgeIds_;
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
-  @java.lang.Override
-  public java.util.List<com.server.graph_db.grpc.traverser.edgeId> getEdgeIdsList() {
+  @Override
+  public java.util.List<edgeId> getEdgeIdsList() {
     return edgeIds_;
   }
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
-  @java.lang.Override
-  public java.util.List<? extends com.server.graph_db.grpc.traverser.edgeIdOrBuilder> 
+  @Override
+  public java.util.List<? extends edgeIdOrBuilder>
       getEdgeIdsOrBuilderList() {
     return edgeIds_;
   }
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
-  @java.lang.Override
+  @Override
   public int getEdgeIdsCount() {
     return edgeIds_.size();
   }
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
-  @java.lang.Override
-  public com.server.graph_db.grpc.traverser.edgeId getEdgeIds(int index) {
+  @Override
+  public edgeId getEdgeIds(int index) {
     return edgeIds_.get(index);
   }
   /**
    * <code>repeated .edgeId edgeIds = 1;</code>
    */
-  @java.lang.Override
-  public com.server.graph_db.grpc.traverser.edgeIdOrBuilder getEdgeIdsOrBuilder(
+  @Override
+  public edgeIdOrBuilder getEdgeIdsOrBuilder(
       int index) {
     return edgeIds_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     for (int i = 0; i < edgeIds_.size(); i++) {
@@ -154,7 +154,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -169,15 +169,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.server.graph_db.grpc.traverser.edgeIds)) {
+    if (!(obj instanceof edgeIds)) {
       return super.equals(obj);
     }
-    com.server.graph_db.grpc.traverser.edgeIds other = (com.server.graph_db.grpc.traverser.edgeIds) obj;
+    edgeIds other = (edgeIds) obj;
 
     if (!getEdgeIdsList()
         .equals(other.getEdgeIdsList())) return false;
@@ -185,7 +185,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -201,69 +201,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(
+  public static edgeIds parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(
+  public static edgeIds parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(
+  public static edgeIds parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(
+  public static edgeIds parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(byte[] data)
+  public static edgeIds parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(
+  public static edgeIds parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(java.io.InputStream input)
+  public static edgeIds parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(
+  public static edgeIds parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseDelimitedFrom(java.io.InputStream input)
+  public static edgeIds parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseDelimitedFrom(
+  public static edgeIds parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(
+  public static edgeIds parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.server.graph_db.grpc.traverser.edgeIds parseFrom(
+  public static edgeIds parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -271,23 +271,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.server.graph_db.grpc.traverser.edgeIds prototype) {
+  public static Builder newBuilder(edgeIds prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -297,18 +297,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:edgeIds)
-      com.server.graph_db.grpc.traverser.edgeIdsOrBuilder {
+      edgeIdsOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.server.graph_db.grpc.traverser.Traverser.internal_static_edgeIds_descriptor;
+      return Traverser.internal_static_edgeIds_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.server.graph_db.grpc.traverser.Traverser.internal_static_edgeIds_fieldAccessorTable
+      return Traverser.internal_static_edgeIds_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.server.graph_db.grpc.traverser.edgeIds.class, com.server.graph_db.grpc.traverser.edgeIds.Builder.class);
+              edgeIds.class, Builder.class);
     }
 
     // Construct using com.server.graph_db.grpc.traverser.edgeIds.newBuilder()
@@ -317,7 +317,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -327,7 +327,7 @@ private static final long serialVersionUID = 0L;
         getEdgeIdsFieldBuilder();
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       if (edgeIdsBuilder_ == null) {
@@ -339,29 +339,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.server.graph_db.grpc.traverser.Traverser.internal_static_edgeIds_descriptor;
+      return Traverser.internal_static_edgeIds_descriptor;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.traverser.edgeIds getDefaultInstanceForType() {
-      return com.server.graph_db.grpc.traverser.edgeIds.getDefaultInstance();
+    @Override
+    public edgeIds getDefaultInstanceForType() {
+      return edgeIds.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.traverser.edgeIds build() {
-      com.server.graph_db.grpc.traverser.edgeIds result = buildPartial();
+    @Override
+    public edgeIds build() {
+      edgeIds result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.server.graph_db.grpc.traverser.edgeIds buildPartial() {
-      com.server.graph_db.grpc.traverser.edgeIds result = new com.server.graph_db.grpc.traverser.edgeIds(this);
+    @Override
+    public edgeIds buildPartial() {
+      edgeIds result = new edgeIds(this);
       int from_bitField0_ = bitField0_;
       if (edgeIdsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -376,50 +376,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.server.graph_db.grpc.traverser.edgeIds) {
-        return mergeFrom((com.server.graph_db.grpc.traverser.edgeIds)other);
+      if (other instanceof edgeIds) {
+        return mergeFrom((edgeIds)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.server.graph_db.grpc.traverser.edgeIds other) {
-      if (other == com.server.graph_db.grpc.traverser.edgeIds.getDefaultInstance()) return this;
+    public Builder mergeFrom(edgeIds other) {
+      if (other == edgeIds.getDefaultInstance()) return this;
       if (edgeIdsBuilder_ == null) {
         if (!other.edgeIds_.isEmpty()) {
           if (edgeIds_.isEmpty()) {
@@ -451,21 +451,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.server.graph_db.grpc.traverser.edgeIds parsedMessage = null;
+      edgeIds parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.server.graph_db.grpc.traverser.edgeIds) e.getUnfinishedMessage();
+        parsedMessage = (edgeIds) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -476,22 +476,22 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<com.server.graph_db.grpc.traverser.edgeId> edgeIds_ =
+    private java.util.List<edgeId> edgeIds_ =
       java.util.Collections.emptyList();
     private void ensureEdgeIdsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        edgeIds_ = new java.util.ArrayList<com.server.graph_db.grpc.traverser.edgeId>(edgeIds_);
+        edgeIds_ = new java.util.ArrayList<edgeId>(edgeIds_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.server.graph_db.grpc.traverser.edgeId, com.server.graph_db.grpc.traverser.edgeId.Builder, com.server.graph_db.grpc.traverser.edgeIdOrBuilder> edgeIdsBuilder_;
+        edgeId, edgeId.Builder, edgeIdOrBuilder> edgeIdsBuilder_;
 
     /**
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
-    public java.util.List<com.server.graph_db.grpc.traverser.edgeId> getEdgeIdsList() {
+    public java.util.List<edgeId> getEdgeIdsList() {
       if (edgeIdsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(edgeIds_);
       } else {
@@ -511,7 +511,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
-    public com.server.graph_db.grpc.traverser.edgeId getEdgeIds(int index) {
+    public edgeId getEdgeIds(int index) {
       if (edgeIdsBuilder_ == null) {
         return edgeIds_.get(index);
       } else {
@@ -522,7 +522,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
     public Builder setEdgeIds(
-        int index, com.server.graph_db.grpc.traverser.edgeId value) {
+        int index, edgeId value) {
       if (edgeIdsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -539,7 +539,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
     public Builder setEdgeIds(
-        int index, com.server.graph_db.grpc.traverser.edgeId.Builder builderForValue) {
+        int index, edgeId.Builder builderForValue) {
       if (edgeIdsBuilder_ == null) {
         ensureEdgeIdsIsMutable();
         edgeIds_.set(index, builderForValue.build());
@@ -552,7 +552,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
-    public Builder addEdgeIds(com.server.graph_db.grpc.traverser.edgeId value) {
+    public Builder addEdgeIds(edgeId value) {
       if (edgeIdsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -569,7 +569,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
     public Builder addEdgeIds(
-        int index, com.server.graph_db.grpc.traverser.edgeId value) {
+        int index, edgeId value) {
       if (edgeIdsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -586,7 +586,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
     public Builder addEdgeIds(
-        com.server.graph_db.grpc.traverser.edgeId.Builder builderForValue) {
+        edgeId.Builder builderForValue) {
       if (edgeIdsBuilder_ == null) {
         ensureEdgeIdsIsMutable();
         edgeIds_.add(builderForValue.build());
@@ -600,7 +600,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
     public Builder addEdgeIds(
-        int index, com.server.graph_db.grpc.traverser.edgeId.Builder builderForValue) {
+        int index, edgeId.Builder builderForValue) {
       if (edgeIdsBuilder_ == null) {
         ensureEdgeIdsIsMutable();
         edgeIds_.add(index, builderForValue.build());
@@ -614,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
     public Builder addAllEdgeIds(
-        java.lang.Iterable<? extends com.server.graph_db.grpc.traverser.edgeId> values) {
+        Iterable<? extends edgeId> values) {
       if (edgeIdsBuilder_ == null) {
         ensureEdgeIdsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -654,14 +654,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
-    public com.server.graph_db.grpc.traverser.edgeId.Builder getEdgeIdsBuilder(
+    public edgeId.Builder getEdgeIdsBuilder(
         int index) {
       return getEdgeIdsFieldBuilder().getBuilder(index);
     }
     /**
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
-    public com.server.graph_db.grpc.traverser.edgeIdOrBuilder getEdgeIdsOrBuilder(
+    public edgeIdOrBuilder getEdgeIdsOrBuilder(
         int index) {
       if (edgeIdsBuilder_ == null) {
         return edgeIds_.get(index);  } else {
@@ -671,7 +671,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
-    public java.util.List<? extends com.server.graph_db.grpc.traverser.edgeIdOrBuilder> 
+    public java.util.List<? extends edgeIdOrBuilder>
          getEdgeIdsOrBuilderList() {
       if (edgeIdsBuilder_ != null) {
         return edgeIdsBuilder_.getMessageOrBuilderList();
@@ -682,31 +682,31 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
-    public com.server.graph_db.grpc.traverser.edgeId.Builder addEdgeIdsBuilder() {
+    public edgeId.Builder addEdgeIdsBuilder() {
       return getEdgeIdsFieldBuilder().addBuilder(
-          com.server.graph_db.grpc.traverser.edgeId.getDefaultInstance());
+          edgeId.getDefaultInstance());
     }
     /**
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
-    public com.server.graph_db.grpc.traverser.edgeId.Builder addEdgeIdsBuilder(
+    public edgeId.Builder addEdgeIdsBuilder(
         int index) {
       return getEdgeIdsFieldBuilder().addBuilder(
-          index, com.server.graph_db.grpc.traverser.edgeId.getDefaultInstance());
+          index, edgeId.getDefaultInstance());
     }
     /**
      * <code>repeated .edgeId edgeIds = 1;</code>
      */
-    public java.util.List<com.server.graph_db.grpc.traverser.edgeId.Builder> 
+    public java.util.List<edgeId.Builder>
          getEdgeIdsBuilderList() {
       return getEdgeIdsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.server.graph_db.grpc.traverser.edgeId, com.server.graph_db.grpc.traverser.edgeId.Builder, com.server.graph_db.grpc.traverser.edgeIdOrBuilder> 
+        edgeId, edgeId.Builder, edgeIdOrBuilder>
         getEdgeIdsFieldBuilder() {
       if (edgeIdsBuilder_ == null) {
         edgeIdsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.server.graph_db.grpc.traverser.edgeId, com.server.graph_db.grpc.traverser.edgeId.Builder, com.server.graph_db.grpc.traverser.edgeIdOrBuilder>(
+            edgeId, edgeId.Builder, edgeIdOrBuilder>(
                 edgeIds_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
@@ -715,13 +715,13 @@ private static final long serialVersionUID = 0L;
       }
       return edgeIdsBuilder_;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -732,18 +732,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:edgeIds)
-  private static final com.server.graph_db.grpc.traverser.edgeIds DEFAULT_INSTANCE;
+  private static final edgeIds DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.server.graph_db.grpc.traverser.edgeIds();
+    DEFAULT_INSTANCE = new edgeIds();
   }
 
-  public static com.server.graph_db.grpc.traverser.edgeIds getDefaultInstance() {
+  public static edgeIds getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<edgeIds>
       PARSER = new com.google.protobuf.AbstractParser<edgeIds>() {
-    @java.lang.Override
+    @Override
     public edgeIds parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -756,13 +756,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<edgeIds> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.server.graph_db.grpc.traverser.edgeIds getDefaultInstanceForType() {
+  @Override
+  public edgeIds getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

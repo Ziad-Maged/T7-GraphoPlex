@@ -438,6 +438,66 @@ public interface QlListener extends ParseTreeListener {
 	 */
 	void exitMatch_query(QlParser.Match_queryContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link QlParser#vertex_connectivity_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterVertex_connectivity_query(QlParser.Vertex_connectivity_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#vertex_connectivity_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitVertex_connectivity_query(QlParser.Vertex_connectivity_queryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#edge_connectivity_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterEdge_connectivity_query(QlParser.Edge_connectivity_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#edge_connectivity_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitEdge_connectivity_query(QlParser.Edge_connectivity_queryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#girth_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterGirth_query(QlParser.Girth_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#girth_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitGirth_query(QlParser.Girth_queryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#articulation_points_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterArticulation_points_query(QlParser.Articulation_points_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#articulation_points_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitArticulation_points_query(QlParser.Articulation_points_queryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#radius_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterRadius_query(QlParser.Radius_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#radius_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitRadius_query(QlParser.Radius_queryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#eccentricity_query}.
+	 * @param ctx the parse tree
+	 */
+	void enterEccentricity_query(QlParser.Eccentricity_queryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#eccentricity_query}.
+	 * @param ctx the parse tree
+	 */
+	void exitEccentricity_query(QlParser.Eccentricity_queryContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link QlParser#all_shortest_paths_query}.
 	 * @param ctx the parse tree
 	 */
@@ -527,6 +587,26 @@ public interface QlListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitHeuristic_function(QlParser.Heuristic_functionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#chebyshev}.
+	 * @param ctx the parse tree
+	 */
+	void enterChebyshev(QlParser.ChebyshevContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#chebyshev}.
+	 * @param ctx the parse tree
+	 */
+	void exitChebyshev(QlParser.ChebyshevContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QlParser#octile}.
+	 * @param ctx the parse tree
+	 */
+	void enterOctile(QlParser.OctileContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QlParser#octile}.
+	 * @param ctx the parse tree
+	 */
+	void exitOctile(QlParser.OctileContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link QlParser#manhattan}.
 	 * @param ctx the parse tree

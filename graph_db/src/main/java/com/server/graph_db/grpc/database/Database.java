@@ -37,7 +37,7 @@ public final class Database {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\016database.proto\032\033google/protobuf/empty." +
       "proto\032\027google/rpc/status.proto\"+\n\005reply\022" +
       "\"\n\006status\030\001 \001(\0132\022.google.rpc.Status\"\017\n\re" +
@@ -65,19 +65,19 @@ public final class Database {
     internal_static_reply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_reply_descriptor,
-        new java.lang.String[] { "Status", });
+        new String[] { "Status", });
     internal_static_emptyResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_emptyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_emptyResponse_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_DatabaseName_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_DatabaseName_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DatabaseName_descriptor,
-        new java.lang.String[] { "Name", });
+        new String[] { "Name", });
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.rpc.StatusProto.getDescriptor();
   }

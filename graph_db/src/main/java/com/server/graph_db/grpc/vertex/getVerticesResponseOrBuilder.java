@@ -10,12 +10,12 @@ public interface getVerticesResponseOrBuilder extends
   /**
    * <code>repeated .getVertexResponse vertices = 1;</code>
    */
-  java.util.List<com.server.graph_db.grpc.vertex.getVertexResponse> 
+  java.util.List<getVertexResponse>
       getVerticesList();
   /**
    * <code>repeated .getVertexResponse vertices = 1;</code>
    */
-  com.server.graph_db.grpc.vertex.getVertexResponse getVertices(int index);
+  getVertexResponse getVertices(int index);
   /**
    * <code>repeated .getVertexResponse vertices = 1;</code>
    */
@@ -23,11 +23,11 @@ public interface getVerticesResponseOrBuilder extends
   /**
    * <code>repeated .getVertexResponse vertices = 1;</code>
    */
-  java.util.List<? extends com.server.graph_db.grpc.vertex.getVertexResponseOrBuilder> 
+  java.util.List<? extends getVertexResponseOrBuilder>
       getVerticesOrBuilderList();
   /**
    * <code>repeated .getVertexResponse vertices = 1;</code>
    */
-  com.server.graph_db.grpc.vertex.getVertexResponseOrBuilder getVerticesOrBuilder(
+  getVertexResponseOrBuilder getVerticesOrBuilder(
       int index);
 }

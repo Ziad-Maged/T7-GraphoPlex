@@ -11,7 +11,7 @@ public interface deleteEdgeRequestOrBuilder extends
    * <code>string sourceVertexId = 1;</code>
    * @return The sourceVertexId.
    */
-  java.lang.String getSourceVertexId();
+  String getSourceVertexId();
   /**
    * <code>string sourceVertexId = 1;</code>
    * @return The bytes for sourceVertexId.
@@ -23,7 +23,7 @@ public interface deleteEdgeRequestOrBuilder extends
    * <code>string destinationVertexId = 2;</code>
    * @return The destinationVertexId.
    */
-  java.lang.String getDestinationVertexId();
+  String getDestinationVertexId();
   /**
    * <code>string destinationVertexId = 2;</code>
    * @return The bytes for destinationVertexId.
@@ -35,7 +35,7 @@ public interface deleteEdgeRequestOrBuilder extends
    * <code>string label = 3;</code>
    * @return The label.
    */
-  java.lang.String getLabel();
+  String getLabel();
   /**
    * <code>string label = 3;</code>
    * @return The bytes for label.
