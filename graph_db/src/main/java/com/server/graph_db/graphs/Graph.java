@@ -206,11 +206,11 @@ abstract public class Graph {
         Queue<Vertex> queue = new LinkedList<>();
 
         for(Vertex v : vertexMap.values()){
-            colorMap.put(v, -1);
+            colorMap.put(v, Integer.valueOf(-1));
         }
 
         Vertex start = vertexMap.values().iterator().next();
-        colorMap.put(start, 0);
+        colorMap.put(start, Integer.valueOf(0));
         queue.offer(start);
 
         while (!queue.isEmpty()){
@@ -218,7 +218,7 @@ abstract public class Graph {
             for(Edge edge : edgeMap.get(current)){
                 Vertex neighbour = vertexMap.get(edge.getDestinationVertexId());
                 if(colorMap.get(neighbour) == -1){
-                    colorMap.put(neighbour, 1 - colorMap.get(current));
+                    colorMap.put(neighbour, Integer.valueOf(1 - colorMap.get(current)));
                     queue.offer(neighbour);
                 }else if(colorMap.get(neighbour) == colorMap.get(current)){
                     return false;
@@ -236,8 +236,8 @@ abstract public class Graph {
         HashMap<String, Integer> lowTime = new HashMap<>();
 
         for(String id : vertexMap.keySet()){
-            discoveryTime.put(id, -1);
-            lowTime.put(id, -1);
+            discoveryTime.put(id, Integer.valueOf(-1));
+            lowTime.put(id, Integer.valueOf(-1));
         }
 
         for(Vertex vertex : vertexMap.values()){
@@ -251,8 +251,8 @@ abstract public class Graph {
 
     private void dfsForBridges(Vertex vertex, Vertex parent, HashMap<String, Integer> discoveryTime, HashMap<String, Integer> lowTime, List<Edge> bridges, int time){
         time++;
-        discoveryTime.put(vertex.getId(), time);
-        lowTime.put(vertex.getId(), time);
+        discoveryTime.put(vertex.getId(), Integer.valueOf(time));
+        lowTime.put(vertex.getId(), Integer.valueOf(time));
 
         for(Edge edge : edgeMap.get(vertex)){
             Vertex neighbour = vertexMap.get(edge.getDestinationVertexId());
@@ -260,12 +260,12 @@ abstract public class Graph {
                 continue;
             if(discoveryTime.get(neighbour.getId()) == -1){
                 dfsForBridges(neighbour, vertex, discoveryTime, lowTime, bridges, time);
-                lowTime.put(vertex.getId(), Math.min(lowTime.get(vertex.getId()), lowTime.get(neighbour.getId())));
+                lowTime.put(vertex.getId(), Integer.valueOf(Math.min(lowTime.get(vertex.getId()), lowTime.get(neighbour.getId()))));
                 if(lowTime.get(neighbour.getId()) > discoveryTime.get(vertex.getId())){
                     bridges.add(edge);
                 }
             }else{
-                lowTime.put(vertex.getId(), Math.min(lowTime.get(vertex.getId()), discoveryTime.get(neighbour.getId())));
+                lowTime.put(vertex.getId(), Integer.valueOf(Math.min(lowTime.get(vertex.getId()), discoveryTime.get(neighbour.getId()))));
             }
         }
     }
@@ -277,16 +277,16 @@ abstract public class Graph {
         Queue<Vertex> queue = new LinkedList<>();
         HashMap<Vertex, Integer> distanceMap = new HashMap<>();
         for(Vertex vertex : vertexMap.values()){
-            distanceMap.put(vertex, Integer.MAX_VALUE);
+            distanceMap.put(vertex, Integer.valueOf(Integer.MAX_VALUE));
         }
-        distanceMap.put(vertexMap.get(id), 0);
+        distanceMap.put(vertexMap.get(id), Integer.valueOf(0));
         queue.offer(vertexMap.get(id));
         while (!queue.isEmpty()){
             Vertex current = queue.poll();
             for(Edge edge : edgeMap.getOrDefault(current, Collections.emptyList())){
                 Vertex neighbour = vertexMap.get(edge.getDestinationVertexId());
                 if(distanceMap.get(neighbour) == Integer.MAX_VALUE){
-                    distanceMap.put(neighbour, distanceMap.get(current) + 1);
+                    distanceMap.put(neighbour, Integer.valueOf(distanceMap.get(current) + 1));
                     eccentricity = Math.max(eccentricity, distanceMap.get(neighbour));
                     queue.offer(neighbour);
                 }
@@ -312,8 +312,8 @@ abstract public class Graph {
         HashSet<String> visited = new HashSet<>();
 
         for(String id : vertexMap.keySet()){
-            discoveryTime.put(id, -1);
-            lowTime.put(id, -1);
+            discoveryTime.put(id, Integer.valueOf(-1));
+            lowTime.put(id, Integer.valueOf(-1));
         }
 
         for(Vertex vertex : vertexMap.values()){
@@ -327,8 +327,8 @@ abstract public class Graph {
     private void dfsForArticulationPoints(Vertex currentVertex, String parentVertex, int time, HashMap<String, Integer> disc, HashMap<String, Integer> low, HashSet<String> visited, HashMap<String, Vertex> parent, List<Vertex> articulationPoints){
         int children = 0;
         visited.add(currentVertex.getId());
-        disc.put(currentVertex.getId(), time);
-        low.put(currentVertex.getId(), time + 1); // Initialize low value
+        disc.put(currentVertex.getId(), Integer.valueOf(time));
+        low.put(currentVertex.getId(), Integer.valueOf(time + 1)); // Initialize low value
 
         for (Edge edge : edgeMap.getOrDefault(currentVertex, Collections.emptyList())) {
             Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
@@ -338,7 +338,7 @@ abstract public class Graph {
                 parent.put(neighbor.getId(), currentVertex);
                 dfsForArticulationPoints(neighbor, currentVertex.getId(), time + 1, disc, low, visited, parent, articulationPoints);
 
-                low.put(currentVertex.getId(), Math.min(low.get(currentVertex.getId()), low.get(neighbor.getId())));
+                low.put(currentVertex.getId(), Integer.valueOf(Math.min(low.get(currentVertex.getId()), low.get(neighbor.getId()))));
 
                 // Check if the current vertex is an articulation point
                 if (parentVertex == null && children > 1) {
@@ -348,7 +348,7 @@ abstract public class Graph {
                     articulationPoints.add(currentVertex);
                 }
             } else if (!neighbor.getId().equals(parentVertex)) {
-                low.put(currentVertex.getId(), Math.min(low.get(currentVertex.getId()), disc.get(neighbor.getId())));
+                low.put(currentVertex.getId(), Integer.valueOf(Math.min(low.get(currentVertex.getId()), disc.get(neighbor.getId()))));
             }
         }
     }
@@ -376,7 +376,7 @@ abstract public class Graph {
         HashSet<Vertex> visited = new HashSet<>();
 
         queue.offer(startVertex);
-        distanceMap.put(startVertex, 0);
+        distanceMap.put(startVertex, Integer.valueOf(0));
         parentMap.put(startVertex, null);
         visited.add(startVertex);
 
@@ -397,7 +397,7 @@ abstract public class Graph {
                 Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
                 if (!visited.contains(neighbor)) {
                     visited.add(neighbor);
-                    distanceMap.put(neighbor, currentDistance + 1);
+                    distanceMap.put(neighbor, Integer.valueOf(currentDistance + 1));
                     parentMap.put(neighbor, currentVertex);
                     queue.offer(neighbor);
                 } else if (!neighbor.equals(parentMap.get(currentVertex))) {
@@ -418,10 +418,10 @@ abstract public class Graph {
         HashMap<Vertex, Integer> distances = new HashMap<>();
         HashMap<Vertex, Vertex> parents = new HashMap<>();
         for (Vertex vertex : vertexMap.values()) {
-            distances.put(vertex, Integer.MAX_VALUE);
+            distances.put(vertex, Integer.valueOf(Integer.MAX_VALUE));
             parents.put(vertex, null);
         }
-        distances.put(vertexMap.get(sourceId), 0);
+        distances.put(vertexMap.get(sourceId), Integer.valueOf(0));
 
         // Relax edges repeatedly to find shortest paths
         for (int i = 0; i < vertices - 1; i++) {
@@ -430,7 +430,7 @@ abstract public class Graph {
                 Vertex destinationVertex = vertexMap.get(edge.getDestinationVertexId());
                 int weight = Integer.parseInt(edge.getProperty(weightProperty)); // Assume weight is stored in the Edge class
                 if (distances.get(sourceVertex) != Integer.MAX_VALUE && distances.get(sourceVertex) + weight < distances.get(destinationVertex)) {
-                    distances.put(destinationVertex, distances.get(sourceVertex) + weight);
+                    distances.put(destinationVertex, Integer.valueOf(distances.get(sourceVertex) + weight));
                     parents.put(destinationVertex, sourceVertex);
                 }
             }
@@ -672,7 +672,7 @@ abstract public class Graph {
     }
 
     private void tarjanDFS(Vertex vertex, Map<Vertex, Integer> indexMap, Map<Vertex, Integer> lowLinkMap, Stack<Vertex> stack, Set<Vertex> onStack, List<List<Vertex>> stronglyConnectedComponents) {
-        indexMap.put(vertex, indexMap.size());
+        indexMap.put(vertex, Integer.valueOf(indexMap.size()));
         lowLinkMap.put(vertex, indexMap.get(vertex));
         stack.push(vertex);
         onStack.add(vertex);
@@ -681,9 +681,9 @@ abstract public class Graph {
             Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
             if (!indexMap.containsKey(neighbor)) {
                 tarjanDFS(neighbor, indexMap, lowLinkMap, stack, onStack, stronglyConnectedComponents);
-                lowLinkMap.put(vertex, Math.min(lowLinkMap.get(vertex), lowLinkMap.get(neighbor)));
+                lowLinkMap.put(vertex, Integer.valueOf(Math.min(lowLinkMap.get(vertex), lowLinkMap.get(neighbor))));
             } else if (onStack.contains(neighbor)) {
-                lowLinkMap.put(vertex, Math.min(lowLinkMap.get(vertex), indexMap.get(neighbor)));
+                lowLinkMap.put(vertex, Integer.valueOf(Math.min(lowLinkMap.get(vertex), indexMap.get(neighbor))));
             }
         }
         // Check if the current vertex is the root of a strongly connected component
@@ -710,7 +710,7 @@ abstract public class Graph {
         for (Vertex vertex : vertexMap.values()) {
             Map<Vertex, Integer> vertexDistance = new HashMap<>();
             for (Edge edge : edgeMap.getOrDefault(vertex, Collections.emptyList())) {
-                vertexDistance.put(vertexMap.get(edge.getDestinationVertexId()), Integer.parseInt(edge.getProperty(costProperty)));
+                vertexDistance.put(vertexMap.get(edge.getDestinationVertexId()), Integer.valueOf(Integer.parseInt(edge.getProperty(costProperty))));
             }
             distanceMap.put(vertex, vertexDistance);
         }
@@ -720,8 +720,8 @@ abstract public class Graph {
                 for (Vertex j : vertexMap.values()) {
                     if (distanceMap.get(i).containsKey(k) && distanceMap.get(k).containsKey(j)) {
                         int throughK = distanceMap.get(i).get(k) + distanceMap.get(k).get(j);
-                        int direct = distanceMap.get(i).getOrDefault(j, INF);
-                        distanceMap.get(i).put(j, Math.min(direct, throughK));
+                        int direct = distanceMap.get(i).getOrDefault(j, Integer.valueOf(INF));
+                        distanceMap.get(i).put(j, Integer.valueOf(Math.min(direct, throughK)));
                     }
                 }
             }
