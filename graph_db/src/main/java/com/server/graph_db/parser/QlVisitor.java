@@ -269,6 +269,18 @@ public interface QlVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMatch_query(QlParser.Match_queryContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link QlParser#diameter_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDiameter_query(QlParser.Diameter_queryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QlParser#strongly_connected_components_query}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStrongly_connected_components_query(QlParser.Strongly_connected_components_queryContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QlParser#vertex_connectivity_query}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

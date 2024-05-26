@@ -33,6 +33,7 @@ import com.server.graph_db.query.match.MatchQuery;
 import com.server.graph_db.query.match.allShortestPaths.AllShortestPathsCommand;
 import com.server.graph_db.query.match.articulationPoints.ArticulationPointsCommand;
 import com.server.graph_db.query.match.bridgeEdges.BridgeEdgesCommand;
+import com.server.graph_db.query.match.diameter.DiameterCommand;
 import com.server.graph_db.query.match.eccentricity.EccentricityCommand;
 import com.server.graph_db.query.match.edgeConnectivity.EdgeConnectivityCommand;
 import com.server.graph_db.query.match.girth.GirthCommand;
@@ -43,6 +44,7 @@ import com.server.graph_db.query.match.path.ReturnClause;
 import com.server.graph_db.query.match.path.ReturnClause.ReturnedValue;
 import com.server.graph_db.query.match.radius.RadiusCommand;
 import com.server.graph_db.query.match.shortestPath.ShortestPathCommand;
+import com.server.graph_db.query.match.stronglyConnectedComponents.StronglyConnectedComponentsCommand;
 import com.server.graph_db.query.match.topologicalSort.TopologicalSortCommand;
 import com.server.graph_db.query.match.vertexConnectivity.VertexConnectivityCommand;
 
@@ -432,6 +434,18 @@ public class QueryWalker extends QlBaseListener {
         String cost = ctx.cost().getText();
         VertexConnectivityCommand edgeConnectivityCommand = new VertexConnectivityCommand(cost);
         query.setCommand(edgeConnectivityCommand);
+    }
+
+    @Override
+    public void exitStrongly_connected_components_query(Strongly_connected_components_queryContext ctx) {
+        StronglyConnectedComponentsCommand stronglyConnectedComponentsCommand = new StronglyConnectedComponentsCommand();
+        query.setCommand(stronglyConnectedComponentsCommand);
+    }
+
+    @Override
+    public void exitDiameter_query(Diameter_queryContext ctx) {
+        DiameterCommand diameterCommand = new DiameterCommand();
+        query.setCommand(diameterCommand);
     }
 
     

@@ -15,7 +15,11 @@ public class ArticulationPointsResult extends Result {
 
     @Override
     public String toString() {
-        return "Articulation Points: " + articulationPoints + "\n\n" + super.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Articulation Points: ");
+        articulationPoints.forEach(vertex -> sb.append(vertex.getId()).append(", "));
+        sb.delete(sb.length() - 2, sb.length());
+        return sb + "\n\n" + super.toString();
     }
 
     public List<Vertex> getArticulationPoints() {

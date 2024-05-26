@@ -63,7 +63,9 @@ switch_database_to_default: 'SWITCH' 'DATABASE' 'TO' 'DEFAULT';
 drop_default_database: 'DROP' 'DEFAULT' 'DATABASE';
 
 database_name: STRING;
-match_query: 'MATCH' (path_query | shortest_path_query | topological_sort_query | maximum_flow_query | minimum_spanning_tree_query | bridge_edges_query | all_shortest_paths_query | eccentricity_query | radius_query | articulation_points_query | girth_query | vertex_connectivity_query | edge_connectivity_query);
+match_query: 'MATCH' (path_query | shortest_path_query | topological_sort_query | maximum_flow_query | minimum_spanning_tree_query | bridge_edges_query | all_shortest_paths_query | eccentricity_query | radius_query | diameter_query | articulation_points_query | girth_query | vertex_connectivity_query | edge_connectivity_query | strongly_connected_components_query);
+diameter_query: 'DIAMETER';
+strongly_connected_components_query: 'STRONGLY' 'CONNECTED' 'COMPONENTS';
 vertex_connectivity_query: 'VERTEX' 'CONNECTIVITY' 'WITH CAPACITY =' cost;
 edge_connectivity_query: 'EDGE' 'CONNECTIVITY' 'WITH CAPACITY =' cost;
 girth_query: 'GIRTH';

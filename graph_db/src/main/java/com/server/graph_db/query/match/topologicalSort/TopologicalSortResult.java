@@ -15,7 +15,7 @@ public class TopologicalSortResult extends Result {
         StringBuilder sb = new StringBuilder();
         sb.append("Sorted Vertices: ");
         for (Vertex vertex : vertices) {
-            sb.append(vertex.toString());
+            sb.append(vertex.getId());
             sb.append(",");
         }
 

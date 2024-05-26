@@ -319,6 +319,20 @@ public class QlBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements QlV
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitDiameter_query(QlParser.Diameter_queryContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitStrongly_connected_components_query(QlParser.Strongly_connected_components_queryContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitVertex_connectivity_query(QlParser.Vertex_connectivity_queryContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

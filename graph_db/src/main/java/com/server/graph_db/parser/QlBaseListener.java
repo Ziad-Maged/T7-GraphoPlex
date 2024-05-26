@@ -533,6 +533,30 @@ public class QlBaseListener implements QlListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDiameter_query(QlParser.Diameter_queryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDiameter_query(QlParser.Diameter_queryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStrongly_connected_components_query(QlParser.Strongly_connected_components_queryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStrongly_connected_components_query(QlParser.Strongly_connected_components_queryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterVertex_connectivity_query(QlParser.Vertex_connectivity_queryContext ctx) { }
 	/**
 	 * {@inheritDoc}

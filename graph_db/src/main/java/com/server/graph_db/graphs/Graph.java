@@ -4,6 +4,7 @@ import com.server.graph_db.alghorithms.strategies.TestingStrategy;
 import com.server.graph_db.alghorithms.strategies.misc.Tuple;
 import com.server.graph_db.alghorithms.strategies.sharding.HashBasedShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.sharding.RandomPartitionShardingStrategy;
+import com.server.graph_db.alghorithms.strategies.sharding.TarjanAlgorithmShardingStrategy;
 import com.server.graph_db.connection.GraphoPlexConnection;
 import com.server.graph_db.core.vertex.Edge;
 import com.server.graph_db.core.vertex.Vertex;
@@ -90,6 +91,16 @@ abstract public class Graph {
         properties.put(key, value);
     }
 
+    public void addVertex(String id, String label, String... properties){
+        Vertex vertex = new Vertex(id);
+        vertex.setLabel(label);
+        for(String property : properties){
+            String[] keyValue = property.split(":");
+            vertex.setProperty(keyValue[0].trim(), keyValue[1].trim());
+        }
+        addVertex(vertex);
+    }
+
     public void addVertex(String id){
         if(vertexMap.containsKey(id) || vertexMap.size() == vertices)
             return;
@@ -119,6 +130,26 @@ abstract public class Graph {
 
     public List<Edge> getVertexEdgesByID(String id){
         return edgeMap.getOrDefault(vertexMap.get(id), null);
+    }
+
+    public void removeVertex(String id){
+        if(!vertexMap.containsKey(id))
+            return;
+        edgeMap.remove(vertexMap.get(id));
+        vertexMap.remove(id);
+        for(List<Edge> edges : edgeMap.values()){
+            edges.removeIf(edge -> edge.getDestinationVertexId().equals(id));
+        }
+    }
+
+    public void addEdge(String source, String destination, String label, String... properties){
+        Edge edge = new Edge(source, destination);
+        edge.setLabel(label);
+        for(String property : properties){
+            String[] keyValue = property.split(":");
+            edge.addProperty(keyValue[0].trim(), keyValue[1].trim());
+        }
+        addEdge(edge);
     }
 
     public void addEdge(String source, String destination){
@@ -302,6 +333,46 @@ abstract public class Graph {
         }
         return radius;
     }
+
+    public int getDiameter() {
+        int diameter = 0;
+        // Iterate through all pairs of vertices
+        for (Vertex startVertex : vertexMap.values()) {
+            // Calculate shortest paths from the start vertex using BFS
+            HashMap<Vertex, Integer> distances = bfsShortestPaths(startVertex);
+            // Update diameter as the maximum shortest path length
+            for (int distance : distances.values()) {
+                diameter = Math.max(diameter, distance);
+            }
+        }
+        return diameter;
+    }
+
+    private HashMap<Vertex, Integer> bfsShortestPaths(Vertex startVertex) {
+        HashMap<Vertex, Integer> distances = new HashMap<>();
+        Queue<Vertex> queue = new LinkedList<>();
+        HashSet<Vertex> visited = new HashSet<>();
+
+        queue.offer(startVertex);
+        distances.put(startVertex, 0);
+        visited.add(startVertex);
+
+        while (!queue.isEmpty()) {
+            Vertex currentVertex = queue.poll();
+            int currentDistance = distances.get(currentVertex);
+            // Explore neighbors of the current vertex
+            for (Edge edge : edgeMap.getOrDefault(currentVertex, Collections.emptyList())) {
+                Vertex neighbor = vertexMap.get(edge.getDestinationVertexId());
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    distances.put(neighbor, currentDistance + 1);
+                    queue.offer(neighbor);
+                }
+            }
+        }
+        return distances;
+    }
+
 
     public List<Vertex> getArticulationPoints(){
         List<Vertex> articulationPoints = new ArrayList<>();
@@ -771,39 +842,73 @@ abstract public class Graph {
     }
 
     public static void main(String[] args) throws IOException {
-        Graph g = new HamiltonianGraph(3, 3, 3, GraphType.DIRECTED);
-//        g.setShardingStrategy(new RandomPartitionShardingStrategy());
-        g.addVertex("A");
-        g.addVertex("B");
-        g.addVertex("C");
 
-        Edge e1 = new Edge("A", "C");
-        e1.setLabel("goto");
-        e1.addProperty("cost", "2");
-        Edge e2 = new Edge("A", "B");
-        e2.setLabel("goto");
-        e2.addProperty("cost", "3");
-        Edge e3 = new Edge("B", "C");
-        e3.setLabel("goto");
-        e3.addProperty("cost", "-2");
-        g.addEdge(e1);
-        g.addEdge(e2);
-        g.addEdge(e3);
+        String host = "127.0.0.1";
+        int serverPort = 8080;
 
-        GraphoPlexConnection connection = new GraphoPlexConnection();
-        connection.connect();
-        connection.createDatabase("test1");
-        connection.switchDatabase("test1");
-        connection.createGraph(g);
-        connection.match("[() AS TEST] RETURN TEST");
-        connection.assertGraphType("GRID 20 20");
-        connection.shortestPath("A", "C", "cost", true);
-        connection.topologicalSort();
-        connection.maximumFlow("A", "C", "cost");
-        connection.minimumSpanningTree("cost");
-        connection.allShortestPaths("cost");
-        connection.bridgeEdges();
-        connection.deleteDatabase("test1");
-        connection.shutdown();
+        GraphoPlexConnection conn = new GraphoPlexConnection()
+                .host(host)
+                .port(serverPort)
+                .connect();
+
+        conn.createDatabase("testDB");
+        conn.switchDatabase("testDB");
+
+
+        conn.dropDatabase("testDB");
+        conn.deleteDatabase("testDB");
+
+        Vertex v = new Vertex("v1");
+        v.setLabel("Person");
+        v.setProperty("name", "Alice");
+        v.setProperty("age", "25");
+        conn.createVertex(v);
+
+        conn.createVertex("v2", "Person", "name:Melissa", "age:26");
+
+        Edge edge = new Edge("v1", "v2");
+        edge.setLabel("KNOWS");
+        edge.addProperty("since", "2020");
+        conn.createEdge(edge);
+
+        conn.createEdge("v2", "v1", "KNOWS", "since:2020");
+
+        Graph graph = new HamiltonianGraph(3, 3, 3, GraphType.DIRECTED);
+        graph.addVertex("v1");
+        graph.addVertex("v2");
+        graph.addVertex("v3");
+        graph.addEdge("v1", "v2");
+        graph.addEdge("v2", "v3");
+        graph.addEdge("v3", "v1");
+
+        conn.createGraph(graph);
+
+        boolean hasNegative = true;
+        String costProperty = "cost";
+        String capacityProperty = "capacity";
+        String sourceId = "v1";
+        String destinationId = "v3";
+        String sink = "v3";
+        String vertexId = "v1";
+        String shardingStrategy = "HASH";
+        String graphType = "HAMILTONIAN";
+
+        conn.assertGraphType(graphType);
+        conn.reshardDatabase(shardingStrategy);
+        conn.shortestPath(sourceId, destinationId, costProperty, hasNegative);
+        conn.maximumFlow(sourceId, sink, capacityProperty);
+        conn.minimumSpanningTree(costProperty);
+        conn.stronglyConnectedComponents();
+        conn.allShortestPaths(costProperty);
+        conn.topologicalSort();
+
+        conn.radius();
+        conn.diameter();
+        conn.bridgeEdges();
+        conn.articulationPoints();
+        conn.eccentricity(vertexId);
+        conn.girth();
+        conn.vertexConnectivity(capacityProperty);
+        conn.edgeConnectivity(capacityProperty);
     }
 }
