@@ -2,10 +2,7 @@ package com.server.graph_db.graphs;
 
 import com.server.graph_db.core.vertex.computational.ComputationalVertex;
 import com.server.graph_db.core.vertex.computational.VariableVertex;
-import com.server.graph_db.core.vertex.computational.operations.AdditionVertex;
-import com.server.graph_db.core.vertex.computational.operations.DivisionVertex;
-import com.server.graph_db.core.vertex.computational.operations.MultiplicationVertex;
-import com.server.graph_db.core.vertex.computational.operations.SubtractionVertex;
+import com.server.graph_db.core.vertex.computational.operations.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,6 +65,48 @@ public class ComputationalGraph {
         return division;
     }
 
+    public ComputationalVertex addNegationVertex(ComputationalVertex a){
+        NegationVertex negation = new NegationVertex(a);
+        negation.setLayer(a.getLayer() + 1);
+        vertices.add(negation);
+        return negation;
+    }
+
+    public ComputationalVertex addReciprocalVertex(ComputationalVertex a){
+        ReciprocalVertex reciprocal = new ReciprocalVertex(a);
+        reciprocal.setLayer(a.getLayer() + 1);
+        vertices.add(reciprocal);
+        return reciprocal;
+    }
+
+    public ComputationalVertex addSquareVertex(ComputationalVertex a){
+        SquareVertex square = new SquareVertex(a);
+        square.setLayer(a.getLayer() + 1);
+        vertices.add(square);
+        return square;
+    }
+
+    public ComputationalVertex addSigmoidVertex(ComputationalVertex a){
+        SigmoidVertex sigmoid = new SigmoidVertex(a);
+        sigmoid.setLayer(a.getLayer() + 1);
+        vertices.add(sigmoid);
+        return sigmoid;
+    }
+
+    public ComputationalVertex addReluVertex(ComputationalVertex a){
+        ReluVertex relu = new ReluVertex(a);
+        relu.setLayer(a.getLayer() + 1);
+        vertices.add(relu);
+        return relu;
+    }
+
+    public ComputationalVertex addTanhVertex(ComputationalVertex a){
+        TanhVertex tanh = new TanhVertex(a);
+        tanh.setLayer(a.getLayer() + 1);
+        vertices.add(tanh);
+        return tanh;
+    }
+
     public double compute(ComputationalVertex vertex){
         return vertex.compute();
     }
@@ -83,5 +122,39 @@ public class ComputationalGraph {
         if (variables.containsKey(name))
             return variables.get(name).getGradient();
         return 0.0;
+    }
+
+    public static void main(String[] args) {
+        ComputationalGraph graph = new ComputationalGraph();
+
+        VariableVertex x = graph.addVariable("x", 2);
+        VariableVertex y = graph.addVariable("y", 3);
+        VariableVertex z = graph.addVariable("z", 4);
+
+        AdditionVertex addNode = (AdditionVertex) graph.addAdditionVertex(x, y);
+        MultiplicationVertex mulNode = (MultiplicationVertex) graph.addMultiplicationVertex(addNode, z);
+
+        double result = graph.compute(mulNode);
+        System.out.println("Result: " + result); // Output: Result: 20.0
+
+        graph.computeGradient(mulNode);
+
+        System.out.println("Gradient wrt x: " + graph.getGradient("x")); // Output: Gradient wrt x: 4.0
+        System.out.println("Gradient wrt y: " + graph.getGradient("y")); // Output: Gradient wrt y: 4.0
+        System.out.println("Gradient wrt z: " + graph.getGradient("z")); // Output: Gradient wrt z: 5.0
+
+        // Update variable values
+        graph.setVariable("x", 5);
+        graph.setVariable("y", 6);
+        graph.setVariable("z", 7);
+
+        double updatedResult = graph.compute(mulNode);
+        System.out.println("Updated Result: " + updatedResult); // Output: Updated Result: 77.0
+
+        graph.computeGradient(mulNode);
+
+        System.out.println("Updated Gradient wrt x: " + graph.getGradient("x")); // Output: Updated Gradient wrt x: 7.0
+        System.out.println("Updated Gradient wrt y: " + graph.getGradient("y")); // Output: Updated Gradient wrt y: 7.0
+        System.out.println("Updated Gradient wrt z: " + graph.getGradient("z")); // Output: Updated Gradient wrt z: 11.0
     }
 }
