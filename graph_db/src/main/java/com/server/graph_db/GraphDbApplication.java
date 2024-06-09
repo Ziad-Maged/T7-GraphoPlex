@@ -19,7 +19,9 @@ public class GraphDbApplication implements CommandLineRunner {
             try (ZContext context = new ZContext()) {
 				Properties properties = new Properties();
 				properties.load(new FileInputStream("src/main/resources/application.properties"));
-				String serverId = properties.getProperty("myserver.serverId");
+				StringBuilder serverIdBuilder = new StringBuilder(properties.getProperty("myserver.serverId"));
+				serverIdBuilder.deleteCharAt(serverIdBuilder.length()-1).delete(0,serverIdBuilder.indexOf(":") + 1);
+				String serverId = serverIdBuilder.toString();
 				String serverHost = properties.getProperty("grpc.servers.hosts").split(",")[Integer.parseInt(serverId)];
 				serverHost = (serverHost.equals("localhost")) ? "*" : serverHost;
 				String serverAddress = "tcp://" + serverHost + ":5555";
