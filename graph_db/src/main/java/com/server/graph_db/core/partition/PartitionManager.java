@@ -1,16 +1,16 @@
 package com.server.graph_db.core.partition;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 import com.server.graph_db.core.vertex.EdgeId;
 import com.server.graph_db.core.vertex.LocalVertexService;
 import com.server.graph_db.core.vertex.Vertex;
 import com.server.graph_db.grpc.clients.VertexClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 
 @Component
@@ -32,13 +32,13 @@ public class PartitionManager {
     private int numOfServers;
 
     public int getPartitionId(String vertexId) {
-        if(vertexService.isVertexExists(vertexId))
-            return Integer.parseInt(serverId);
-        for(int i = 0; i < numOfServers; i++){
-            if(i == Integer.parseInt(serverId))
-                continue;
-            if(vertexClient.isVertexExists(vertexId, String.valueOf(i)))
-                return i;
+        try{
+            Properties properties = new Properties();
+            properties.load(new java.io.FileInputStream("src/main/resources/partition.properties"));
+            if(properties.containsKey(vertexId)){
+                return Integer.parseInt(properties.getProperty(vertexId));
+            }
+        }catch (Exception ignored) {
         }
         return Math.abs(vertexId.hashCode()%numOfServers);
 //        return ((vertexId.hashCode()%numOfServers)+numOfServers)%numOfServers;

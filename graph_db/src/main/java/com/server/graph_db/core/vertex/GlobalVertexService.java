@@ -1,17 +1,9 @@
 package com.server.graph_db.core.vertex;
 
-import java.util.*;
-
 import com.server.graph_db.alghorithms.strategies.ShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.misc.Tuple;
 import com.server.graph_db.alghorithms.strategies.sharding.HashBasedShardingStrategy;
 import com.server.graph_db.alghorithms.strategies.testing.*;
-import com.server.graph_db.graphs.*;
-import com.server.graph_db.graphs.Graph;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 import com.server.graph_db.core.exceptions.vertex.VertexAlreadyExistsException;
 import com.server.graph_db.core.exceptions.vertex.VertexNotFoundException;
 import com.server.graph_db.core.partition.PartitionManager;
@@ -19,7 +11,17 @@ import com.server.graph_db.core.vertex.runnables.getEdgesByIdsAsync;
 import com.server.graph_db.core.vertex.runnables.getIncomingEdgesAsync;
 import com.server.graph_db.core.vertex.runnables.getOutgoingEdgesAsync;
 import com.server.graph_db.core.vertex.runnables.getVerticesByIdsAsync;
+import com.server.graph_db.graphs.*;
 import com.server.graph_db.grpc.clients.VertexClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.zeromq.SocketType;
+import org.zeromq.ZContext;
+import org.zeromq.ZMQ;
+
+import java.io.FileInputStream;
+import java.util.*;
 
 @Component
 public class GlobalVertexService implements VertexService {
@@ -50,7 +52,7 @@ public class GlobalVertexService implements VertexService {
            }
        }
        return vertexService.isVertexExists(id);
-    }
+   }
 
     public Vertex getVertex(String vertexId) throws VertexNotFoundException {
         int partitionId = partitionManager.getPartitionId(vertexId);
@@ -341,11 +343,15 @@ public class GlobalVertexService implements VertexService {
     }
 
     public void createVertex(Vertex vertex) throws VertexAlreadyExistsException {
-        if (partitionManager.getPartitionId(vertex.getId()) == Integer.parseInt(serverId)) {
+       SavePropertiesThread savePropertiesThread;
+       if (partitionManager.getPartitionId(vertex.getId()) == Integer.parseInt(serverId)) {
             vertexService.createVertex(vertex);
-        } else {
+            savePropertiesThread = new SavePropertiesThread(vertex.getId(), serverId);
+       } else {
             vertexClient.createVertex(vertex, String.valueOf(partitionManager.getPartitionId(vertex.getId())));
-        }
+            savePropertiesThread = new SavePropertiesThread(vertex.getId(), String.valueOf(partitionManager.getPartitionId(vertex.getId())));
+       }
+         savePropertiesThread.start();
     }
 
     public void addEdge(String sourceId, Edge edge) throws Exception {
@@ -384,6 +390,9 @@ public class GlobalVertexService implements VertexService {
                 }
             }
         }
+
+        SavePropertiesThread savePropertiesThread = new SavePropertiesThread(vertices);
+        savePropertiesThread.start();
 
         for(int serverId : edges.keySet()){
             if(serverId == Integer.parseInt(this.serverId)) {
@@ -570,6 +579,72 @@ public class GlobalVertexService implements VertexService {
         }
 
         return edges;
+    }
+
+
+    private class SavePropertiesThread extends Thread{
+       private String vertexId;
+       private String serverId;
+       private HashMap<Integer, List<Vertex>> vertexShard;
+
+       public SavePropertiesThread(String vertexId, String serverId) {
+           this.vertexId = vertexId;
+           this.serverId = serverId;
+           vertexShard = null;
+       }
+
+       public SavePropertiesThread(HashMap<Integer, List<Vertex>> vertexShard) {
+           this.vertexShard = vertexShard;
+           vertexId = null;
+           serverId = null;
+       }
+
+       @Override
+        public void run(){
+           try (ZContext context = new ZContext()) {
+               Properties props = new Properties();
+               props.load(new FileInputStream("src/main/resources/application.properties"));
+               String[] serverHosts = props.getProperty("grpc.servers.hosts").split(",");
+
+               for(int i = 0; i < numOfServers; i++){
+                   String serverHost = serverHosts[i];
+                   serverHost = (serverHost.equals("localhost")) ? "*" : serverHost;
+                   String serverAddress = "tcp://" + serverHost + ":5555";
+                   ZMQ.Socket socket = context.createSocket(SocketType.REQ);
+                   socket.connect(serverAddress);
+                   if(vertexId != null){
+                       String request = "Save," + vertexId + "," + serverId;
+                       socket.send(request.getBytes(ZMQ.CHARSET), 0);
+                   }else{
+                       for(Vertex v : vertexShard.get(i)){
+                           String request = "Save," + v.getId() + "," + i;
+                           socket.send(request.getBytes(ZMQ.CHARSET), 0);
+                       }
+                   }
+                   byte[] reply = socket.recv(0);
+                   System.out.println(
+                           "Received " + new String(reply, ZMQ.CHARSET)
+                   );
+               }
+
+//               ZMQ.Socket socket = context.createSocket(SocketType.REQ);
+//               socket.connect("tcp://localhost:5555");
+//
+//               for (int requestNbr = 0; requestNbr != 10; requestNbr++) {
+//                   String request = "Save,v" + (requestNbr + 10) + ",1";
+//                   System.out.println("Vertex Id " + (requestNbr + 10));
+//                   socket.send(request.getBytes(ZMQ.CHARSET), 0);
+//
+//                   byte[] reply = socket.recv(0);
+//                   System.out.println(
+//                           "Received " + new String(reply, ZMQ.CHARSET) + " " +
+//                                   requestNbr
+//                   );
+//               }
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }
+       }
     }
 
 }
